@@ -5,20 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/BaseStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/CommunicationStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/NsopStorageStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/StandardFileStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/StorageStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/SchemacsStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/IUtilityV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/IUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/ITrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/SevenSecondTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/TenSecondTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/ThirtyFiveSecondTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/TwoSecondTrigger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BaseStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/CommunicationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CommunicationStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/StorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/StorageStatus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,13 +50,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="workutils.trigger" />
+      <recent name="workutils" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppMain" />
