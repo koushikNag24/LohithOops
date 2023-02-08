@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/BaseEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/ComStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/ComStatusDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/ComStatusFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/OwnerCheckDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/SizeCheckDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workutils/UtilsV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
