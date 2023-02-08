@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/SchemacsStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/IUtilityV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/IUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/ITrigger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/SevenSecondTrigger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/TenSecondTrigger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/ThirtyFiveSecondTrigger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/trigger/TwoSecondTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/ComStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/ComStatusDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/ComStatusFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/OwnerCheckDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/decorator/SizeCheckDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/BaseStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/CommunicationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CommunicationStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/StorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/StorageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +51,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="decorator" />
       <recent name="workutils.trigger" />
       <recent name="workutils" />
     </key>

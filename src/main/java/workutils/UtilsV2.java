@@ -25,7 +25,7 @@ public class UtilsV2 implements IUtils, IUtilityV2 {
         System.out.println("Current Second : "+LocalDateTime.now().getSecond());
         int currentSecond= LocalDateTime.now().getSecond();
         if(currentSecond>2 && currentSecond<7){
-            triggerAction(new TwoSecondTrigger());
+            triggerAction(new TwoSecondTrigger()); // highly coupled
         } else if(currentSecond==10){
             triggerAction(new TenSecondTrigger());
         }else if(currentSecond>7 && currentSecond<35){

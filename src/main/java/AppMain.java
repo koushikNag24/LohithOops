@@ -1,3 +1,4 @@
+import decorator.*;
 import model.*;
 import org.apache.log4j.Logger;
 import workutils.IUtils;
@@ -61,8 +62,12 @@ public class AppMain {
         int[] result= utility.sort(arr);
         logger.info(Arrays.toString(result));
 
-        ((UtilsV2) utility).v3Method();
+
         communicationStatus.deductMoney();
+
+        logger.info("-----------------------------------");
+        BaseEntity base=new OwnerCheckDecorator((new ComStatusFile("s")));
+        base.save();
 
 
     }
