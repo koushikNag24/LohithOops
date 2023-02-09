@@ -1,4 +1,4 @@
-package model;
+package model.archival.bad;
 
 public class Archival {
 
