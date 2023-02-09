@@ -91,11 +91,12 @@ public class AppMain {
 
         int[] arr={100,25,-1,2198,9};
         UtilsV1 utilsV1=new UtilsV1(); // concrete implementation //
-        IUtils utility =new UtilsV2(); // abstraction //
+        UtilsV2 utility =new UtilsV2(); // abstraction //
         int[] result= utility.sort(arr);
         logger.info(Arrays.toString(result));
 
 
+        utility.v3Method();
         communicationStatus.deductMoney();
 
         logger.info("-----------------------------------");

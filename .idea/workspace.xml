@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/archival/good/ArchivalBaseClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/archival/good/ArchivalNSDAQ1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/archival/good/NSDAQ2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/archival/good/NSOP2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/archival/good/NSOP4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/good/UereBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/good/UereINC1NSOP2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamABLR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamALCK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamBBLR.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamBLCK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/uere/okversion/UEREBaseClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/userposition/UserPosition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/workutils/ConditionFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Archival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/archival/bad/Archival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workutils/UtilsV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

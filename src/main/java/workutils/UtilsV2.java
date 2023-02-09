@@ -5,6 +5,7 @@ import workutils.trigger.*;
 import java.time.LocalDateTime;
 
 public class UtilsV2 implements IUtils, IUtilityV2 {
+    ConditionFactory commandConditionFactory = new ConditionFactory();
     @Override
     public int[] sort(int[] arr) {
         System.out.println("--doing some magical sort--");
@@ -20,19 +21,35 @@ public class UtilsV2 implements IUtils, IUtilityV2 {
 
     }
 
+
     @Override
     public void v3Method() {
         System.out.println("Current Second : "+LocalDateTime.now().getSecond());
         int currentSecond= LocalDateTime.now().getSecond();
+        ITrigger trigger=null;
         if(currentSecond>2 && currentSecond<7){
-            triggerAction(new TwoSecondTrigger()); // highly coupled
+            trigger = commandConditionFactory.getCommand("twoSecond")
+                    .orElseThrow(() -> new IllegalArgumentException("Wrong condition"));
+            // highly coupled
         } else if(currentSecond==10){
-            triggerAction(new TenSecondTrigger());
+
+            trigger = commandConditionFactory.getCommand("tenSecond")
+                    .orElseThrow(() -> new IllegalArgumentException("Wrong condition"));
+
+//            triggerAction(trigger);
         }else if(currentSecond>7 && currentSecond<35){
-            triggerAction(new SevenSecondTrigger());
+
+            trigger = commandConditionFactory.getCommand("sevenSecond")
+                    .orElseThrow(() -> new IllegalArgumentException("Wrong condition"));
+//            triggerAction(trigger);
         }else if(currentSecond>35){
-            triggerAction(new ThirtyFiveSecondTrigger());
+
+            trigger = commandConditionFactory.getCommand("thirtyFiveSecond")
+                    .orElseThrow(() -> new IllegalArgumentException("Wrong condition"));
+
+//            triggerAction(trigger);
         }
+        triggerAction(trigger);
     }
     public void triggerAction(ITrigger trigger){
         trigger.triggerAction();
