@@ -69,6 +69,9 @@ public class AppMain {
         BaseEntity base=new OwnerCheckDecorator((new ComStatusFile("s")));
         base.save();
 
+        Archival Archival=new Archival("OK", "17G", "OK", "12G", "NotOK", "10G", "OK", "13G");
+
+
 
     }
 }
