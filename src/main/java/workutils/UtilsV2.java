@@ -8,6 +8,7 @@ public class UtilsV2 implements IUtils, IUtilityV2 {
     ConditionFactory commandConditionFactory = new ConditionFactory();
     @Override
     public int[] sort(int[] arr) {
+
         System.out.println("--doing some magical sort--");
         return new int[0];
     }
@@ -52,6 +53,9 @@ public class UtilsV2 implements IUtils, IUtilityV2 {
         triggerAction(trigger);
     }
     public void triggerAction(ITrigger trigger){
-        trigger.triggerAction();
+        if(trigger!=null){
+            trigger.triggerAction();
+        }
+
     }
 }

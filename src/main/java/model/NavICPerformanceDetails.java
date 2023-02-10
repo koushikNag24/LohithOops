@@ -1,55 +1,49 @@
 package model;
 
 import lombok.Getter;
-import model.archival.good.*;
-import model.uere.okversion.UEREBaseClass;
-import model.userposition.UserPosition;
+import model.sections.sectiona.SectionA;
+import model.sections.sectionb.SectionB;
+import model.sections.sectionc.SectionC;
+import model.sections.sectiond.SectionD;
+import model.sections.sectione.SectionE;
+import model.sections.sectionf.SectionF;
+import model.sections.sectiong.SectionG;
+import model.sections.sectionh.SectionH;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 
 @Getter
 public class NavICPerformanceDetails {
     private  final long id;
-    private final List<BaseStatus> statuses;
+    private final SectionA sectionA;
+    private final SectionB sectionB;
+    private final SectionC sectionC;
 
-    private  final StandardFileStatus standardFileStatus;
+    private final SectionD sectionD;
+    private final SectionE sectionE;
+    private final SectionF sectionF;
+    private final SectionG sectionG;
+    private final SectionH sectionH;
 
 
 
-    private final String createdAt;
-    private final String modifiedAt;
-    private final List<ArchivalBaseClass> archivalList;
-    private final NSOP2 nsop2;
-    private final NSOP4 nsop4;
-    private final ArchivalNSDAQ1 archivalNsdaq1;
-    private final NSDAQ2 nsdaq2;
-    private final UEREBaseClass streamABlr;
-    private final UEREBaseClass streamBBlr;
-    private final UEREBaseClass streamALck;
-    private final UEREBaseClass streamBLck;
-    private final UserPosition userPosition;
-    public NavICPerformanceDetails(long id, BaseStatus communicationStatus, StandardFileStatus standardFileStatus, BaseStatus storageStatus, List<BaseStatus> statuses, String createdAt, String modifiedAt, List<ArchivalBaseClass> archivalList, NSOP2 nsop2, NSOP4 nsop4, ArchivalNSDAQ1 archivalNsdaq1, NSDAQ2 nsdaq2, UEREBaseClass streamABlr, UEREBaseClass streamBBlr, UEREBaseClass streamALck, UEREBaseClass streamBLck, UserPosition userPosition) {
+    private final LocalDateTime createdAt;
+    private final LocalDateTime modifiedAt;
+
+
+    public NavICPerformanceDetails(long id, SectionA sectionA, SectionB sectionB, SectionC sectionC, SectionD sectionD, SectionE sectionE, SectionF sectionF, SectionG sectionG, SectionH sectionH, LocalDateTime createdAt, LocalDateTime modifiedAt) {
         this.id = id;
-        this.statuses = statuses;
-        this.standardFileStatus = standardFileStatus;
-//        this.storageStatus = storageStatus;
+        this.sectionA = sectionA;
+        this.sectionB = sectionB;
+        this.sectionC = sectionC;
+        this.sectionD = sectionD;
+        this.sectionE = sectionE;
+        this.sectionF = sectionF;
+        this.sectionG = sectionG;
+        this.sectionH = sectionH;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
-        this.archivalList = archivalList;
-
-        this.nsop2 = nsop2;
-        this.nsop4 = nsop4;
-        this.archivalNsdaq1 = archivalNsdaq1;
-        this.nsdaq2 = nsdaq2;
-        this.streamABlr = streamABlr;
-        this.streamBBlr = streamBBlr;
-        this.streamALck = streamALck;
-        this.streamBLck = streamBLck;
-        this.userPosition = userPosition;
-    }
-    public String toString() {
-        long var10000 = this.getId();
-        return "NavICPerformanceDetails(id=" + var10000 + ", communicationStatus=" + "communication-issues :" +", standardFileStatus=" + this.getStandardFileStatus() + ", storageStatus="  +" Storage-Issues : "+ ", createdAt=" + this.getCreatedAt() + ", modifiedAt=" + this.getModifiedAt() + ")";
     }
 }
+
