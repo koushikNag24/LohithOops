@@ -5,55 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseMaintenance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/CommunicationIssues.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/SectionA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/SectionB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/BaseMeasurement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/UserPosition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/GnssOffset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/SectionC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SectionD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectione/SectionE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionf/SectionF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/SectionH.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/ComStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/ComIssues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/decorator/ComStatusFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decorator/ComIssuesFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/BaseStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/CommunicationStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NsopStorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/SchemacsStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/StandardFileStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFileStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/StorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/archival/bad/Archival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/bad/Archival.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/archival/good/ArchivalBaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/archival/good/ArchivalNSDAQ1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/archival/good/NSDAQ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/archival/good/NSOP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/archival/good/NSOP4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/good/UereBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/good/UereINC1NSOP2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamABLR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamALCK.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamBBLR.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/okversion/StreamBLCK.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/uere/okversion/UEREBaseClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/userposition/UserPosition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/workutils/UtilsV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

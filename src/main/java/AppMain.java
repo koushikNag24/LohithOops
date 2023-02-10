@@ -49,6 +49,7 @@ public class AppMain {
     public static final String STORAGE_UNIT = "G";
     public static final String satellite_02 = "SAT02";
     public static final String satellite_03 = "SAT03";
+    public static final String satellite_10 = "SAT10";
     public static final String satellite_06 = "SAT06";
     public static final String satellite_09 = "SAT09";
     public static final String Document_1 = "Doct1";
@@ -171,8 +172,12 @@ public class AppMain {
 
         Uere sat02UereA=new Uere(SERVER1,BLR,faker.number().randomDouble(4,6,7),CHAIN_A,satellite_02);
         Uere sat03UereA=new Uere(SERVER1,BLR,faker.number().randomDouble(4,6,7),CHAIN_A,satellite_03);
-        Uere sat02UereB=new Uere(SERVER1,BLR,faker.number().randomDouble(4,6,7),CHAIN_B,satellite_02);
-        Uere sat03UereB=new Uere(SERVER1,BLR,faker.number().randomDouble(4,6,7),CHAIN_B,satellite_03);
+        Uere sat02UereB=new Uere(SERVER1,BLR,faker.number().randomDouble(6,6,7),CHAIN_B,satellite_02);
+
+
+        Uere sat03UereB=new Uere(SERVER2,LCK,faker.number().randomDouble(6,20,30),CHAIN_B,satellite_06);
+
+        Uere sat10UereB=new Uere(SERVER2,LCK,faker.number().randomDouble(6,20,30),CHAIN_B,satellite_10);
 
         UserPosition userPosBlrServer1 = new UserPosition(SERVER1, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,"a");
         UserPosition userPosBlrServer4 = new UserPosition(SERVER4, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,"s");
@@ -193,6 +198,7 @@ public class AppMain {
          uereMeasurements.add(sat03UereA);
          uereMeasurements.add(sat02UereB);
          uereMeasurements.add(sat03UereB);
+         uereMeasurements.add(sat10UereB);
 
         SectionE sectionE=new SectionE("Irms Issues", List.of("BLR", "MGH"));
         SectionF sectionF = new SectionF("Issues in sectionF", List.of("BLR", "DDN"));
@@ -254,6 +260,24 @@ public class AppMain {
         logger.info(performanceDetails.getSectionE().getStationNames());
         logger.info(performanceDetails.getSectionF().getStationNames());
         logger.info(performanceDetails.getSectionH().getStnLookAngles());
+        Uere sat10Uere = null;
+
+
+        SectionB retrievedSectionB=performanceDetails.getSectionB();
+        if(retrievedSectionB!=null){
+            List<BaseMeasurement> measurements=retrievedSectionB.getUereMeasurements();
+            if(measurements!=null && !measurements.isEmpty()){
+                BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);
+                if(baseMeasurement instanceof  Uere){
+                    sat10Uere=((Uere)baseMeasurement);
+                }
+            }
+        }
+
+        if(sat10Uere!=null){
+            logger.info(sat10Uere + " - "+sat10Uere.getSatellite());
+        }
+
 
 
 
