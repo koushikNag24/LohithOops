@@ -1,5 +1,8 @@
 package model.sections.base;
 
+import lombok.Getter;
+
+@Getter
 public class BaseValue {
     private final String name;
     private final Double value;

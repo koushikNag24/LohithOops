@@ -1,7 +1,8 @@
 package model.sections.sectionc;
 
+import lombok.Getter;
 import model.sections.base.BaseValue;
-
+@Getter
 public class TwstftOffset extends BaseValue {
     private final String issues;
 
