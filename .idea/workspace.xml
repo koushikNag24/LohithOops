@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/utbot-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -49,6 +51,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "/root/LohithOops/LohithOops",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -57,6 +61,12 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="model.sections.sectione" />
       <recent name="model.sections.sectionc" />
@@ -65,7 +75,43 @@
       <recent name="workutils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestMain.testParallelChainNamesMethod3UsingFunctionalProg">
+  <component name="RunManager" selected="Application.AppMain">
+    <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppMain" />
+      <module name="LohithOops" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppMainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LohithOops" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppMainTest.connectToDatabaseFailureWrongPort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LohithOops" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="METHOD_NAME" value="connectToDatabaseFailureWrongPort" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppMainTest.connectToDatabaseFailureWrongUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LohithOops" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="METHOD_NAME" value="connectToDatabaseFailureWrongUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestMain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
@@ -75,53 +121,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMain.assertParallelChainNames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <option name="METHOD_NAME" value="assertParallelChainNames" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMain.testParallelChainNames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <option name="METHOD_NAME" value="testParallelChainNames" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMain.testParallelChainNames1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <option name="METHOD_NAME" value="testParallelChainNames1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestMain.testParallelChainNamesMethod3UsingFunctionalProg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <option name="METHOD_NAME" value="testParallelChainNamesMethod3UsingFunctionalProg" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestMain.testParallelChainNamesMethod3UsingFunctionalProg" />
+        <item itemvalue="Application.AppMain" />
+        <item itemvalue="JUnit.AppMainTest" />
         <item itemvalue="JUnit.TestMain" />
-        <item itemvalue="JUnit.TestMain.testParallelChainNames" />
-        <item itemvalue="JUnit.TestMain.testParallelChainNames1" />
-        <item itemvalue="JUnit.TestMain.assertParallelChainNames" />
+        <item itemvalue="JUnit.AppMainTest.connectToDatabaseFailureWrongUsername" />
+        <item itemvalue="JUnit.AppMainTest.connectToDatabaseFailureWrongPort" />
       </list>
     </recent_temporary>
   </component>

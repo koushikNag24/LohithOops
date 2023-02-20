@@ -1,4 +1,6 @@
 import com.github.javafaker.Faker;
+import dao.DBUtil;
+import dao.Student;
 import model.*;
 import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
@@ -27,12 +29,14 @@ import org.apache.log4j.Logger;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 public class AppMain {
 
@@ -146,7 +150,41 @@ public class AppMain {
 
         showSectionB(performanceDetails, sat10Uere);
 
+        try {
+            connectToDatabase("127.0.0.1","5432","udemy_db","koushik","123");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        DBUtil dbUtil=new DBUtil();
+        try {
+            List<Student> retrievedFromDB=dbUtil.getStudents();
+            retrievedFromDB.forEach(aStud->logger.info(aStud));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
+
+    public static int connectToDatabase(String databaseServer,String port,String database,String user,String password) throws SQLException {
+        int isConnected=-1;
+        String connectionString="jdbc:postgresql://" +databaseServer+":"+port+"/"+database;
+        try (Connection conn = DriverManager.getConnection(
+                connectionString, user, password)) {
+
+            if (conn != null) {
+                isConnected=1;
+                System.out.println("Connected to the database!");
+            } else {
+                System.out.println("Failed to make connection!");
+            }
+
+        } catch (SQLException e) {
+            throw new SQLException(e.getCause());
+//            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isConnected;
     }
 
     private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) {
