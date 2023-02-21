@@ -153,6 +153,8 @@ public class AppMain {
         try {
             connectToDatabase("127.0.0.1","5432","udemy_db","koushik","123");
         } catch (SQLException e) {
+
+            logger.error(e.getCause());
             throw new RuntimeException(e);
         }
         DBUtil dbUtil=new DBUtil();
@@ -179,9 +181,10 @@ public class AppMain {
             }
 
         } catch (SQLException e) {
-            throw new SQLException(e.getCause());
-//            System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+//            throw new SQLException(e.getCause());
+            logger.error(String.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage()));
         } catch (Exception e) {
+            logger.error(String.format("SQL State: %s\n%s", e.getLocalizedMessage(), e.getMessage()));
             e.printStackTrace();
         }
         return isConnected;

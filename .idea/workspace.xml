@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/utbot-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AppMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +28,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Arrays.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Collections.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/List.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,8 +50,8 @@
     "last_opened_file_path": "/root/LohithOops/LohithOops",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -75,7 +69,7 @@
       <recent name="workutils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppMain">
+  <component name="RunManager" selected="JUnit.AppMainTest.saveIntoDBTest">
     <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppMain" />
       <module name="LohithOops" />
@@ -92,42 +86,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppMainTest.connectToDatabaseFailureWrongPort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppMainTest.getAStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="METHOD_NAME" value="connectToDatabaseFailureWrongPort" />
+      <option name="METHOD_NAME" value="getAStudentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppMainTest.connectToDatabaseFailureWrongUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppMainTest.getStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="METHOD_NAME" value="connectToDatabaseFailureWrongUsername" />
+      <option name="METHOD_NAME" value="getStudentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppMainTest.saveIntoDBTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="METHOD_NAME" value="saveIntoDBTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppMainTest.saveIntoDBTest" />
+        <item itemvalue="JUnit.AppMainTest.getAStudentTest" />
+        <item itemvalue="JUnit.AppMainTest.getStudentTest" />
         <item itemvalue="Application.AppMain" />
         <item itemvalue="JUnit.AppMainTest" />
-        <item itemvalue="JUnit.TestMain" />
-        <item itemvalue="JUnit.AppMainTest.connectToDatabaseFailureWrongUsername" />
-        <item itemvalue="JUnit.AppMainTest.connectToDatabaseFailureWrongPort" />
       </list>
     </recent_temporary>
   </component>
