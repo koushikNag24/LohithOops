@@ -6,7 +6,7 @@ import lombok.ToString;
 
 @ToString
 @Getter
-
+@AllArgsConstructor
 public class Student {
     private String name;
     private int id;

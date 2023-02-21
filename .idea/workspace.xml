@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AppMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
@@ -69,19 +66,10 @@
       <recent name="workutils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppMainTest.saveIntoDBTest">
+  <component name="RunManager" selected="JUnit.AppMainTest.updateStudentTest">
     <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppMain" />
       <module name="LohithOops" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppMainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -116,13 +104,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppMainTest.updateStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LohithOops" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="METHOD_NAME" value="updateStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AppMainTest.updateStudentTest" />
         <item itemvalue="JUnit.AppMainTest.saveIntoDBTest" />
         <item itemvalue="JUnit.AppMainTest.getAStudentTest" />
         <item itemvalue="JUnit.AppMainTest.getStudentTest" />
         <item itemvalue="Application.AppMain" />
-        <item itemvalue="JUnit.AppMainTest" />
       </list>
     </recent_temporary>
   </component>

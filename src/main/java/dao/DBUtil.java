@@ -94,8 +94,20 @@ public class DBUtil {
         return rowsAffected;
         }
 
-        public int updateStudentToDatabase() {
-        String updateQuery = "update "
-        }
+        public int updateStudentToDatabase(Student updatedStudent) throws Exception {
+            int rowsAffected=0;
+            String updateQuery = "update student set name='" +updatedStudent.getName() +"' where id=(?);";
 
+            try (Connection connection = DriverManager.getConnection(connectionString, user, password)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
+                preparedStatement.setInt(1,updatedStudent.getId());
+                rowsAffected = preparedStatement.executeUpdate();
+                logger.info("Updated rows : "+ rowsAffected);
+            } catch (SQLException e) {
+                throw new SQLException(e.getMessage());
+            }catch (Exception e) {
+                throw new Exception(e.getMessage());
+            }
+            return rowsAffected;
+    }
 }

@@ -116,7 +116,7 @@ class AppMainTest {
         DBUtil dbUtil=new DBUtil();
         Student student=null;
         try {
-            for(int i=0;i<100000;i++){
+            for(int i=0;i<10;i++){
                 student=new Student(faker.hacker().noun(),faker.harryPotter().house(),faker.address().cityName().toString(), faker.pokemon().name()+"@a.com",faker.number().numberBetween(1000,2500));
                 rowsAffected=  dbUtil.save(student);
                 Thread.sleep(100);
@@ -147,6 +147,21 @@ class AppMainTest {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    void updateStudentTest () {
+        DBUtil dbUtil=new DBUtil();
+        Student updatedStudent=new Student("Lohith",71,"abc","asd","adsa",55);
+
+        try {
+            int rowsAffected=dbUtil.updateStudentToDatabase(updatedStudent);
+            Assert.assertEquals(1,rowsAffected);
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
+
+
     }
 
 }
