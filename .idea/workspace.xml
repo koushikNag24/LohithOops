@@ -5,8 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/DBUtilv1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AppMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,13 +28,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -48,12 +64,15 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propCompiler"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="dao" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
@@ -66,10 +85,29 @@
       <recent name="workutils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AppMainTest.updateStudentTest">
+  <component name="RunManager" selected="Application.AppMain">
     <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppMain" />
       <module name="LohithOops" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppMainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LohithOops" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppMainTest.deleteStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LohithOops" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="METHOD_NAME" value="deleteStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -79,26 +117,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AppMainTest" />
       <option name="METHOD_NAME" value="getAStudentTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppMainTest.getStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="METHOD_NAME" value="getStudentTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppMainTest.saveIntoDBTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LohithOops" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="METHOD_NAME" value="saveIntoDBTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -116,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AppMainTest.updateStudentTest" />
-        <item itemvalue="JUnit.AppMainTest.saveIntoDBTest" />
-        <item itemvalue="JUnit.AppMainTest.getAStudentTest" />
-        <item itemvalue="JUnit.AppMainTest.getStudentTest" />
         <item itemvalue="Application.AppMain" />
+        <item itemvalue="JUnit.AppMainTest" />
+        <item itemvalue="JUnit.AppMainTest.deleteStudentTest" />
+        <item itemvalue="JUnit.AppMainTest.updateStudentTest" />
+        <item itemvalue="JUnit.AppMainTest.getAStudentTest" />
       </list>
     </recent_temporary>
   </component>

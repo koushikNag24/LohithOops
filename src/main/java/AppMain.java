@@ -1,6 +1,9 @@
 import com.github.javafaker.Faker;
-import dao.DBUtil;
-import dao.Student;
+import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
+import tutorial.dao.Department;
+import tutorial.dao.utils.*;
+import tutorial.dao.Student;
 import model.*;
 import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
@@ -29,9 +32,8 @@ import org.apache.log4j.Logger;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -63,6 +65,21 @@ public class AppMain {
     final static Logger logger = Logger.getLogger(AppMain.class);
     final static DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ISO_LOCAL_TIME;
     public static void main(String[] args) {
+        sectionTask();
+        Faker faker=new Faker();
+        Configuration configuration = new Configuration().configure();
+        IDepartmentDBUtil iDepartmentDBUtil=new HibernateDB();
+        Department department=new Department();
+        department.setFirstName(faker.company().industry());
+        department.setNextName(faker.company().logo());
+        department.setCollege(faker.company().name());
+        department.setStartDate(LocalDate.now().minusYears(10));
+        iDepartmentDBUtil.save(department);
+
+    }
+
+    private static void sectionTask() {
+        IDBUtil idbUtil=new DBUtilv1();
         Faker  faker=new Faker();
         // data came from frontend//
 
@@ -102,43 +119,7 @@ public class AppMain {
         NavICPerformanceDetails performanceDetails=new NavICPerformanceDetails(1000,sectionA,sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
 
 
-
         List<ArchivalBaseClass> archivals=performanceDetails.getSectionB().getArchivalList();
-//        archivals.stream()
-//                .filter(theObj->theObj instanceof NSOP2)
-//                .map(theObj->(NSOP2)theObj);
-////                .forEach(logger::info);
-//
-//
-//        archivals.stream()
-//                .filter(theObj->theObj instanceof NSOP4)
-//                .map(theObj->(NSOP4)theObj);
-////                .forEach(logger::info);
-//        archivals.stream()
-//                .filter(theObj->theObj instanceof NSDAQ2)
-//                .map(theObj->(NSDAQ2)theObj);
-////                .forEach(logger::info);
-//
-//        archivals.stream()
-//                .filter(theObj->theObj instanceof NSDAQ1)
-//                .map(theObj->(NSDAQ1)theObj);
-////                .forEach(logger::info);
-//
-//        List<BaseMeasurement> retrievedUereMeasurements=performanceDetails.getSectionB().getUereMeasurements();
-//
-//        retrievedUereMeasurements
-//                .stream()
-//                .filter(retrievedUereMeasurement -> retrievedUereMeasurement instanceof Uere)
-//                .map(retrievedUereMeasurement -> ((Uere) retrievedUereMeasurement));
-////                .forEach(logger::info);
-//
-//        List<BaseMeasurement> retrievedUserPositionMeasurements=performanceDetails.getSectionB().getUserPositionMeasurements();
-//
-//        retrievedUserPositionMeasurements.stream()
-//                .filter(theObj->theObj instanceof UserPosition)
-//                .map(theObj->(UserPosition)theObj);
-//                .forEach(logger::info);
-
 
 
         logger.info(performanceDetails.getSectionB().getIssues());
@@ -149,45 +130,6 @@ public class AppMain {
 
 
         showSectionB(performanceDetails, sat10Uere);
-
-        try {
-            connectToDatabase("127.0.0.1","5432","udemy_db","koushik","123");
-        } catch (SQLException e) {
-
-            logger.error(e.getCause());
-            throw new RuntimeException(e);
-        }
-        DBUtil dbUtil=new DBUtil();
-        try {
-            List<Student> retrievedFromDB=dbUtil.getStudents();
-            retrievedFromDB.forEach(aStud->logger.info(aStud));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public static int connectToDatabase(String databaseServer,String port,String database,String user,String password) throws SQLException {
-        int isConnected=-1;
-        String connectionString="jdbc:postgresql://" +databaseServer+":"+port+"/"+database;
-        try (Connection conn = DriverManager.getConnection(
-                connectionString, user, password)) {
-
-            if (conn != null) {
-                isConnected=1;
-                System.out.println("Connected to the database!");
-            } else {
-                System.out.println("Failed to make connection!");
-            }
-
-        } catch (SQLException e) {
-//            throw new SQLException(e.getCause());
-            logger.error(String.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage()));
-        } catch (Exception e) {
-            logger.error(String.format("SQL State: %s\n%s", e.getLocalizedMessage(), e.getMessage()));
-            e.printStackTrace();
-        }
-        return isConnected;
     }
 
     private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) {

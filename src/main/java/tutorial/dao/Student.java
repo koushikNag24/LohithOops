@@ -1,4 +1,4 @@
-package dao;
+package tutorial.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

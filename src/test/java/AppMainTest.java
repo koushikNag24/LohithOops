@@ -1,15 +1,10 @@
 import com.github.javafaker.Faker;
-import dao.DBUtil;
-import dao.Student;
+import tutorial.dao.utils.DBUtilv1;
+import tutorial.dao.utils.IDBUtil;
+import tutorial.dao.Student;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.junit.Rule;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.postgresql.util.PSQLException;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -29,8 +24,8 @@ class AppMainTest {
      */
     @Test
     void connectToDatabaseSuccessful() throws SQLException {
-
-        int connectedStatus=AppMain.connectToDatabase(databaseServer,port,database,user,password);
+        IDBUtil IDBUtil =new DBUtilv1();
+        int connectedStatus=IDBUtil.connectToDatabase(databaseServer,port,database,user,password);
         Assert.assertEquals(1,connectedStatus);
 
     }
@@ -40,9 +35,9 @@ class AppMainTest {
      */
     @Test
     void connectToDatabaseFailureWrongPassword() {
+        IDBUtil IDBUtil =new DBUtilv1();
 
-
-        Assert.assertThrows(SQLException.class,()->AppMain.connectToDatabase(databaseServer,port
+        Assert.assertThrows(SQLException.class,()->IDBUtil.connectToDatabase(databaseServer,port
         ,database,user,password));
 
     }
@@ -52,9 +47,9 @@ class AppMainTest {
      */
     @Test
     void connectToDatabaseFailureWrongServerIP() {
+        IDBUtil IDBUtil =new DBUtilv1();
 
-
-        Assert.assertThrows(SQLException.class,()->AppMain.connectToDatabase(databaseServer,port
+        Assert.assertThrows(SQLException.class,()->IDBUtil.connectToDatabase(databaseServer,port
                 ,database,user,password));
 
     }
@@ -64,9 +59,9 @@ class AppMainTest {
      */
     @Test
     void connectToDatabaseFailureWrongPort() {
+        IDBUtil IDBUtil =new DBUtilv1();
 
-
-        Assert.assertThrows(SQLException.class,()->AppMain.connectToDatabase(databaseServer,port
+        Assert.assertThrows(SQLException.class,()->IDBUtil.connectToDatabase(databaseServer,port
                 ,database,user,password));
 
     }
@@ -77,9 +72,9 @@ class AppMainTest {
      */
     @Test
     void connectToDatabaseFailureWrongDatabase() {
+        IDBUtil IDBUtil =new DBUtilv1();
 
-
-        Assert.assertThrows(SQLException.class,()->AppMain.connectToDatabase(databaseServer,port
+        Assert.assertThrows(SQLException.class,()->IDBUtil.connectToDatabase(databaseServer,port
                 ,database,user,password));
 
     }
@@ -90,18 +85,18 @@ class AppMainTest {
     @Test
     void connectToDatabaseFailureWrongUsername() throws SQLException {
 
-
-        Assert.assertThrows(SQLException.class,()->AppMain.connectToDatabase(databaseServer,port
+        IDBUtil IDBUtil =new DBUtilv1();
+        Assert.assertThrows(SQLException.class,()->IDBUtil.connectToDatabase(databaseServer,port
                 ,database,user,password));
 
     }
     @Test
     void getStudentTest()  {
         int totalStudentsInDB=8;
-        DBUtil dbUtil=new DBUtil();
+        IDBUtil IDBUtil =new DBUtilv1();
         List< Student> retrievedStudent= null;
         try {
-            retrievedStudent = dbUtil.getStudents();
+            retrievedStudent = IDBUtil.getStudents();
         } catch (SQLException e) {
             logger.info(String.format("SQL State: %s\n",e.getMessage()));
 
@@ -113,20 +108,20 @@ class AppMainTest {
     void saveIntoDBTest(){
         Faker faker=new Faker();
         int rowsAffected=0;
-        DBUtil dbUtil=new DBUtil();
+        IDBUtil IDBUtil =new DBUtilv1();
         Student student=null;
         try {
-            for(int i=0;i<10;i++){
+
                 student=new Student(faker.hacker().noun(),faker.harryPotter().house(),faker.address().cityName().toString(), faker.pokemon().name()+"@a.com",faker.number().numberBetween(1000,2500));
-                rowsAffected=  dbUtil.save(student);
+                rowsAffected=  IDBUtil.save(student);
                 Thread.sleep(100);
-            }
+
 
         } catch (Exception e) {logger.error(e.getMessage());
         }
         Assert.assertEquals(rowsAffected,1);
         try {
-            List<Student> retrievedStudentName=dbUtil.getAStudent(student.getName());
+            List<Student> retrievedStudentName= IDBUtil.getAStudent(student.getName());
             Assert.assertEquals(4,retrievedStudentName.size());
             Student retrieved=retrievedStudentName.get(0);
             Assert.assertEquals(retrieved.getName(),"abc");
@@ -139,9 +134,9 @@ class AppMainTest {
     @Test
     void getAStudentTest(){
         int rowsRetrieved=0;
-        DBUtil dbUtil=new DBUtil();
+        IDBUtil IDBUtil =new DBUtilv1();
         try {
-            List<Student> retrievedStudentNameChandan=dbUtil.getAStudent("chandan");
+            List<Student> retrievedStudentNameChandan= IDBUtil.getAStudent("chandan");
             Assert.assertEquals(2,retrievedStudentNameChandan.size());
 
         } catch (SQLException e) {
@@ -151,17 +146,35 @@ class AppMainTest {
 
     @Test
     void updateStudentTest () {
-        DBUtil dbUtil=new DBUtil();
-        Student updatedStudent=new Student("Lohith",71,"abc","asd","adsa",55);
+        IDBUtil IDBUtil = new DBUtilv1();
+        Student updatedStudent = new Student("Lohith", 71, "abc", "asd", "adsa", 55);
 
         try {
-            int rowsAffected=dbUtil.updateStudentToDatabase(updatedStudent);
-            Assert.assertEquals(1,rowsAffected);
+            int rowsAffected = IDBUtil.updateStudentToDatabase(updatedStudent);
+            Assert.assertEquals(1, rowsAffected);
         } catch (Exception e) {
             logger.info(e.getMessage());
         }
 
 
     }
+    @Test
+    void deleteStudentTest() {
+        IDBUtil IDBUtil = new DBUtilv1();
+        Student deletedStudent = new Student("capacitor", 629, "dfs", "sdf", "shdb",500);
+        try {
+            IDBUtil.deleteStudent(deletedStudent); // testing Delete
+        List<Student> deletedStudents =  IDBUtil.getAStudent("capacitor"); // get name with capacitor
+        Assert.assertEquals(0,deletedStudents.size()); // if there is no capacitor then only delete was correct !!
+        } catch (Exception e) {
+            logger.info(e.getMessage());
+        }
+
+
+
+
+
+    }
+
 
 }
