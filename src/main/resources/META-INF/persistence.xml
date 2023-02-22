@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+   http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <persistence-unit name="Hibernate_JPA" >
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>tutorial.dao.utils.jpahibernate.model.Department</class>
+        <class>tutorial.dao.utils.jpahibernate.model.Student</class>
+        <class>tutorial.dao.utils.jpahibernate.model.Course</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"></property>
+            <property name="hibernate.hbm2ddl.auto" value="create"></property>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/test_db"></property>
+            <property name="hibernate.connection.username" value="koushik"></property>
+            <property name="hibernate.connection.password" value="123"></property>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"></property>
+            <property name="hibernate.connection.shutdown" value="true"></property>
+            <property name="hibernate.connection.writedelay" value="0"></property>
+            <property name="hibernate.connection.characterEncoding" value="UTF-8"></property>
+            <property name="hibernate.connection.charSet" value="UTF-8"></property>
+            <property name="hibernate.show_sql" value="true"></property>
+            <property name="hibernate.format_sql" value="true"></property>
+            <property name="hibernate.ejb.metamodel.generation" value="disabled"></property>
+            <property name="hibernate.jdbc.batch_size " value="3"/>
+            <!-- Use the C3P0 connection pool provider -->
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"></property>
+            <property name="hibernate.c3p0.min_size" value="5"></property>
+            <property name="hibernate.c3p0.max_size" value="30"></property>
+            <property name="hibernate.c3p0.timeout" value="300"></property>
+            <property name="hibernate.c3p0.max_statements" value="50"></property>
+            <property name="hibernate.c3p0.idle_test_period" value="600"></property>
+            <property name="hibernate.connection.isolation" value="2"></property>
+
+        </properties>
+
+    </persistence-unit>
+</persistence>

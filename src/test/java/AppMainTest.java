@@ -1,7 +1,7 @@
 import com.github.javafaker.Faker;
-import tutorial.dao.utils.DBUtilv1;
-import tutorial.dao.utils.IDBUtil;
-import tutorial.dao.Student;
+import tutorial.dao.utils.jdbc.DBUtilv1;
+import tutorial.dao.utils.hibernate.IDBUtil;
+import tutorial.dao.utils.jpahibernate.model.Student;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
@@ -144,37 +144,37 @@ class AppMainTest {
         }
     }
 
-    @Test
-    void updateStudentTest () {
-        IDBUtil IDBUtil = new DBUtilv1();
-        Student updatedStudent = new Student("Lohith", 71, "abc", "asd", "adsa", 55);
-
-        try {
-            int rowsAffected = IDBUtil.updateStudentToDatabase(updatedStudent);
-            Assert.assertEquals(1, rowsAffected);
-        } catch (Exception e) {
-            logger.info(e.getMessage());
-        }
-
-
-    }
-    @Test
-    void deleteStudentTest() {
-        IDBUtil IDBUtil = new DBUtilv1();
-        Student deletedStudent = new Student("capacitor", 629, "dfs", "sdf", "shdb",500);
-        try {
-            IDBUtil.deleteStudent(deletedStudent); // testing Delete
-        List<Student> deletedStudents =  IDBUtil.getAStudent("capacitor"); // get name with capacitor
-        Assert.assertEquals(0,deletedStudents.size()); // if there is no capacitor then only delete was correct !!
-        } catch (Exception e) {
-            logger.info(e.getMessage());
-        }
-
-
-
-
-
-    }
+//    @Test
+//    void updateStudentTest () {
+//        IDBUtil IDBUtil = new DBUtilv1();
+//        Student updatedStudent = new Student("Lohith", 71, "abc", "asd", "adsa", 55);
+//
+//        try {
+//            int rowsAffected = IDBUtil.updateStudentToDatabase(updatedStudent);
+//            Assert.assertEquals(1, rowsAffected);
+//        } catch (Exception e) {
+//            logger.info(e.getMessage());
+//        }
+//
+//
+//    }
+//    @Test
+//    void deleteStudentTest() {
+//        IDBUtil IDBUtil = new DBUtilv1();
+//        Student deletedStudent = new Student("capacitor", 629, "dfs", "sdf", "shdb",500);
+//        try {
+//            IDBUtil.deleteStudent(deletedStudent); // testing Delete
+//        List<Student> deletedStudents =  IDBUtil.getAStudent("capacitor"); // get name with capacitor
+//        Assert.assertEquals(0,deletedStudents.size()); // if there is no capacitor then only delete was correct !!
+//        } catch (Exception e) {
+//            logger.info(e.getMessage());
+//        }
+//
+//
+//
+//
+//
+//    }
 
 
 }

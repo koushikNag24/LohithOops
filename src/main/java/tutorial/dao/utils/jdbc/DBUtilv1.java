@@ -1,7 +1,8 @@
-package tutorial.dao.utils;
+package tutorial.dao.utils.jdbc;
 
 import org.apache.log4j.Logger;
-import tutorial.dao.Student;
+import tutorial.dao.utils.jpahibernate.model.Student;
+import tutorial.dao.utils.hibernate.IDBUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -104,7 +105,7 @@ public class DBUtilv1 implements IDBUtil {
 
         try (Connection connection = DriverManager.getConnection(connectionString, user, password)) {
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-            preparedStatement.setInt(1, updatedStudent.getId());
+            preparedStatement.setLong(1, updatedStudent.getId());
             rowsAffected = preparedStatement.executeUpdate();
             logger.info("Updated rows : " + rowsAffected);
         } catch (SQLException e) {

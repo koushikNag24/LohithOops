@@ -1,13 +1,13 @@
-package tutorial.dao.utils;
+package tutorial.dao.utils.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import tutorial.dao.Department;
+import tutorial.dao.utils.jpahibernate.model.Department;
 
 import java.util.TimeZone;
 
-public class HibernateDB implements IDepartmentDBUtil{
+public class HibernateDB implements IDepartmentDBUtil {
     @Override
     public void save(Department department) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -33,4 +33,6 @@ public class HibernateDB implements IDepartmentDBUtil{
         }
 
     }
+
+
 }

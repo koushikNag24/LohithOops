@@ -1,9 +1,9 @@
 import com.github.javafaker.Faker;
-import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
-import tutorial.dao.Department;
-import tutorial.dao.utils.*;
-import tutorial.dao.Student;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import tutorial.dao.utils.jpahibernate.model.Course;
+import tutorial.dao.utils.jpahibernate.model.Department;
 import model.*;
 import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
@@ -29,16 +29,19 @@ import model.sections.sectiong.SyslogStatus;
 import model.sections.sectionh.SectionH;
 import model.sections.sectionh.StnLookAngle;
 import org.apache.log4j.Logger;
+import tutorial.dao.utils.jpahibernate.model.Student;
+import tutorial.dao.utils.hibernate.IDBUtil;
+import tutorial.dao.utils.jdbc.DBUtilv1;
+import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
+import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
-import java.sql.SQLException;
+import javax.swing.plaf.basic.BasicBorders;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class AppMain {
 
@@ -67,15 +70,47 @@ public class AppMain {
     public static void main(String[] args) {
         sectionTask();
         Faker faker=new Faker();
-        Configuration configuration = new Configuration().configure();
-        IDepartmentDBUtil iDepartmentDBUtil=new HibernateDB();
-        Department department=new Department();
-        department.setFirstName(faker.company().industry());
-        department.setNextName(faker.company().logo());
-        department.setCollege(faker.company().name());
-        department.setStartDate(LocalDate.now().minusYears(10));
-        iDepartmentDBUtil.save(department);
+        List<Course> courses=new ArrayList<>();
 
+        IJpaHibernateUtil jpaHibernateUtil = new JpaHibernateUtilv1();
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
+        EntityManager entityManager = factory.createEntityManager();
+        for(int i=1;i<getRandomNumber(3,5);i++) {
+            Department department = getDepartment(faker);
+
+            for (int j = 0; j < getRandomNumber(3,7); j++) {
+                Student student = new Student(faker.harryPotter().character(), faker.harryPotter().location(), faker.address().cityName(), faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
+
+                for(int p=0;p< getRandomNumber(2,4);p++){
+                    Course course=new Course();
+                    course.setName(faker.cat().name());
+                    student.addCourse(course);
+                }
+                department.addStudent(student);
+            }
+            jpaHibernateUtil.save(department,entityManager);
+            logger.info(" saved "+department.toString()+ "-- "+i);
+        }
+
+        entityManager.close();
+
+
+
+
+    }
+
+    private static Department getDepartment(Faker faker) {
+        Department department = new Department();
+        department.setName(faker.university().prefix());
+        department.setState(faker.address().state());
+        department.setCity(faker.address().cityName());
+        department.setCollege(faker.university().name());
+        department.setStartDate(LocalDate.now().minusYears(10));
+        return department;
+    }
+    public static int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 
     private static void sectionTask() {
@@ -122,10 +157,10 @@ public class AppMain {
         List<ArchivalBaseClass> archivals=performanceDetails.getSectionB().getArchivalList();
 
 
-        logger.info(performanceDetails.getSectionB().getIssues());
-        logger.info(performanceDetails.getSectionD().getSchemacsHealths());
-        logger.info(performanceDetails.getSectionE().getStationNames());
-        logger.info(performanceDetails.getSectionH().getStnLookAngles());
+//        logger.info(performanceDetails.getSectionB().getIssues());
+//        logger.info(performanceDetails.getSectionD().getSchemacsHealths());
+//        logger.info(performanceDetails.getSectionE().getStationNames());
+//        logger.info(performanceDetails.getSectionH().getStnLookAngles());
         Uere sat10Uere = null;
 
 
@@ -145,7 +180,7 @@ public class AppMain {
         }
 
         if(sat10Uere !=null){
-            logger.info(sat10Uere + " - "+ sat10Uere.getSatellite());
+//            logger.info(sat10Uere + " - "+ sat10Uere.getSatellite());
         }
     }
 

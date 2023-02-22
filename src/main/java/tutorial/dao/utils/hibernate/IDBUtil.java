@@ -1,6 +1,6 @@
-package tutorial.dao.utils;
+package tutorial.dao.utils.hibernate;
 
-import tutorial.dao.Student;
+import tutorial.dao.utils.jpahibernate.model.Student;
 
 import java.sql.SQLException;
 import java.util.List;

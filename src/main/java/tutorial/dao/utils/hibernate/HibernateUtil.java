@@ -1,4 +1,4 @@
-package tutorial.dao.utils;
+package tutorial.dao.utils.hibernate;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
