@@ -34,6 +34,9 @@ import tutorial.dao.utils.hibernate.IDBUtil;
 import tutorial.dao.utils.jdbc.DBUtilv1;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
 import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
+import tutorial.dao.utils.jpahibernate.model.inheritance.BaseHealthNew;
+import tutorial.dao.utils.jpahibernate.model.inheritance.NewHealth;
+import tutorial.dao.utils.jpahibernate.model.inheritance.SchemacsHealthNew;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
@@ -76,7 +79,7 @@ public class AppMain {
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
-        for(int i=1;i<getRandomNumber(3,5);i++) {
+     /*   for(int i=1;i<getRandomNumber(3,5);i++) {
             Department department = getDepartment(faker);
 
             for (int j = 0; j < getRandomNumber(3,7); j++) {
@@ -91,12 +94,21 @@ public class AppMain {
             }
             jpaHibernateUtil.save(department,entityManager);
             logger.info(" saved "+department.toString()+ "-- "+i);
+        } */
+
+
+
+        BaseHealthNew baseHealthNew=new NewHealth();
+        baseHealthNew.setStatus("bad");
+        baseHealthNew.setName("some");
+        if(baseHealthNew instanceof  NewHealth){
+            ((NewHealth)baseHealthNew).setProblem("problem1");
+        }else {
+            ((SchemacsHealthNew)baseHealthNew).setIssues("issue1");
         }
+        jpaHibernateUtil.saveTest(baseHealthNew,entityManager);
 
         entityManager.close();
-
-
-
 
     }
 

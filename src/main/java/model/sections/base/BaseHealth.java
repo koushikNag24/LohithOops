@@ -1,8 +1,8 @@
 package model.sections.base;
 
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 
-@Getter
 public class BaseHealth {
     private final String name;
     private final String status;

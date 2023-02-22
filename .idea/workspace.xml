@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/IJpaHibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/JpaHibernateUtilv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/BaseHealthNew.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/NewHealth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/SchemacsHealthNew.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/DBUtilv1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jdbc/DBUtilv1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/HibernateDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/IDBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/IDepartmentDBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AppMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/IJpaHibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/IJpaHibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/JpaHibernateUtilv1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/JpaHibernateUtilv1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +77,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tutorial.dao.utils.jpahibernate.model.inheritance" />
       <recent name="model.sections.sectione" />
       <recent name="model.sections.sectionc" />
       <recent name="decorator" />
       <recent name="workutils.trigger" />
-      <recent name="workutils" />
     </key>
   </component>
   <component name="RunManager" selected="Application.AppMain">

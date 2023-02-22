@@ -6,6 +6,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 import org.apache.log4j.Logger;
 import tutorial.dao.utils.jpahibernate.model.Department;
+import tutorial.dao.utils.jpahibernate.model.inheritance.BaseHealthNew;
 
 public class JpaHibernateUtilv1 implements IJpaHibernateUtil {
     final static Logger logger = Logger.getLogger(JpaHibernateUtilv1.class);
@@ -27,12 +28,6 @@ public class JpaHibernateUtilv1 implements IJpaHibernateUtil {
             logger.error("department : "+department.getName());
             throw e;
         }
-
-
-
-
-
-
     }
 
     public void remove(Department department1) {
@@ -45,5 +40,24 @@ public class JpaHibernateUtilv1 implements IJpaHibernateUtil {
         entityManager.close();
         factory.close();
 
+    }
+    @Override
+    public void saveTest(BaseHealthNew baseHealthNew, EntityManager entityManager){
+
+
+        EntityTransaction tx = null;
+        try {
+            tx= entityManager.getTransaction();
+            tx.begin();
+
+            entityManager.persist(baseHealthNew);
+            tx.commit();
+        }catch (RuntimeException e){
+            if(tx!=null){
+                tx.rollback();
+            }
+            logger.error("baseHealthNew : "+baseHealthNew.getName());
+            throw e;
+        }
     }
 }
