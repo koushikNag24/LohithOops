@@ -1,7 +1,9 @@
 import com.github.javafaker.Faker;
+import dao.SectionGDao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import model.sections.base.BaseIssues;
 import tutorial.dao.utils.jpahibernate.model.Course;
 import tutorial.dao.utils.jpahibernate.model.Department;
 import model.*;
@@ -79,48 +81,21 @@ public class AppMain {
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
-     /*   for(int i=1;i<getRandomNumber(3,5);i++) {
-            Department department = getDepartment(faker);
-
-            for (int j = 0; j < getRandomNumber(3,7); j++) {
-                Student student = new Student(faker.harryPotter().character(), faker.harryPotter().location(), faker.address().cityName(), faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
-
-                for(int p=0;p< getRandomNumber(2,4);p++){
-                    Course course=new Course();
-                    course.setName(faker.cat().name());
-                    student.addCourse(course);
-                }
-                department.addStudent(student);
-            }
-            jpaHibernateUtil.save(department,entityManager);
-            logger.info(" saved "+department.toString()+ "-- "+i);
-        } */
 
 
-
-        BaseHealthNew baseHealthNew=new NewHealth();
-        baseHealthNew.setStatus("bad");
-        baseHealthNew.setName("some");
-        if(baseHealthNew instanceof  NewHealth){
-            ((NewHealth)baseHealthNew).setProblem("problem1");
-        }else {
-            ((SchemacsHealthNew)baseHealthNew).setIssues("issue1");
-        }
-        jpaHibernateUtil.saveTest(baseHealthNew,entityManager);
-
+        SectionGDao dao=new SectionGDao();
+        BaseIssues sectionG=new SectionG();
+        sectionG.setIssues(faker.weather().description());
+        SyslogStatus syslogStatus=new SyslogStatus();
+        syslogStatus.setStatus(Status.OK);
+        syslogStatus.setName("SysLog");
+        ((SectionG) sectionG).addSysLog(syslogStatus);
+        dao.save(sectionG, entityManager);
         entityManager.close();
 
     }
 
-    private static Department getDepartment(Faker faker) {
-        Department department = new Department();
-        department.setName(faker.university().prefix());
-        department.setState(faker.address().state());
-        department.setCity(faker.address().cityName());
-        department.setCollege(faker.university().name());
-        department.setStartDate(LocalDate.now().minusYears(10));
-        return department;
-    }
+
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }

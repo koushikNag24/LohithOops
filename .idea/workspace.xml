@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/Status.java" afterDir="false" />
+    <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/SectionGDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/namingstrategy/SnakeCasePhysicalNamingStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/BaseHealthNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/BaseHealthNew.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/NewHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/NewHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/SchemacsHealthNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/SchemacsHealthNew.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +34,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,20 +58,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/root/LohithOops/LohithOops&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.customizations&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/root/LohithOops/LohithOops",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.customizations"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="model" />
@@ -158,6 +164,14 @@
       <option name="presentableId" value="Default" />
       <updated>1675239485531</updated>
     </task>
+    <task id="LOCAL-00001" summary="&quot;commited&quot;">
+      <created>1677149734692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677149734692</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,5 +184,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;commited&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;commited&quot;" />
   </component>
 </project>

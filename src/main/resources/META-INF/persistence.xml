@@ -8,15 +8,13 @@
     <persistence-unit name="Hibernate_JPA" >
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>tutorial.dao.utils.jpahibernate.model.Department</class>
-        <class>tutorial.dao.utils.jpahibernate.model.Student</class>
-        <class>tutorial.dao.utils.jpahibernate.model.Course</class>
-        <class>tutorial.dao.utils.jpahibernate.model.inheritance.BaseHealthNew</class>
-        <class>tutorial.dao.utils.jpahibernate.model.inheritance.NewHealth</class>
-        <class>tutorial.dao.utils.jpahibernate.model.inheritance.SchemacsHealthNew</class>
+
+
         <properties>
+            <property name="hibernate.physical_naming_strategy"
+                      value="dao.namingstrategy.SnakeCasePhysicalNamingStrategy" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"></property>
-            <property name="hibernate.hbm2ddl.auto" value="validate"></property>
+            <property name="hibernate.hbm2ddl.auto" value="create"></property>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/test_db"></property>
             <property name="hibernate.connection.username" value="koushik"></property>
             <property name="hibernate.connection.password" value="123"></property>

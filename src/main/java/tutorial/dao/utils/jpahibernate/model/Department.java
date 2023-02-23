@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+
 @AllArgsConstructor
 @Setter
 @Getter
 
 @NoArgsConstructor
-@Table(name = "Department_Table")
+
 public class Department {
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL)
     private Set<Student> students = new HashSet<>();

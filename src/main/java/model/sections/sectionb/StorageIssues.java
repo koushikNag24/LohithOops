@@ -14,6 +14,7 @@ public class StorageIssues extends BaseIssues {
     final static Logger logger = Logger.getLogger(StorageIssues.class);
 
 
+
     private final List<NsopStorageStatus> nsopStorage;
 
 
