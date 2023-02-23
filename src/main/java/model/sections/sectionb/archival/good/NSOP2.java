@@ -1,5 +1,7 @@
 package model.sections.sectionb.archival.good;
 
+import model.Status;
+
 public class NSOP2 extends ArchivalBaseClass {
 
 
