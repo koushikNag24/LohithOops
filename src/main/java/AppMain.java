@@ -3,7 +3,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import tutorial.dao.utils.jpahibernate.model.Course;
-import tutorial.dao.utils.jpahibernate.model.Department;
+import tutorial.dao.utils.jpahibernate.model.DepartmentTable;
 import model.*;
 import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
@@ -29,7 +29,6 @@ import model.sections.sectiong.SyslogStatus;
 import model.sections.sectionh.SectionH;
 import model.sections.sectionh.StnLookAngle;
 import org.apache.log4j.Logger;
-import tutorial.dao.utils.jpahibernate.model.Student;
 import tutorial.dao.utils.hibernate.IDBUtil;
 import tutorial.dao.utils.jdbc.DBUtilv1;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
@@ -40,7 +39,6 @@ import tutorial.dao.utils.jpahibernate.model.inheritance.SchemacsHealthNew;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
-import javax.swing.plaf.basic.BasicBorders;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -112,14 +110,14 @@ public class AppMain {
 
     }
 
-    private static Department getDepartment(Faker faker) {
-        Department department = new Department();
-        department.setName(faker.university().prefix());
-        department.setState(faker.address().state());
-        department.setCity(faker.address().cityName());
-        department.setCollege(faker.university().name());
-        department.setStartDate(LocalDate.now().minusYears(10));
-        return department;
+    private static DepartmentTable getDepartment(Faker faker) {
+        DepartmentTable departmentTable = new DepartmentTable();
+        departmentTable.setName(faker.university().prefix());
+        departmentTable.setState(faker.address().state());
+        departmentTable.setCity(faker.address().cityName());
+        departmentTable.setCollege(faker.university().name());
+        departmentTable.setStartDate(LocalDate.now().minusYears(10));
+        return departmentTable;
     }
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);

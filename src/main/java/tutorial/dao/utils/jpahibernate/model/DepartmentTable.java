@@ -17,9 +17,9 @@ import java.util.Set;
 @Getter
 
 @NoArgsConstructor
-@Table(name = "Department_Table")
-public class Department {
-    @OneToMany(mappedBy = "department",cascade = CascadeType.ALL)
+
+public class DepartmentTable {
+    @OneToMany(mappedBy = "departmentTable",cascade = CascadeType.ALL)
     private Set<Student> students = new HashSet<>();
 
 
@@ -53,6 +53,6 @@ public class Department {
 
     public void addStudent(Student student){
         this.students.add(student);
-        student.setDepartment(this);
+        student.setDepartmentTable(this);
     }
 }

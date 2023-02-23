@@ -3,9 +3,7 @@ package tutorial.dao.utils.jpahibernate.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +15,7 @@ import java.util.Set;
 public class Student {
     @ManyToOne
     @JoinColumn(name = "fk_dept")
-    private Department department;
+    private DepartmentTable departmentTable;
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -47,9 +45,9 @@ public class Student {
         this.email = email;
         this.pocketMoney = pocketMoney;
     }
-    public void addDepartment(Department department){
-        this.setDepartment(department);
-        department.addStudent(this);
+    public void addDepartment(DepartmentTable departmentTable){
+        this.setDepartmentTable(departmentTable);
+        departmentTable.addStudent(this);
     }
     public void addCourse(Course course){
         this.courses.add(course);
