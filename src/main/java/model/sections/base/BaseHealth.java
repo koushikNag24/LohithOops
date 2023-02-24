@@ -10,8 +10,7 @@ import model.Status;
 @Setter
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class
-BaseHealth {
+public class BaseHealth {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "baseHealthSeq")
     @SequenceGenerator(name = "baseHealth",sequenceName = "baseHealthLearn",allocationSize = 2)
