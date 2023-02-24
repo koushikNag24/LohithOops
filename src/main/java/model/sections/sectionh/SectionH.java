@@ -26,7 +26,7 @@ public class SectionH extends BaseIssues {
         this.stnLookAngles = stnLookAngles;
     }
 
-    public void addStnLookAnlge(StnLookAngle stnLookAngle){
+    public void addStnLookAngle(StnLookAngle stnLookAngle){
         this.stnLookAngles.add(stnLookAngle);
         stnLookAngle.setSectionH(this);
     }

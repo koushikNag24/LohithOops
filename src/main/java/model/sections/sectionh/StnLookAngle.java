@@ -37,7 +37,7 @@ public class StnLookAngle {
 
     public void addSectionH(SectionH sectionH){
         this.setSectionH(sectionH);
-        sectionH.addStnLookAnlge(this);
+        sectionH.addStnLookAngle(this);
     }
 
 }

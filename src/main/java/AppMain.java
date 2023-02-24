@@ -74,8 +74,8 @@ public class AppMain {
     final static DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ISO_LOCAL_TIME;
     public static void main(String[] args) {
         sectionTask();
-        Faker faker=new Faker();
-        List<Course> courses=new ArrayList<>();
+        Faker faker = new Faker();
+        List<Course> courses = new ArrayList<>();
 
         IJpaHibernateUtil jpaHibernateUtil = new JpaHibernateUtilv1();
 
@@ -83,38 +83,42 @@ public class AppMain {
         EntityManager entityManager = factory.createEntityManager();
 
         ISectionGDao sectionGDao = new SectionGDao();
-        BaseIssues sectionG=new SectionG();
+        BaseIssues sectionG = new SectionG();
         sectionG.setIssues(faker.weather().description());
-        SyslogStatus syslogStatus=new SyslogStatus();
+        SyslogStatus syslogStatus = new SyslogStatus();
         syslogStatus.setStatus(Status.OK);
         syslogStatus.setName("SysLog");
         ((SectionG) sectionG).addSysLog(syslogStatus);
         sectionGDao.save(sectionG, entityManager);
 
         ISectionHDao sectionHDao = new SectionHDao();
-        List<StnLookAngle> stnLookAngles =new ArrayList<>();
+        List<StnLookAngle> stnLookAngles = new ArrayList<>();
         SectionH sectionH = new SectionH();
         sectionH.setIssues("Issues is from section H");
-        sectionH.setStnLookAngles(stnLookAngles);
-        for(int i=0; i<3; i++) {
+        for (int i = 0; i < 3; i++) {
             StnLookAngle stnLookAngle = new StnLookAngle(faker.gameOfThrones().city(), LocalDateTime.now());
             stnLookAngles.add(stnLookAngle);
         }
+        sectionH.setStnLookAngles(stnLookAngles);
         logger.info(stnLookAngles);
         sectionH.setStnLookAngles(stnLookAngles);
-
         sectionHDao.save(sectionH, entityManager);
 
 
+        ISectionDDao sectionDDao = new SectionDDao();
+        List<SchemacsHealth> schemacsHealths = new ArrayList<>();
+        SectionD sectionD = new SectionD();
+        sectionD.setIssues("Issue is from Section D!!");
 
+        for (int i = 0; i < 9; i++) {
+            SchemacsHealth schemacsHealth = new SchemacsHealth( faker.harryPotter().character(), Status.OK, "No issue");
+            schemacsHealths.add(schemacsHealth);
+        }
 
-
-
+        logger.info(schemacsHealths);
+        sectionD.setSchemacsHealths(schemacsHealths);
+        sectionDDao.save(sectionD, entityManager);
         entityManager.close();
-
-
-
-
 
 
     }
