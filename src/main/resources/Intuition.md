@@ -7,11 +7,11 @@
 * Draw the UML Class diagram to understand it clearly
     
 
-     Base Issues       Base Health
-          ^                 ^
-          |                 |
-          |                 |
-      Section G -----> Syslog Status 
+             Base Issues       Base Health    
+                  ^                 ^   
+                  |                 |    
+                  |                 |     
+              Section G -----> Syslog Status     
 
 * First solve Parent Child Relationship  
   * For Base Issues and Section G
