@@ -5,15 +5,15 @@ import jakarta.persistence.EntityTransaction;
 import model.sections.base.BaseIssues;
 import org.apache.log4j.Logger;
 
-public class SectionGDao implements ISectionGDao{
-    final static Logger logger = Logger.getLogger(SectionGDao.class);
-    public void save(BaseIssues sectionG, EntityManager entityManager){
+public class SectionHDao implements  ISectionHDao{
+    final static Logger logger = Logger.getLogger(SectionHDao.class);
+    public void save(BaseIssues sectionH, EntityManager entityManager){
         EntityTransaction tx = null;
         try {
             tx= entityManager.getTransaction();
             tx.begin();
 
-            entityManager.persist(sectionG);
+            entityManager.persist(sectionH);
             tx.commit();
         }catch (RuntimeException e){
             if(tx!=null){
@@ -23,6 +23,6 @@ public class SectionGDao implements ISectionGDao{
 
             throw e;
         }
-        logger.info("saved  : "+sectionG.getId());
+        logger.info("saved  : "+sectionH.getId());
     }
 }

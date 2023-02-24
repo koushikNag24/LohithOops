@@ -5,15 +5,15 @@
 #### Steps
 * Divide the Problem into small problems and isolate
 * Draw the UML Class diagram to understand it clearly
-    
 
-     Base Issues       Base Health
-          ^                 ^
-          |                 |
-          |                 |
-      Section G -----> Syslog Status 
 
-* First solve Parent Child Relationship  
+             Base Issues       Base Health    
+                  ^                 ^   
+                  |                 |    
+                  |                 |     
+              Section G -----> Syslog Status     
+
+* First solve Parent Child Relationship
   * For Base Issues and Section G
 
         `@Inheritance(strategy = InheritanceType.JOINED)`
@@ -28,39 +28,34 @@
           `@OneToOne(mappedBy = "sectionG",cascade = CascadeType.ALL)`
           `private  SyslogStatus syslogStatus;`
   * In Syslog Status
-    
+
          `@OneToOne`
          `private SectionG sectionG;`
 
 #### Tables
 
-  base_issues
-  
+base_issues
+
       base_issue_id  |   issues    
       ---------------+-------------
                    1 | Clear skies
-  
-  
-  section_g
-  
+
+
+section_g
+
       base_issue_id
       ---------------
                     1
-  
-  syslog_status
-  
+
+syslog_status
+
       base_health_id  | section_g_base_issue_id
       ----------------+-------------------------
                     1 |                       1
-  
-  base_health
-  
+
+base_health
+
       base_health_id  |  name  | status
       ----------------+--------+--------
                      1| SysLog | OK
   
-
-
-
-  
-

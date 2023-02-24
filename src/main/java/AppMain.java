@@ -1,5 +1,5 @@
 import com.github.javafaker.Faker;
-import dao.SectionGDao;
+import dao.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -82,16 +82,40 @@ public class AppMain {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
 
-
-        SectionGDao dao=new SectionGDao();
+        ISectionGDao sectionGDao = new SectionGDao();
         BaseIssues sectionG=new SectionG();
         sectionG.setIssues(faker.weather().description());
         SyslogStatus syslogStatus=new SyslogStatus();
         syslogStatus.setStatus(Status.OK);
         syslogStatus.setName("SysLog");
         ((SectionG) sectionG).addSysLog(syslogStatus);
-        dao.save(sectionG, entityManager);
+        sectionGDao.save(sectionG, entityManager);
+
+        ISectionHDao sectionHDao = new SectionHDao();
+        List<StnLookAngle> stnLookAngles =new ArrayList<>();
+        SectionH sectionH = new SectionH();
+        sectionH.setIssues("Issues is from section H");
+        sectionH.setStnLookAngles(stnLookAngles);
+        for(int i=0; i<3; i++) {
+            StnLookAngle stnLookAngle = new StnLookAngle(faker.gameOfThrones().city(), LocalDateTime.now());
+            stnLookAngles.add(stnLookAngle);
+        }
+        logger.info(stnLookAngles);
+        sectionH.setStnLookAngles(stnLookAngles);
+
+        sectionHDao.save(sectionH, entityManager);
+
+
+
+
+
+
         entityManager.close();
+
+
+
+
+
 
     }
 
