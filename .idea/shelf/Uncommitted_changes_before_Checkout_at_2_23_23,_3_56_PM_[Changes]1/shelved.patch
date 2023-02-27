@@ -1,0 +1,267 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"93b0f9f4-b206-43e7-b436-989582be3f73\" name=\"Changes\" comment=\"\">\n\n\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/Department.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/utils/DBUtilv1.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateDB.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateUtil.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDBUtil.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/AppMain.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/AppMain.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/DBUtil.java\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/dao/Student.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/tutorial/dao/Student.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/log4j.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/log4j.properties\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/AppMainTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/AppMainTest.java\" afterDir=\"false\" />\n\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"JUnit5 Test Class\" />\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2L84g3qULVNnpgAvQBl3EFLiuZT\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n<<<<<<< HEAD\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,\n    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/root/LohithOops/LohithOops&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n=======\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\n    \"last_opened_file_path\": \"/root/LohithOops/LohithOops\",\n    \"project.structure.last.edited\": \"Modules\",\n    \"project.structure.proportion\": \"0.15\",\n    \"project.structure.side.proportion\": \"0.2\",\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\"\n>>>>>>> 3e2941f51a6d8efdeec18dba07e9cffb4fb4c20d\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateTestDialog.Recents.Supers\">\n      <recent name=\"\" />\n    </key>\n    <key name=\"ExtractSuperBase.RECENT_KEYS\">\n      <recent name=\"dao\" />\n    </key>\n    <key name=\"CreateTestDialog.RecentsKey\">\n      <recent name=\"\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"model.sections.sectione\" />\n      <recent name=\"model.sections.sectionc\" />\n      <recent name=\"decorator\" />\n      <recent name=\"workutils.trigger\" />\n      <recent name=\"workutils\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Application.AppMain\">\n    <configuration name=\"AppMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"AppMain\" />\n      <module name=\"LohithOops\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"AppMainTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"LohithOops\" />\n      <option name=\"PACKAGE_NAME\" value=\"\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"AppMainTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"AppMainTest.deleteStudentTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"LohithOops\" />\n      <option name=\"PACKAGE_NAME\" value=\"\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"AppMainTest\" />\n      <option name=\"METHOD_NAME\" value=\"deleteStudentTest\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"AppMainTest.getAStudentTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"LohithOops\" />\n      <option name=\"PACKAGE_NAME\" value=\"\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"AppMainTest\" />\n      <option name=\"METHOD_NAME\" value=\"getAStudentTest\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"AppMainTest.updateStudentTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"LohithOops\" />\n      <option name=\"PACKAGE_NAME\" value=\"\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"AppMainTest\" />\n      <option name=\"METHOD_NAME\" value=\"updateStudentTest\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.AppMain\" />\n        <item itemvalue=\"JUnit.AppMainTest\" />\n        <item itemvalue=\"JUnit.AppMainTest.deleteStudentTest\" />\n        <item itemvalue=\"JUnit.AppMainTest.updateStudentTest\" />\n        <item itemvalue=\"JUnit.AppMainTest.getAStudentTest\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"93b0f9f4-b206-43e7-b436-989582be3f73\" name=\"Changes\" comment=\"\" />\n      <created>1675239485531</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1675239485531</updated>\n    </task>\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -1,109 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="AutoImportSettings">
+-    <option name="autoReloadType" value="SELECTIVE" />
+-  </component>
+-  <component name="ChangeListManager">
+-    <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
+-
+-
+-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/Department.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/DBUtilv1.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateDB.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/HibernateUtil.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDBUtil.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/Student.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/AppMainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
+-
+-    </list>
+-    <option name="SHOW_DIALOG" value="false" />
+-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-    <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="JUnit5 Test Class" />
+-        <option value="Interface" />
+-        <option value="Class" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
+-      </map>
+-    </option>
+-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="MarkdownSettingsMigration">
+-    <option name="stateVersion" value="1" />
+-  </component>
+-  <component name="ProjectId" id="2L84g3qULVNnpgAvQBl3EFLiuZT" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+-    <ConfirmationsSetting value="2" id="Add" />
+-  </component>
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+-<<<<<<< HEAD
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/root/LohithOops/LohithOops&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+-=======
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+-    "last_opened_file_path": "/root/LohithOops/LohithOops",
+-    "project.structure.last.edited": "Modules",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "preferences.pluginManager"
+->>>>>>> 3e2941f51a6d8efdeec18dba07e9cffb4fb4c20d
+-  }
+-}</component>
+-  <component name="RecentsManager">
+-    <key name="CreateTestDialog.Recents.Supers">
+-      <recent name="" />
+-    </key>
+-    <key name="ExtractSuperBase.RECENT_KEYS">
+-      <recent name="dao" />
+-    </key>
+-    <key name="CreateTestDialog.RecentsKey">
+-      <recent name="" />
+-    </key>
+-    <key name="CopyClassDialog.RECENTS_KEY">
+-      <recent name="model.sections.sectione" />
+-      <recent name="model.sections.sectionc" />
+-      <recent name="decorator" />
+-      <recent name="workutils.trigger" />
+-      <recent name="workutils" />
+-    </key>
+-  </component>
+-  <component name="RunManager" selected="Application.AppMain">
++  <component name="RunManager">
+     <configuration name="AppMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="AppMain" />
+       <module name="LohithOops" />
+@@ -111,75 +8,10 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="AppMainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="LohithOops" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+-      <option name="TEST_OBJECT" value="class" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="AppMainTest.deleteStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="LohithOops" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+-      <option name="METHOD_NAME" value="deleteStudentTest" />
+-      <option name="TEST_OBJECT" value="method" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="AppMainTest.getAStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="LohithOops" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+-      <option name="METHOD_NAME" value="getAStudentTest" />
+-      <option name="TEST_OBJECT" value="method" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="AppMainTest.updateStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="LohithOops" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+-      <option name="METHOD_NAME" value="updateStudentTest" />
+-      <option name="TEST_OBJECT" value="method" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.AppMain" />
+-        <item itemvalue="JUnit.AppMainTest" />
+-        <item itemvalue="JUnit.AppMainTest.deleteStudentTest" />
+-        <item itemvalue="JUnit.AppMainTest.updateStudentTest" />
+-        <item itemvalue="JUnit.AppMainTest.getAStudentTest" />
+       </list>
+     </recent_temporary>
+   </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-  <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="" />
+-      <created>1675239485531</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1675239485531</updated>
+-    </task>
+-    <servers />
+-  </component>
+-  <component name="Vcs.Log.Tabs.Properties">
+-    <option name="TAB_STATES">
+-      <map>
+-        <entry key="MAIN">
+-          <value>
+-            <State />
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-  </component>
+-</project>
++</project>
+\ No newline at end of file
+Index: src/main/resources/hibernate.cfg.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE hibernate-configuration PUBLIC\n        \"-//Hibernate/Hibernate Configuration DTD 3.0//EN\"\n        \"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd\">\n<!-- Version 8 MySQL hiberante-cfg.xml example for Hibernate 5 -->\n<hibernate-configuration>\n    <session-factory>\n        <property name=\"connection.driver_class\">org.postgresql.Driver</property>\n        <property name=\"connection.url\">jdbc:postgresql://localhost/test_db</property>\n        <property name=\"dialect\">org.hibernate.dialect.PostgreSQLDialect</property>\n        <property name=\"connection.username\">koushik</property>\n        <property name=\"connection.password\">123</property>\n        <property name=\"connection.pool_size\">3</property>\n        <property name=\"current_session_context_class\">thread</property>\n        <property name=\"show_sql\">true</property>\n        <property name=\"format_sql\">true</property>\n        <property name=\"hbm2ddl.auto\">validate</property>\n<!--        <property name=\"hibernate.generate_statistics\">true</property>-->\n\n        <mapping class=\"tutorial.dao.Department\"></mapping>\n\n    </session-factory>\n</hibernate-configuration>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/hibernate.cfg.xml b/src/main/resources/hibernate.cfg.xml
+--- a/src/main/resources/hibernate.cfg.xml	
++++ b/src/main/resources/hibernate.cfg.xml	
+@@ -17,7 +17,7 @@
+         <property name="hbm2ddl.auto">validate</property>
+ <!--        <property name="hibernate.generate_statistics">true</property>-->
+ 
+-        <mapping class="tutorial.dao.Department"></mapping>
++        <mapping class="tutorial.dao.DepartmentTable"></mapping>
+ 
+     </session-factory>
+ </hibernate-configuration>
+\ No newline at end of file
+Index: src/main/java/AppMain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import com.github.javafaker.Faker;\nimport org.hibernate.Session;\nimport org.hibernate.cfg.Configuration;\nimport tutorial.dao.Department;\nimport tutorial.dao.utils.*;\nimport tutorial.dao.Student;\nimport model.*;\nimport model.sections.base.BaseHealth;\nimport model.sections.sectionb.measurements.BaseMeasurement;\nimport model.sections.sectionb.measurements.Uere;\nimport model.sections.sectionb.measurements.UserPosition;\nimport model.sections.sectiona.CommunicationIssues;\nimport model.sections.sectiona.SectionA;\nimport model.sections.sectionb.NsopStorageStatus;\nimport model.sections.sectionb.SectionB;\nimport model.sections.sectionb.StandardFileStatus;\nimport model.sections.sectionb.StorageIssues;\nimport model.sections.sectionb.archival.good.*;\nimport model.sections.sectionc.GnssOffset;\nimport model.sections.sectionc.ParallelChain;\nimport model.sections.sectionc.SectionC;\nimport model.sections.sectionc.TwstftOffset;\nimport model.sections.sectiond.SchemacsHealth;\nimport model.sections.sectiond.SectionD;\nimport model.sections.sectione.SectionE;\nimport model.sections.sectionf.SectionF;\nimport model.sections.sectiong.SectionG;\nimport model.sections.sectiong.SyslogStatus;\nimport model.sections.sectionh.SectionH;\nimport model.sections.sectionh.StnLookAngle;\nimport org.apache.log4j.Logger;\nimport workutils.IUtils;\nimport workutils.UtilsV3;\n\nimport java.sql.SQLException;\nimport java.time.LocalDate;\nimport java.time.LocalDateTime;\nimport java.time.format.DateTimeFormatter;\nimport java.util.ArrayList;\nimport java.util.LinkedList;\nimport java.util.List;\n\npublic class AppMain {\n\n\n    public static final String HEALTHY = \"FINE\";\n    public static final String SERVER1 = \"NSOP1\";\n    public static final String SERVER2 = \"NSOP2\";\n    public static final String SERVER4 = \"NSOP4\";\n    public static final String UNHEALTHY = \"NOT-OK\";\n    public static final char CHAIN_A = 'A';\n    public static final char CHAIN_B = 'B';\n    static final String BLR = \"BLR\";\n    public static final String LCK = \"LCK\";\n    public static final String STORAGE_UNIT = \"G\";\n    public static final String satellite_02 = \"SAT02\";\n    public static final String satellite_03 = \"SAT03\";\n    public static final String satellite_10 = \"SAT10\";\n    public static final String satellite_06 = \"SAT06\";\n    public static final String satellite_09 = \"SAT09\";\n    public static final String Document_1 = \"Doct1\";\n    public static final String document_2 = \"doc2\";\n    List<String> asd =new LinkedList<>();\n    List<String> asd1 =new ArrayList<>();\n    final static Logger logger = Logger.getLogger(AppMain.class);\n    final static DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ISO_LOCAL_TIME;\n    public static void main(String[] args) {\n        sectionTask();\n        Faker faker=new Faker();\n        Configuration configuration = new Configuration().configure();\n        IDepartmentDBUtil iDepartmentDBUtil=new HibernateDB();\n        Department department=new Department();\n        department.setFirstName(faker.company().industry());\n        department.setNextName(faker.company().logo());\n        department.setCollege(faker.company().name());\n        department.setStartDate(LocalDate.now().minusYears(10));\n        iDepartmentDBUtil.save(department);\n\n    }\n\n    private static void sectionTask() {\n        IDBUtil idbUtil=new DBUtilv1();\n        Faker  faker=new Faker();\n        // data came from frontend//\n\n        String issues=\"This issue came from frontend\";\n//        BaseStatus communicationStatus=new CommunicationStatus(issues,\"OK\",\"NOT-OK\",\"OK\");\n\n        StandardFileStatus standardFileStatus = getStandardFileStatus();\n        issues=faker.shakespeare().romeoAndJulietQuote();\n        StorageIssues storageStatus = getStorageIssues(issues);\n\n\n        LocalDateTime createdAt=LocalDateTime.now();\n        LocalDateTime modifiedAt=LocalDateTime.now().plusHours(2);\n        IUtils utils=new UtilsV3();\n\n        CommunicationIssues communicationStatus = getCommunicationIssues();\n\n        SectionA sectionA=new SectionA(communicationStatus);\n\n        SectionB sectionB = getSectionB(faker, standardFileStatus, storageStatus);\n\n        SectionC sectionC = getSectionC();\n\n        SectionD sectionD = getSectionD();\n\n        SectionE sectionE=new SectionE(\"Irms Issues\", List.of(\"BLR\", \"MGH\"));\n\n        SectionF sectionF = new SectionF(\"Issues in sectionF\", List.of(\"BLR\", \"DDN\"));\n\n//        List<BaseStatus> baseStatusList=List.of(communicationStatus,storageStatus,schemacsStatus);\n\n        SectionG sectionG = getSectionG();\n\n        SectionH sectionH = getSectionH();\n\n\n        NavICPerformanceDetails performanceDetails=new NavICPerformanceDetails(1000,sectionA,sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);\n\n\n        List<ArchivalBaseClass> archivals=performanceDetails.getSectionB().getArchivalList();\n\n\n        logger.info(performanceDetails.getSectionB().getIssues());\n        logger.info(performanceDetails.getSectionD().getSchemacsHealths());\n        logger.info(performanceDetails.getSectionE().getStationNames());\n        logger.info(performanceDetails.getSectionH().getStnLookAngles());\n        Uere sat10Uere = null;\n\n\n        showSectionB(performanceDetails, sat10Uere);\n    }\n\n    private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) {\n        SectionB retrievedSectionB= performanceDetails.getSectionB();\n        if(retrievedSectionB!=null){\n            List<BaseMeasurement> measurements=retrievedSectionB.getUereMeasurements();\n            if(measurements!=null && !measurements.isEmpty()){\n                BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);\n                if(baseMeasurement instanceof  Uere){\n                    sat10Uere =((Uere)baseMeasurement);\n                }\n            }\n        }\n\n        if(sat10Uere !=null){\n            logger.info(sat10Uere + \" - \"+ sat10Uere.getSatellite());\n        }\n    }\n\n    private static SectionH getSectionH() {\n        StnLookAngle stnLookAngleBPL= new StnLookAngle(\"BPL\", LocalDateTime.now().plusHours(1));\n        StnLookAngle stnLookAngleJDH= new StnLookAngle(\"JDH\", LocalDateTime.now().plusHours(2));\n        StnLookAngle stnLookAngleHSN= new StnLookAngle(\"HSN\", LocalDateTime.now().minusMinutes(30));\n        StnLookAngle stnLookAnglePBR= new StnLookAngle(\"PBR\", LocalDateTime.now().plusHours(4));\n        SectionH sectionH=new SectionH(\"Issues from Section H\", List.of(stnLookAngleBPL,stnLookAngleHSN,stnLookAnglePBR,stnLookAngleJDH));\n        return sectionH;\n    }\n\n    private static SectionG getSectionG() {\n        SyslogStatus syslogStatus = new SyslogStatus(\"syslogStatus\", \"Issues in Syslog status\");\n        SectionG sectionG = new SectionG(syslogStatus, \"Issues in Section G\");\n        return sectionG;\n    }\n\n    private static SectionB getSectionB(Faker faker, StandardFileStatus standardFileStatus, StorageIssues storageStatus) {\n        List<ArchivalBaseClass> archivalList = getArchivalBaseClasses(faker);\n\n        List<BaseMeasurement> uereMeasurements = getBaseMeasurements(faker);\n\n        List<BaseMeasurement> userPositionMeasurements = getMeasurements(faker);\n\n\n        SectionB sectionB=new SectionB(storageStatus, standardFileStatus,archivalList,uereMeasurements,userPositionMeasurements,\"issue in sectoin B\");\n        return sectionB;\n    }\n\n    private static List<BaseMeasurement> getMeasurements(Faker faker) {\n        UserPosition userPosBlrServer1 = new UserPosition(SERVER1, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,\"a\");\n        UserPosition userPosBlrServer4 = new UserPosition(SERVER4, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,\"s\");\n        UserPosition userPosLckServer1 = new UserPosition(SERVER1, LCK, faker.number().randomDouble(4,6,7), CHAIN_B,\"s\");\n        UserPosition userPosLckServer2 = new UserPosition(SERVER2, LCK, faker.number().randomDouble(4,6,7), CHAIN_B,\"e\");\n\n        List<BaseMeasurement> userPositionMeasurements=new ArrayList<>();\n        userPositionMeasurements.add(userPosBlrServer1);\n        userPositionMeasurements.add(userPosBlrServer4);\n        userPositionMeasurements.add(userPosLckServer1);\n        userPositionMeasurements.add(userPosLckServer2);\n        return userPositionMeasurements;\n    }\n\n    private static List<BaseMeasurement> getBaseMeasurements(Faker faker) {\n        Uere sat02UereA=new Uere(SERVER1,BLR, faker.number().randomDouble(4,6,7),CHAIN_A,satellite_02);\n        Uere sat03UereA=new Uere(SERVER1,BLR, faker.number().randomDouble(4,6,7),CHAIN_A,satellite_03);\n        Uere sat02UereB=new Uere(SERVER1,BLR, faker.number().randomDouble(6,6,7),CHAIN_B,satellite_02);\n        Uere sat03UereB=new Uere(SERVER2,LCK, faker.number().randomDouble(6,20,30),CHAIN_B,satellite_06);\n        Uere sat10UereB=new Uere(SERVER2,LCK, faker.number().randomDouble(6,20,30),CHAIN_B,satellite_10);\n        List<BaseMeasurement> uereMeasurements=new ArrayList<>();\n        uereMeasurements.add(sat02UereA);\n        uereMeasurements.add(sat03UereA);\n        uereMeasurements.add(sat02UereB);\n        uereMeasurements.add(sat03UereB);\n        uereMeasurements.add(sat10UereB);\n        return uereMeasurements;\n    }\n\n    private static List<ArchivalBaseClass> getArchivalBaseClasses(Faker faker) {\n        NSOP2 NSOP2=new NSOP2(HEALTHY, faker.number().numberBetween(10,18)+ STORAGE_UNIT);\n        NSOP4 NSOP4=new NSOP4(UNHEALTHY, faker.number().numberBetween(10,18)+STORAGE_UNIT);\n        NSDAQ1 NSDAQ1 =new NSDAQ1(HEALTHY, faker.number().numberBetween(2,10)+\"G\");\n        NSDAQ2 NSDAQ2=new NSDAQ2(HEALTHY, \"10G\");\n\n        List<ArchivalBaseClass> archivalList=new ArrayList<>();\n        archivalList.add(NSOP2);\n        archivalList.add(NSOP4);\n        archivalList.add(NSDAQ1);\n        archivalList.add(NSDAQ2);\n        return archivalList;\n    }\n\n    private static SectionD getSectionD() {\n        SchemacsHealth monitStatus=new SchemacsHealth(\"monitStatus\", HEALTHY, \"Issues in monit status\");\n        SchemacsHealth inc1Cs5=new SchemacsHealth(\"inc1Cs5\", HEALTHY, \"Issues in inc1Cs5\");\n        SchemacsHealth inc1Cs6=new SchemacsHealth(\"inc1Cs6\", HEALTHY, \"Issues in inc1Cs6\");\n        SchemacsHealth inc1Cs7=new SchemacsHealth(\"inc1Cs7\", HEALTHY, \"Issues in inc1Cs7\");\n        SchemacsHealth inc1Cs8=new SchemacsHealth(\"inc1Cs8\", HEALTHY, \"Issues in inc1Cs8\");\n        SchemacsHealth inc2Cs5=new SchemacsHealth(\"inc2Cs5\", HEALTHY, \"Issues in inc2Cs5\");\n        SchemacsHealth inc2Cs6=new SchemacsHealth(\"inc2Cs6\", HEALTHY, \"Issues in inc2Cs6\");\n        SchemacsHealth inc2Cs7=new SchemacsHealth(\"inc2Cs7\", HEALTHY, \"Issues in inc2Cs7\");\n        SchemacsHealth inc2Cs8=new SchemacsHealth(\"inc2Cs8\", HEALTHY, \"Issues in inc2Cs8\");\n\n        List<SchemacsHealth> schemacsHealths=new ArrayList<>();\n        schemacsHealths.add(monitStatus);\n        schemacsHealths.add(inc1Cs5);\n        schemacsHealths.add(inc1Cs6);\n        schemacsHealths.add(inc1Cs7);\n        schemacsHealths.add(inc1Cs8);\n        schemacsHealths.add(inc2Cs5);\n        schemacsHealths.add(inc2Cs6);\n        schemacsHealths.add(inc2Cs7);\n        schemacsHealths.add(inc2Cs8);\n\n        SectionD sectionD=new SectionD(schemacsHealths,\"secttion D issue\");\n        return sectionD;\n    }\n\n    private static SectionC getSectionC() {\n        List<ParallelChain> parallelChains = getParallelChains();\n\n        List<TwstftOffset> twstftOffsets = getTwstftOffsets();\n\n        List<GnssOffset> gnssOffsets = getGnssOffsets();\n\n        SectionC sectionC = new SectionC(parallelChains, twstftOffsets, gnssOffsets);\n        return sectionC;\n    }\n\n    private static List<GnssOffset> getGnssOffsets() {\n        GnssOffset gnssItsA=new GnssOffset(\"itsA\", 10.00, \"itsA issues\");\n        GnssOffset gnssItsB=new GnssOffset(\"itsB\", 10.00, \"itsB issues\");\n        GnssOffset gnssItsC=new GnssOffset(\"itsC\", 10.00, \"itsC issues\");\n        GnssOffset vremyaA=new GnssOffset(\"vremyaA\", 10.00, \"vremyaA issues\");\n        GnssOffset vremyaB=new GnssOffset(\"vremyaB\", 10.00, \"vremyaB issues\");\n        GnssOffset itsInc2=new GnssOffset(\"itsInc2\", 10.00, \"itsInc2 issues\");\n        List<GnssOffset> gnssOffsets=new ArrayList<>();\n        gnssOffsets.add(gnssItsA);\n        gnssOffsets.add(gnssItsB);\n        gnssOffsets.add(gnssItsC);\n        gnssOffsets.add(vremyaA);\n        gnssOffsets.add(vremyaB);\n        gnssOffsets.add(itsInc2);\n        return gnssOffsets;\n    }\n\n    public static List<TwstftOffset> getTwstftOffsets() {\n        TwstftOffset itsA=new TwstftOffset(\"itsA\", 10.00, \"itsA issues\");\n        TwstftOffset itsB=new TwstftOffset(\"itsB\", 10.00, \"itsB issues\");\n        TwstftOffset itsC=new TwstftOffset(\"itsC\", 10.00, \"itsC issues\");\n        List<TwstftOffset> twstftOffsets=new ArrayList<>();\n        twstftOffsets.add(itsA);\n        twstftOffsets.add(itsB);\n        twstftOffsets.add(itsC);\n        return twstftOffsets;\n    }\n\n     public static List<ParallelChain> getParallelChains() {\n        ParallelChain inc1Server1=new ParallelChain(\"inc1Server1\", HEALTHY, \"Issues from inc1Ser1_Parallel Chain\");\n        ParallelChain inc1Server2=new ParallelChain(\"inc1Server2\", HEALTHY, \"Issues from inc1Ser2_Parallel Chain\");\n        ParallelChain inc2Server1=new ParallelChain(\"inc2Server1\", HEALTHY, \"Issues from inc2Ser1_Parallel Chain\");\n        ParallelChain inc2Server2=new ParallelChain(\"inc2Server2\", HEALTHY, \"Issues from inc2Ser2_Parallel Chain\");\n\n        List<ParallelChain> parallelChains=new ArrayList<>();\n        parallelChains.add(inc1Server1);\n        parallelChains.add(inc1Server2);\n        parallelChains.add(inc2Server1);\n        parallelChains.add(inc2Server2);\n        return parallelChains;\n    }\n\n    private static CommunicationIssues getCommunicationIssues() {\n        BaseHealth terrestrialBaseHealth =new BaseHealth(\"terrestrial\", HEALTHY);\n        BaseHealth satelliteBaseHealth =new BaseHealth(\"satellite\", HEALTHY);\n        BaseHealth inc1Inc2BaseHealth =new BaseHealth(\"inc1-inc2\", HEALTHY);\n        List<BaseHealth> baseHealths =new ArrayList<>();\n        baseHealths.add(terrestrialBaseHealth);\n        baseHealths.add(satelliteBaseHealth);\n        baseHealths.add(inc1Inc2BaseHealth);\n        CommunicationIssues communicationStatus=new CommunicationIssues(\"issue1\", baseHealths);\n        return communicationStatus;\n    }\n\n    private static StorageIssues getStorageIssues(String issues) {\n        NsopStorageStatus nsopStorageStatus=new NsopStorageStatus(HEALTHY, HEALTHY);\n\n        StorageIssues storageStatus=new StorageIssues(issues,HEALTHY,nsopStorageStatus);\n        return storageStatus;\n    }\n\n    private static StandardFileStatus getStandardFileStatus() {\n        List<String> availableFiles=List.of(Document_1, document_2);\n        StandardFileStatus standardFileStatus=new StandardFileStatus(availableFiles);\n        return standardFileStatus;\n    }\n\n    private static Uere castToUere(BaseMeasurement measurement){\n        return (Uere)measurement;\n    }\n    private static boolean isInstanceOfUere(BaseMeasurement measurement){\n        return measurement instanceof  Uere;\n    }\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AppMain.java b/src/main/java/AppMain.java
+--- a/src/main/java/AppMain.java	
++++ b/src/main/java/AppMain.java	
+@@ -1,9 +1,7 @@
+ import com.github.javafaker.Faker;
+-import org.hibernate.Session;
+ import org.hibernate.cfg.Configuration;
+-import tutorial.dao.Department;
++import tutorial.dao.DepartmentTable;
+ import tutorial.dao.utils.*;
+-import tutorial.dao.Student;
+ import model.*;
+ import model.sections.base.BaseHealth;
+ import model.sections.sectionb.measurements.BaseMeasurement;
+@@ -32,7 +30,6 @@
+ import workutils.IUtils;
+ import workutils.UtilsV3;
+ 
+-import java.sql.SQLException;
+ import java.time.LocalDate;
+ import java.time.LocalDateTime;
+ import java.time.format.DateTimeFormatter;
+@@ -69,12 +66,12 @@
+         Faker faker=new Faker();
+         Configuration configuration = new Configuration().configure();
+         IDepartmentDBUtil iDepartmentDBUtil=new HibernateDB();
+-        Department department=new Department();
+-        department.setFirstName(faker.company().industry());
+-        department.setNextName(faker.company().logo());
+-        department.setCollege(faker.company().name());
+-        department.setStartDate(LocalDate.now().minusYears(10));
+-        iDepartmentDBUtil.save(department);
++        DepartmentTable departmentTable =new DepartmentTable();
++        departmentTable.setFirstName(faker.company().industry());
++        departmentTable.setNextName(faker.company().logo());
++        departmentTable.setCollege(faker.company().name());
++        departmentTable.setStartDate(LocalDate.now().minusYears(10));
++        iDepartmentDBUtil.save(departmentTable);
+ 
+     }
+ 

@@ -4,30 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7949e2a0-5147-41d4-aa7d-1046197fc488" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/inheritance/namestrategy/SnakeCasePhysicalNamingStrategy.java" afterDir="false" />
+    <list default="true" id="d6fdc332-d8f4-4bf9-88c1-9d3d9434d784" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/HibernateDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/HibernateDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/IDepartmentDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/IDepartmentDBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/IJpaHibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/IJpaHibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/JpaHibernateUtilv1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/JpaHibernateUtilv1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/DepartmentTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Arrays.java" root0="SKIP_INSPECTION" />
@@ -53,16 +49,5 @@
   </component>
   <component name="TaskManager">
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

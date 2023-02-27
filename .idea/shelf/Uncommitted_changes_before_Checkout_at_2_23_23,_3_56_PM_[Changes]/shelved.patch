@@ -1,0 +1,68 @@
+Index: src/main/java/tutorial/dao/Department.java
+===================================================================
+diff --git a/src/main/java/tutorial/dao/Department.java b/src/main/java/tutorial/dao/DepartmentTable.java
+rename from src/main/java/tutorial/dao/Department.java
+rename to src/main/java/tutorial/dao/DepartmentTable.java
+--- a/src/main/java/tutorial/dao/Department.java	
++++ b/src/main/java/tutorial/dao/DepartmentTable.java	
+@@ -16,8 +16,7 @@
+ @Getter
+ 
+ @NoArgsConstructor
+-@Table(name = "Department_Table")
+-public class Department {
++public class DepartmentTable {
+     @Id
+     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "dept_seq")
+     @SequenceGenerator(name = "dept_seq",sequenceName = "depart_seq_learn",allocationSize = 1)
+Index: src/main/java/tutorial/dao/utils/HibernateDB.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tutorial.dao.utils;\n\nimport org.hibernate.Session;\nimport org.hibernate.SessionFactory;\nimport org.hibernate.Transaction;\nimport tutorial.dao.Department;\n\nimport java.util.TimeZone;\n\npublic class HibernateDB implements IDepartmentDBUtil{\n    @Override\n    public void save(Department department) {\n        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();\n        Session session=sessionFactory.withOptions()\n                .jdbcTimeZone( TimeZone.getTimeZone( \"UTC\" ) ).openSession();\n        Transaction tx = null;\n        try {\n            tx = session.beginTransaction();\n\n           session.save(department);\n\n            tx.commit();\n        }\n\n        catch (RuntimeException e) {\n            if (tx != null) {\n                tx.rollback();\n            }\n            throw e;\n        }\n        finally {\n            session.close();\n        }\n\n    }\n}\n
+===================================================================
+diff --git a/src/main/java/tutorial/dao/utils/HibernateDB.java b/src/main/java/tutorial/dao/utils/HibernateDB.java
+--- a/src/main/java/tutorial/dao/utils/HibernateDB.java	
++++ b/src/main/java/tutorial/dao/utils/HibernateDB.java	
+@@ -3,13 +3,13 @@
+ import org.hibernate.Session;
+ import org.hibernate.SessionFactory;
+ import org.hibernate.Transaction;
+-import tutorial.dao.Department;
++import tutorial.dao.DepartmentTable;
+ 
+ import java.util.TimeZone;
+ 
+ public class HibernateDB implements IDepartmentDBUtil{
+     @Override
+-    public void save(Department department) {
++    public void save(DepartmentTable departmentTable) {
+         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+         Session session=sessionFactory.withOptions()
+                 .jdbcTimeZone( TimeZone.getTimeZone( "UTC" ) ).openSession();
+@@ -17,7 +17,7 @@
+         try {
+             tx = session.beginTransaction();
+ 
+-           session.save(department);
++           session.save(departmentTable);
+ 
+             tx.commit();
+         }
+Index: src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package tutorial.dao.utils;\n\nimport tutorial.dao.Department;\n\npublic interface IDepartmentDBUtil {\n    public void save(Department department);\n}\n
+===================================================================
+diff --git a/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java b/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java
+--- a/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java	
++++ b/src/main/java/tutorial/dao/utils/IDepartmentDBUtil.java	
+@@ -1,7 +1,7 @@
+ package tutorial.dao.utils;
+ 
+-import tutorial.dao.Department;
++import tutorial.dao.DepartmentTable;
+ 
+ public interface IDepartmentDBUtil {
+-    public void save(Department department);
++    public void save(DepartmentTable departmentTable);
+ }

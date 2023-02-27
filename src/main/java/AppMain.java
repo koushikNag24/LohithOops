@@ -47,11 +47,11 @@ import java.util.*;
 public class AppMain {
 
 
-    public static final String HEALTHY = "FINE";
+
     public static final String SERVER1 = "NSOP1";
     public static final String SERVER2 = "NSOP2";
     public static final String SERVER4 = "NSOP4";
-    public static final String UNHEALTHY = "NOT-OK";
+
     public static final char CHAIN_A = 'A';
     public static final char CHAIN_B = 'B';
     static final String BLR = "BLR";
@@ -204,7 +204,7 @@ public class AppMain {
     }
 
     private static SectionG getSectionG() {
-        SyslogStatus syslogStatus = new SyslogStatus("syslogStatus", "Issues in Syslog status");
+        SyslogStatus syslogStatus = new SyslogStatus("syslogStatus", Status.OK);
         SectionG sectionG = new SectionG(syslogStatus, "Issues in Section G");
         return sectionG;
     }
@@ -251,10 +251,10 @@ public class AppMain {
     }
 
     private static List<ArchivalBaseClass> getArchivalBaseClasses(Faker faker) {
-        NSOP2 NSOP2=new NSOP2(HEALTHY, faker.number().numberBetween(10,18)+ STORAGE_UNIT);
-        NSOP4 NSOP4=new NSOP4(UNHEALTHY, faker.number().numberBetween(10,18)+STORAGE_UNIT);
-        NSDAQ1 NSDAQ1 =new NSDAQ1(HEALTHY, faker.number().numberBetween(2,10)+"G");
-        NSDAQ2 NSDAQ2=new NSDAQ2(HEALTHY, "10G");
+        NSOP2 NSOP2=new NSOP2(Status.OK, faker.number().numberBetween(10,18)+ STORAGE_UNIT);
+        NSOP4 NSOP4=new NSOP4(Status.NOTOK, faker.number().numberBetween(10,18)+STORAGE_UNIT);
+        NSDAQ1 NSDAQ1 =new NSDAQ1(Status.NOTOK, faker.number().numberBetween(2,10)+"G");
+        NSDAQ2 NSDAQ2=new NSDAQ2(Status.OK, "10G");
 
         List<ArchivalBaseClass> archivalList=new ArrayList<>();
         archivalList.add(NSOP2);
@@ -265,15 +265,15 @@ public class AppMain {
     }
 
     private static SectionD getSectionD() {
-        SchemacsHealth monitStatus=new SchemacsHealth("monitStatus", HEALTHY, "Issues in monit status");
-        SchemacsHealth inc1Cs5=new SchemacsHealth("inc1Cs5", HEALTHY, "Issues in inc1Cs5");
-        SchemacsHealth inc1Cs6=new SchemacsHealth("inc1Cs6", HEALTHY, "Issues in inc1Cs6");
-        SchemacsHealth inc1Cs7=new SchemacsHealth("inc1Cs7", HEALTHY, "Issues in inc1Cs7");
-        SchemacsHealth inc1Cs8=new SchemacsHealth("inc1Cs8", HEALTHY, "Issues in inc1Cs8");
-        SchemacsHealth inc2Cs5=new SchemacsHealth("inc2Cs5", HEALTHY, "Issues in inc2Cs5");
-        SchemacsHealth inc2Cs6=new SchemacsHealth("inc2Cs6", HEALTHY, "Issues in inc2Cs6");
-        SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", HEALTHY, "Issues in inc2Cs7");
-        SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", HEALTHY, "Issues in inc2Cs8");
+        SchemacsHealth monitStatus=new SchemacsHealth("monitStatus", Status.OK, "Issues in monit status");
+        SchemacsHealth inc1Cs5=new SchemacsHealth("inc1Cs5", Status.OK, "Issues in inc1Cs5");
+        SchemacsHealth inc1Cs6=new SchemacsHealth("inc1Cs6", Status.OK, "Issues in inc1Cs6");
+        SchemacsHealth inc1Cs7=new SchemacsHealth("inc1Cs7", Status.OK, "Issues in inc1Cs7");
+        SchemacsHealth inc1Cs8=new SchemacsHealth("inc1Cs8", Status.OK, "Issues in inc1Cs8");
+        SchemacsHealth inc2Cs5=new SchemacsHealth("inc2Cs5", Status.OK, "Issues in inc2Cs5");
+        SchemacsHealth inc2Cs6=new SchemacsHealth("inc2Cs6", Status.OK, "Issues in inc2Cs6");
+        SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", Status.OK, "Issues in inc2Cs7");
+        SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", Status.OK, "Issues in inc2Cs8");
 
         List<SchemacsHealth> schemacsHealths=new ArrayList<>();
         schemacsHealths.add(monitStatus);
@@ -330,10 +330,10 @@ public class AppMain {
     }
 
      public static List<ParallelChain> getParallelChains() {
-        ParallelChain inc1Server1=new ParallelChain("inc1Server1", HEALTHY, "Issues from inc1Ser1_Parallel Chain");
-        ParallelChain inc1Server2=new ParallelChain("inc1Server2", HEALTHY, "Issues from inc1Ser2_Parallel Chain");
-        ParallelChain inc2Server1=new ParallelChain("inc2Server1", HEALTHY, "Issues from inc2Ser1_Parallel Chain");
-        ParallelChain inc2Server2=new ParallelChain("inc2Server2", HEALTHY, "Issues from inc2Ser2_Parallel Chain");
+        ParallelChain inc1Server1=new ParallelChain("inc1Server1", Status.OK, "Issues from inc1Ser1_Parallel Chain");
+        ParallelChain inc1Server2=new ParallelChain("inc1Server2", Status.OK, "Issues from inc1Ser2_Parallel Chain");
+        ParallelChain inc2Server1=new ParallelChain("inc2Server1", Status.OK, "Issues from inc2Ser1_Parallel Chain");
+        ParallelChain inc2Server2=new ParallelChain("inc2Server2", Status.OK, "Issues from inc2Ser2_Parallel Chain");
 
         List<ParallelChain> parallelChains=new ArrayList<>();
         parallelChains.add(inc1Server1);
@@ -344,9 +344,9 @@ public class AppMain {
     }
 
     private static CommunicationIssues getCommunicationIssues() {
-        BaseHealth terrestrialBaseHealth =new BaseHealth("terrestrial", HEALTHY);
-        BaseHealth satelliteBaseHealth =new BaseHealth("satellite", HEALTHY);
-        BaseHealth inc1Inc2BaseHealth =new BaseHealth("inc1-inc2", HEALTHY);
+        BaseHealth terrestrialBaseHealth =new BaseHealth("terrestrial", Status.OK);
+        BaseHealth satelliteBaseHealth =new BaseHealth("satellite", Status.OK);
+        BaseHealth inc1Inc2BaseHealth =new BaseHealth("inc1-inc2", Status.OK);
         List<BaseHealth> baseHealths =new ArrayList<>();
         baseHealths.add(terrestrialBaseHealth);
         baseHealths.add(satelliteBaseHealth);
@@ -356,10 +356,13 @@ public class AppMain {
     }
 
     private static StorageIssues getStorageIssues(String issues) {
-        NsopStorageStatus nsopStorageStatus=new NsopStorageStatus(HEALTHY, HEALTHY);
+       NsopStorageStatus shiftOps = new NsopStorageStatus("172.19.2.145(ShiftOps)", Status.OK );
+        NsopStorageStatus nsop1 = new NsopStorageStatus("172.19.4.15(NSOP-1)", Status.OK );
+        NsopStorageStatus nsop2 = new NsopStorageStatus("172.19.7.15(NSOP-2", Status.OK );
+        List<NsopStorageStatus> storages = List.of(shiftOps, nsop1, nsop2);
+        StorageIssues storageIssues = new StorageIssues(storages, "Everything is fine");
+        return storageIssues;
 
-        StorageIssues storageStatus=new StorageIssues(issues,HEALTHY,nsopStorageStatus);
-        return storageStatus;
     }
 
     private static StandardFileStatus getStandardFileStatus() {

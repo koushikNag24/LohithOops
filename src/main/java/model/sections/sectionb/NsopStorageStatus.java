@@ -1,16 +1,18 @@
 package model.sections.sectionb;
 
+import jakarta.transaction.Status;
 import lombok.ToString;
+
 
 @ToString
 
 public class NsopStorageStatus {
-    private final String nsop1Storage;
-    private final String nsop2Storage;
+    private final String name;
+    private final Status status;
 
 
-    public NsopStorageStatus(String nsop1Storage, String nsop2Storage) {
-        this.nsop1Storage = nsop1Storage;
-        this.nsop2Storage = nsop2Storage;
+    public NsopStorageStatus(String name, Status status) {
+        this.name = name;
+        this.status = status;
     }
 }
