@@ -9,9 +9,10 @@
 
              Base Issues       Base Health    
                   ^                 ^   
-                  |                 |    
+                  |                 |  
+                  is                is
                   |                 |     
-              Section G -----> Syslog Status     
+              Section G <--has--- Syslog Status     
 
 * First solve Parent Child Relationship  
   * For Base Issues and Section G
