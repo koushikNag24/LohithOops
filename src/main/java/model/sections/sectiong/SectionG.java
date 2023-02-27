@@ -1,8 +1,6 @@
 package model.sections.sectiong;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,15 +9,18 @@ import model.sections.base.BaseIssues;
 @NoArgsConstructor
 @Setter
 @Getter
-public class SectionG extends BaseIssues {
+public class SectionG  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "secG")
+    @SequenceGenerator(name = "secG",sequenceName = "secGSeq",allocationSize = 5)
+    private Long id;
 
     @OneToOne(mappedBy = "sectionG",cascade = CascadeType.ALL)
     private  SyslogStatus syslogStatus;
 
 
-
-    public SectionG(SyslogStatus syslogStatus, String issues) {
-        super(issues);
+    public SectionG(SyslogStatus syslogStatus) {
         this.syslogStatus = syslogStatus;
     }
     public void addSysLog(SyslogStatus syslogStatus){

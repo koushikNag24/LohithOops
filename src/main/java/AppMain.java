@@ -5,13 +5,12 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import model.sections.base.BaseIssues;
 import tutorial.dao.utils.jpahibernate.model.Course;
-import tutorial.dao.utils.jpahibernate.model.Department;
 import model.*;
 import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
 import model.sections.sectionb.measurements.Uere;
 import model.sections.sectionb.measurements.UserPosition;
-import model.sections.sectiona.CommunicationIssues;
+import model.sections.sectiona.CommunicationIssue;
 import model.sections.sectiona.SectionA;
 import model.sections.sectionb.NsopStorageStatus;
 import model.sections.sectionb.SectionB;
@@ -31,19 +30,13 @@ import model.sections.sectiong.SyslogStatus;
 import model.sections.sectionh.SectionH;
 import model.sections.sectionh.StnLookAngle;
 import org.apache.log4j.Logger;
-import tutorial.dao.utils.jpahibernate.model.Student;
 import tutorial.dao.utils.hibernate.IDBUtil;
 import tutorial.dao.utils.jdbc.DBUtilv1;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
 import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
-import tutorial.dao.utils.jpahibernate.model.inheritance.BaseHealthNew;
-import tutorial.dao.utils.jpahibernate.model.inheritance.NewHealth;
-import tutorial.dao.utils.jpahibernate.model.inheritance.SchemacsHealthNew;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
-import javax.swing.plaf.basic.BasicBorders;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -83,13 +76,13 @@ public class AppMain {
         EntityManager entityManager = factory.createEntityManager();
 
         ISectionGDao sectionGDao = new SectionGDao();
-        BaseIssues sectionG = new SectionG();
-        sectionG.setIssues(faker.weather().description());
+        SectionG sectionG = new SectionG();
+
         SyslogStatus syslogStatus = new SyslogStatus();
         syslogStatus.setStatus(Status.OK);
         syslogStatus.setName("SysLog");
         ((SectionG) sectionG).addSysLog(syslogStatus);
-        sectionGDao.save(sectionG, entityManager);
+
 
         ISectionHDao sectionHDao = new SectionHDao();
         Set<StnLookAngle> stnLookAngles = new HashSet<>();
@@ -109,13 +102,30 @@ public class AppMain {
         Set<SchemacsHealth> schemacsHealths = new HashSet<>();
         BaseIssues sectionD = new SectionD();
         sectionD.setIssues("Issue is from Section D!!");
-
         for (int i = 0; i < 9; i++) {
-            SchemacsHealth schemacsHealth = new SchemacsHealth( faker.harryPotter().character(), Status.OK, "No issue_"+i);
+            SchemacsHealth schemacsHealth = new SchemacsHealth( faker.harryPotter().character(), Status.OK, "Issue is from schemacs"+i);
             ((SectionD) sectionD).addSchemacsHealth(schemacsHealth);
         }
-        logger.info(schemacsHealths);
+//        logger.info(schemacsHealths);
         sectionDDao.save((SectionD) sectionD, entityManager);
+
+
+        ICommIssuesDao commIssuesDao = new CommIssuesDao();
+        ISectionADao sectionADao = new SectionADao();
+        Set<BaseHealth> baseHealths = new HashSet<>();
+        CommunicationIssue communicationIssue = new CommunicationIssue();
+        for(int i=0; i<3; i++) {
+            BaseHealth baseHealth = new BaseHealth(faker.book().author(), Status.OK, "issue from SectionA_"+i);
+            communicationIssue.addBaseHealth(baseHealth);
+        }
+        logger.info(baseHealths);
+
+        SectionA sectionA = new SectionA();
+        sectionA.addCommunicationStatus(communicationIssue);
+
+
+        sectionADao.save(sectionA, entityManager);
+//        commIssuesDao.save(communicationIssue, entityManager );
         entityManager.close();
 
 
@@ -143,7 +153,7 @@ public class AppMain {
         LocalDateTime modifiedAt=LocalDateTime.now().plusHours(2);
         IUtils utils=new UtilsV3();
 
-        CommunicationIssues communicationStatus = getCommunicationIssues();
+        CommunicationIssue communicationStatus = getCommunicationIssues();
 
         SectionA sectionA=new SectionA(communicationStatus);
 
@@ -177,20 +187,27 @@ public class AppMain {
         Uere sat10Uere = null;
 
 
-        showSectionB(performanceDetails, sat10Uere);
+        try {
+            showSectionB(performanceDetails, sat10Uere);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) {
+    private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) throws Exception {
         SectionB retrievedSectionB= performanceDetails.getSectionB();
-        if(retrievedSectionB!=null){
-            List<BaseMeasurement> measurements=retrievedSectionB.getUereMeasurements();
-            if(measurements!=null && !measurements.isEmpty()){
-                BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);
-                if(baseMeasurement instanceof  Uere){
-                    sat10Uere =((Uere)baseMeasurement);
-                }
-            }
+        if(retrievedSectionB==null){
+            throw new Exception("Section B is null");
         }
+        List<BaseMeasurement> measurements=retrievedSectionB.getUereMeasurements();
+        if(measurements==null && measurements.isEmpty()){
+            throw new Exception("Section B Measurement is null or No Measurements");
+        }
+        BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);
+        if(baseMeasurement instanceof  Uere){
+            sat10Uere =((Uere)baseMeasurement);
+        }
+
 
         if(sat10Uere !=null){
 //            logger.info(sat10Uere + " - "+ sat10Uere.getSatellite());
@@ -207,8 +224,8 @@ public class AppMain {
     }
 
     private static SectionG getSectionG() {
-        SyslogStatus syslogStatus = new SyslogStatus("syslogStatus", Status.OK);
-        SectionG sectionG = new SectionG(syslogStatus, "Issues in Section G");
+        SyslogStatus syslogStatus = new SyslogStatus("syslogStatus", Status.OK, "Issue is from syslog d");
+        SectionG sectionG = new SectionG(syslogStatus);
         return sectionG;
     }
 
@@ -268,15 +285,15 @@ public class AppMain {
     }
 
     private static SectionD getSectionD() {
-        SchemacsHealth monitStatus=new SchemacsHealth("monitStatus", Status.OK, "Issues in monit status");
-        SchemacsHealth inc1Cs5=new SchemacsHealth("inc1Cs5", Status.OK, "Issues in inc1Cs5");
-        SchemacsHealth inc1Cs6=new SchemacsHealth("inc1Cs6", Status.OK, "Issues in inc1Cs6");
-        SchemacsHealth inc1Cs7=new SchemacsHealth("inc1Cs7", Status.OK, "Issues in inc1Cs7");
-        SchemacsHealth inc1Cs8=new SchemacsHealth("inc1Cs8", Status.OK, "Issues in inc1Cs8");
-        SchemacsHealth inc2Cs5=new SchemacsHealth("inc2Cs5", Status.OK, "Issues in inc2Cs5");
-        SchemacsHealth inc2Cs6=new SchemacsHealth("inc2Cs6", Status.OK, "Issues in inc2Cs6");
-        SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", Status.OK, "Issues in inc2Cs7");
-        SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", Status.OK, "Issues in inc2Cs8");
+        SchemacsHealth monitStatus=new SchemacsHealth("monitStatus", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs5=new SchemacsHealth("inc1Cs5", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs6=new SchemacsHealth("inc1Cs6", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs7=new SchemacsHealth("inc1Cs7", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs8=new SchemacsHealth("inc1Cs8", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs5=new SchemacsHealth("inc2Cs5", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs6=new SchemacsHealth("inc2Cs6", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", Status.OK, "issues is from schemacsHealth");
 
         Set<SchemacsHealth> schemacsHealths=new HashSet<>();
         schemacsHealths.add(monitStatus);
@@ -333,10 +350,10 @@ public class AppMain {
     }
 
      public static List<ParallelChain> getParallelChains() {
-        ParallelChain inc1Server1=new ParallelChain("inc1Server1", Status.OK, "Issues from inc1Ser1_Parallel Chain");
-        ParallelChain inc1Server2=new ParallelChain("inc1Server2", Status.OK, "Issues from inc1Ser2_Parallel Chain");
-        ParallelChain inc2Server1=new ParallelChain("inc2Server1", Status.OK, "Issues from inc2Ser1_Parallel Chain");
-        ParallelChain inc2Server2=new ParallelChain("inc2Server2", Status.OK, "Issues from inc2Ser2_Parallel Chain");
+        ParallelChain inc1Server1=new ParallelChain("inc1Server1", Status.OK, "Issues in parallelChain" );
+        ParallelChain inc1Server2=new ParallelChain("inc1Server2", Status.OK, "Issues in parallelChain");
+        ParallelChain inc2Server1=new ParallelChain("inc2Server1", Status.OK, "Issues in parallelChain");
+        ParallelChain inc2Server2=new ParallelChain("inc2Server2", Status.OK, "Issues in parallelChain");
 
         List<ParallelChain> parallelChains=new ArrayList<>();
         parallelChains.add(inc1Server1);
@@ -346,15 +363,15 @@ public class AppMain {
         return parallelChains;
     }
 
-    private static CommunicationIssues getCommunicationIssues() {
-        BaseHealth terrestrialBaseHealth =new BaseHealth("terrestrial", Status.OK);
-        BaseHealth satelliteBaseHealth =new BaseHealth("satellite", Status.OK);
-        BaseHealth inc1Inc2BaseHealth =new BaseHealth("inc1-inc2", Status.OK);
-        List<BaseHealth> baseHealths =new ArrayList<>();
+    private static CommunicationIssue getCommunicationIssues() {
+        BaseHealth terrestrialBaseHealth =new BaseHealth();
+        BaseHealth satelliteBaseHealth =new BaseHealth();
+        BaseHealth inc1Inc2BaseHealth =new BaseHealth();
+        Set<BaseHealth> baseHealths =new HashSet<>();
         baseHealths.add(terrestrialBaseHealth);
         baseHealths.add(satelliteBaseHealth);
         baseHealths.add(inc1Inc2BaseHealth);
-        CommunicationIssues communicationStatus=new CommunicationIssues("issue1", baseHealths);
+        CommunicationIssue communicationStatus=new CommunicationIssue(baseHealths);
         return communicationStatus;
     }
 

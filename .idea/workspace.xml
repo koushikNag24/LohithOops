@@ -5,17 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/CommIssuesDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ICommIssuesDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionADao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/SectionADao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/CommunicationIssue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/LinkStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ISectionHDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionHDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ISectionGDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionGDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionDDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionDDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionHDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionHDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/CommunicationIssues.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/SectionA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/SectionA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/GnssOffset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/GnssOffset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SectionD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SectionD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/SectionH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/SectionH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +36,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
+        <option value="AnnotationType" />
         <option value="Class" />
         <option value="Interface" />
       </list>
@@ -35,7 +45,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="JDBC" />
+        <entry key="$PROJECT_DIR$" value="ComplexRelationMapping" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,6 +79,7 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="dao" />
+      <recent name="model.sections.base" />
       <recent name="model" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">

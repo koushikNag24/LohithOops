@@ -16,11 +16,11 @@ import model.sections.base.BaseHealth;
 public class SchemacsHealth extends BaseHealth {
 
 
-    private String issuesSchemacs;
 
-    public SchemacsHealth(String name, Status status, String issuesSchemacs) {
-        super(name, status);
-        this.issuesSchemacs = issuesSchemacs;
+
+    public SchemacsHealth(String name, Status status, String issues) {
+        super(name, status, issues);
+
     }
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "sectionD_Id")

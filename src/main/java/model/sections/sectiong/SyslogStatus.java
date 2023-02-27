@@ -16,7 +16,7 @@ public class SyslogStatus extends BaseHealth {
 
     @OneToOne
     private SectionG sectionG;
-    public SyslogStatus(String name, Status status) {
-        super(name, status);
+    public SyslogStatus(String name, Status status, String issues) {
+        super(name, status, issues);
     }
 }
