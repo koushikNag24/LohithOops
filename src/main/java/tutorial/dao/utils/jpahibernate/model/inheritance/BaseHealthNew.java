@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@Entity
+//@Entity
 @Setter
 @Getter
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

@@ -2,8 +2,9 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import org.junit.Assert;
 import tutorial.dao.utils.jpahibernate.model.Course;
-import tutorial.dao.utils.jpahibernate.model.DepartmentTable;
+import tutorial.dao.utils.jpahibernate.model.Department;
 import model.*;
 import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
@@ -33,12 +34,17 @@ import tutorial.dao.utils.hibernate.IDBUtil;
 import tutorial.dao.utils.jdbc.DBUtilv1;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
 import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
+
+import tutorial.dao.utils.jpahibernate.model.Student;
 import tutorial.dao.utils.jpahibernate.model.inheritance.BaseHealthNew;
 import tutorial.dao.utils.jpahibernate.model.inheritance.NewHealth;
 import tutorial.dao.utils.jpahibernate.model.inheritance.SchemacsHealthNew;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
+import java.math.BigDecimal;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -77,7 +83,7 @@ public class AppMain {
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
-     /*   for(int i=1;i<getRandomNumber(3,5);i++) {
+        for(int i=1;i<getRandomNumber(3,5);i++) {
             Department department = getDepartment(faker);
 
             for (int j = 0; j < getRandomNumber(3,7); j++) {
@@ -92,32 +98,55 @@ public class AppMain {
             }
             jpaHibernateUtil.save(department,entityManager);
             logger.info(" saved "+department.toString()+ "-- "+i);
-        } */
-
-
-
-        BaseHealthNew baseHealthNew=new NewHealth();
-        baseHealthNew.setStatus("bad");
-        baseHealthNew.setName("some");
-        if(baseHealthNew instanceof  NewHealth){
-            ((NewHealth)baseHealthNew).setProblem("problem1");
-        }else {
-            ((SchemacsHealthNew)baseHealthNew).setIssues("issue1");
         }
-        jpaHibernateUtil.saveTest(baseHealthNew,entityManager);
+
+
+
 
         entityManager.close();
+        logger.info("-------------------------------");
+        List<Department> e =  factory.createEntityManager().createNativeQuery("SELECT * FROM Department e WHERE e.payload->'isInc1Fine' = 'true';", Department.class).getResultList();
+        System.out.println(e.size());
+        for (Department department:e ) {
+            System.out.println(department.getPayload());
+        }
+//        e.forEach(val->logger.info(val.getPayload()));
+        // create a new transaction to get the value
+        Department department=factory.createEntityManager().find(Department.class,1L);
+        logger.info(department.getYearlyFund());
+//        logger.info(department.getFullAddress());
+        logger.info("state: "+department.getState());
+        logger.info(department.getCountry());
+
 
     }
 
-    private static DepartmentTable getDepartment(Faker faker) {
-        DepartmentTable departmentTable = new DepartmentTable();
-        departmentTable.setName(faker.university().prefix());
-        departmentTable.setState(faker.address().state());
-        departmentTable.setCity(faker.address().cityName());
-        departmentTable.setCollege(faker.university().name());
-        departmentTable.setStartDate(LocalDate.now().minusYears(10));
-        return departmentTable;
+    private static Department getDepartment(Faker faker) {
+        Department department = new Department();
+        department.setName(faker.university().prefix());
+        department.setClosed(false);
+        InetAddress addr=null;
+        try {
+            addr  = InetAddress.getByName("www.yahoo.com");
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        department.setAddress(addr);
+
+        HashMap<String,Boolean> healthStatus=new HashMap<>();
+        healthStatus.put("isInc1Fine",true);
+        healthStatus.put("isInc2Fine",false);
+        department.setPayload(healthStatus);
+        department.setDepartmentPassword("123");
+        department.setCountry(faker.country().name());
+        department.setState(faker.address().state());
+        department.setCity(faker.address().cityName());
+        department.setCollege(faker.university().name());
+        department.setFund(BigDecimal.valueOf(1200));
+        department.setStartDate(LocalDate.now().minusYears(10));
+        return department;
     }
     public static int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);

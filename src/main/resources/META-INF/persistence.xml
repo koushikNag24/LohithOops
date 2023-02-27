@@ -8,7 +8,7 @@
     <persistence-unit name="Hibernate_JPA" >
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>tutorial.dao.utils.jpahibernate.model.DepartmentTable</class>
+        <class>tutorial.dao.utils.jpahibernate.model.Department</class>
         <class>tutorial.dao.utils.jpahibernate.model.Student</class>
         <class>tutorial.dao.utils.jpahibernate.model.Course</class>
 
@@ -31,6 +31,7 @@
             <property name="hibernate.connection.charSet" value="UTF-8"></property>
             <property name="hibernate.show_sql" value="true"></property>
             <property name="hibernate.format_sql" value="true"></property>
+            <property name="hibernate.type.json_format_mapper" value="org.hibernate.type.jackson.JacksonJsonFormatMapper"/>
             <property name="hibernate.ejb.metamodel.generation" value="disabled"></property>
             <property name="hibernate.jdbc.batch_size " value="3"/>
             <!-- Use the C3P0 connection pool provider -->

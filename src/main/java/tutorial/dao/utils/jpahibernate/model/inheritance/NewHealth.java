@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.sections.base.BaseHealth;
-@Entity
+/*@Entity*/
 @NoArgsConstructor
 @ToString
 @Getter

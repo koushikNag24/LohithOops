@@ -2,7 +2,10 @@ package tutorial.dao.utils.jpahibernate.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +21,12 @@ public class Course {
     @Column(updatable = false, nullable = false)
     private Long id;
     private String name;
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime insertedAt;
+
+    @UpdateTimestamp
+    private LocalDateTime modifiedAt;
 
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students=new HashSet<>();
