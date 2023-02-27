@@ -1,15 +1,12 @@
 package model.sections.sectiond;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.Status;
 import model.sections.base.BaseHealth;
-import model.sections.sectionh.SectionH;
 
 @Entity
 @ToString
@@ -19,16 +16,19 @@ import model.sections.sectionh.SectionH;
 public class SchemacsHealth extends BaseHealth {
 
 
-    private String issues;
-    @ManyToOne
+    private String issuesSchemacs;
+
+    public SchemacsHealth(String name, Status status, String issuesSchemacs) {
+        super(name, status);
+        this.issuesSchemacs = issuesSchemacs;
+    }
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "sectionD_Id")
     private SectionD sectionD;
 
-    public SchemacsHealth(String name, Status status, String issues) {
-        super(name, status);
-        this.issues = issues;
-    }
     public void addSectionD(SectionD sectionD){
         this.setSectionD(sectionD);
         sectionD.addSchemacsHealth(this);
     }
+
 }

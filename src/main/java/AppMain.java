@@ -92,32 +92,30 @@ public class AppMain {
         sectionGDao.save(sectionG, entityManager);
 
         ISectionHDao sectionHDao = new SectionHDao();
-        List<StnLookAngle> stnLookAngles = new ArrayList<>();
-        SectionH sectionH = new SectionH();
+        Set<StnLookAngle> stnLookAngles = new HashSet<>();
+        BaseIssues sectionH = new SectionH();
         sectionH.setIssues("Issues is from section H");
         for (int i = 0; i < 3; i++) {
             StnLookAngle stnLookAngle = new StnLookAngle(faker.gameOfThrones().city(), LocalDateTime.now());
-            stnLookAngles.add(stnLookAngle);
+            stnLookAngle.addSectionH((SectionH) sectionH);
+            ((SectionH) sectionH).addStnLookAngle(stnLookAngle);
         }
-        sectionH.setStnLookAngles(stnLookAngles);
-        logger.info(stnLookAngles);
-        sectionH.setStnLookAngles(stnLookAngles);
-        sectionHDao.save(sectionH, entityManager);
 
+        logger.info(stnLookAngles);
+
+        sectionHDao.save((SectionH) sectionH, entityManager);
 
         ISectionDDao sectionDDao = new SectionDDao();
-        List<SchemacsHealth> schemacsHealths = new ArrayList<>();
-        SectionD sectionD = new SectionD();
+        Set<SchemacsHealth> schemacsHealths = new HashSet<>();
+        BaseIssues sectionD = new SectionD();
         sectionD.setIssues("Issue is from Section D!!");
 
         for (int i = 0; i < 9; i++) {
-            SchemacsHealth schemacsHealth = new SchemacsHealth( faker.harryPotter().character(), Status.OK, "No issue");
-            schemacsHealths.add(schemacsHealth);
+            SchemacsHealth schemacsHealth = new SchemacsHealth( faker.harryPotter().character(), Status.OK, "No issue_"+i);
+            ((SectionD) sectionD).addSchemacsHealth(schemacsHealth);
         }
-
         logger.info(schemacsHealths);
-        sectionD.setSchemacsHealths(schemacsHealths);
-        sectionDDao.save(sectionD, entityManager);
+        sectionDDao.save((SectionD) sectionD, entityManager);
         entityManager.close();
 
 
@@ -204,7 +202,7 @@ public class AppMain {
         StnLookAngle stnLookAngleJDH= new StnLookAngle("JDH", LocalDateTime.now().plusHours(2));
         StnLookAngle stnLookAngleHSN= new StnLookAngle("HSN", LocalDateTime.now().minusMinutes(30));
         StnLookAngle stnLookAnglePBR= new StnLookAngle("PBR", LocalDateTime.now().plusHours(4));
-        SectionH sectionH=new SectionH("Issues from Section H", List.of(stnLookAngleBPL,stnLookAngleHSN,stnLookAnglePBR,stnLookAngleJDH));
+        SectionH sectionH=new SectionH("Issues from Section H", Set.of(stnLookAngleBPL,stnLookAngleHSN,stnLookAnglePBR,stnLookAngleJDH));
         return sectionH;
     }
 
@@ -280,7 +278,7 @@ public class AppMain {
         SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", Status.OK, "Issues in inc2Cs7");
         SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", Status.OK, "Issues in inc2Cs8");
 
-        List<SchemacsHealth> schemacsHealths=new ArrayList<>();
+        Set<SchemacsHealth> schemacsHealths=new HashSet<>();
         schemacsHealths.add(monitStatus);
         schemacsHealths.add(inc1Cs5);
         schemacsHealths.add(inc1Cs6);

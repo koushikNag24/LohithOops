@@ -15,9 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class StnLookAngle {
 
-    @ManyToOne
-    @JoinColumn(name="base_issue_id ", nullable=false)
-    private SectionH sectionH;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "stnLookAngle_seq")
@@ -29,6 +27,10 @@ public class StnLookAngle {
 
     private  String location;
     private LocalDateTime availableTill;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name="base_issue_id ")
+    private SectionH sectionH;
 
     public StnLookAngle(String location, LocalDateTime availableTill) {
         this.location = location;

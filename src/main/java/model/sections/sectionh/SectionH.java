@@ -8,10 +8,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.sections.base.BaseIssues;
+import model.sections.sectiond.SchemacsHealth;
 import model.sections.sectiong.SyslogStatus;
 import tutorial.dao.utils.jpahibernate.model.Student;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @ToString
@@ -19,10 +22,12 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 public class SectionH extends BaseIssues {
-    @OneToMany(mappedBy="sectionH")
-    private List<StnLookAngle> stnLookAngles;
-    public SectionH(String issues, List<StnLookAngle> stnLookAngles) {
-        super(issues);
+    @OneToMany(mappedBy="sectionH", cascade = CascadeType.ALL)
+    private Set<StnLookAngle> stnLookAngles=new HashSet<>();
+
+
+    public SectionH(String issuesFromSectionH, Set<StnLookAngle> stnLookAngles) {
+        super(issuesFromSectionH);
         this.stnLookAngles = stnLookAngles;
     }
 

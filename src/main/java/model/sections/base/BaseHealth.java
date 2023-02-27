@@ -12,7 +12,7 @@ import model.Status;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class BaseHealth {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "baseHealthSeq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "baseHealthSeq")
     @SequenceGenerator(name = "baseHealth",sequenceName = "baseHealthLearn",allocationSize = 2)
     @Column(name = "baseHealthId",updatable = false, nullable = false)
     private Long id;

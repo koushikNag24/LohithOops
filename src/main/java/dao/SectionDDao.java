@@ -17,7 +17,7 @@ public class SectionDDao implements ISectionDDao{
 
             entityManager.persist(sectionD);
 
-            // Save the associated SchemacsHealth objects
+
             for (SchemacsHealth health : sectionD.getSchemacsHealths()) {
                 entityManager.persist(health);
             }
