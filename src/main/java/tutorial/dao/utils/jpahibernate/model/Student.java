@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -18,15 +19,26 @@ import java.util.Set;
 @NoArgsConstructor
 public class Student {
 
-    @ManyToOne
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fkDept")
     private Department department;
 
+    @ToString.Exclude
 
+    @Where(clause = "active= 'true'")
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    private  Set<AdharCard> activeAdharCards=new HashSet<>();
+
+
+    @Where(clause = "active= 'false'")
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    private  Set<AdharCard> inActiveAdharCards=new HashSet<>();
+    @ToString.Exclude
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "studentCourse",
-            joinColumns = { @JoinColumn(name = "fkStudent") },
-            inverseJoinColumns = { @JoinColumn(name = "fkCourse")})
+            joinColumns = { @JoinColumn(name = "fkStudent",foreignKey = @ForeignKey(name = "Student_ID_FK")) },
+            inverseJoinColumns = { @JoinColumn(name = "fkCourse",foreignKey = @ForeignKey(name = "Course_ID_FK"))})
     private Set<Course> courses=new HashSet<>();
     private String name;
 
@@ -40,8 +52,9 @@ public class Student {
     private String email;
     private int pocketMoney;
 
-    @Formula(value = "30*pocketMoney")
+    @Formula(value = "30*pocket_money")
     private Double monthlyPocketMoney;
+
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -65,5 +78,13 @@ public class Student {
     public void addCourse(Course course){
         this.courses.add(course);
         course.getStudents().add(this);
+    }
+    public void addActiveAdharCard(AdharCard adharCard){
+        this.activeAdharCards.add(adharCard);
+        adharCard.setStudent(this);
+    }
+    public void addInActiveAdharCard(AdharCard adharCard){
+        this.inActiveAdharCards.add(adharCard);
+        adharCard.setStudent(this);
     }
 }

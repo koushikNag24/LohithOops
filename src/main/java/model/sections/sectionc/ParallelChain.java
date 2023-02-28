@@ -1,8 +1,9 @@
 package model.sections.sectionc;
 
+import lombok.Getter;
 import model.Status;
 import model.sections.base.BaseHealth;
-
+@Getter
 public class ParallelChain extends BaseHealth {
     private final String issues;
 

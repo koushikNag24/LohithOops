@@ -28,7 +28,7 @@ public class Course {
     @UpdateTimestamp
     private LocalDateTime modifiedAt;
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "courses",cascade = CascadeType.ALL)
     private Set<Student> students=new HashSet<>();
 
     public void addStudent(Student student){

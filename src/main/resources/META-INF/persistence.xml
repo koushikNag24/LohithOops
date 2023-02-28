@@ -8,9 +8,7 @@
     <persistence-unit name="Hibernate_JPA" >
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>tutorial.dao.utils.jpahibernate.model.Department</class>
-        <class>tutorial.dao.utils.jpahibernate.model.Student</class>
-        <class>tutorial.dao.utils.jpahibernate.model.Course</class>
+
 
         <properties>
             <property name="hibernate.physical_naming_strategy"
@@ -20,7 +18,8 @@
 
 
 <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"></property>
-            <property name="hibernate.hbm2ddl.auto" value="create"></property>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"></property>
+
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/physical_name"></property>
             <property name="hibernate.connection.username" value="chandan"></property>
             <property name="hibernate.connection.password" value="123"></property>

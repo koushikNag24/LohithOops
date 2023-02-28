@@ -45,7 +45,7 @@ public class Department {
     private String fullAddress;
 
     @Column
-    @ColumnTransformer(read = "pgp_sym_decrypt(department_password::byte, 'mySecretKey')",
+    @ColumnTransformer(read = "pgp_sym_decrypt(department_password::bytea, 'mySecretKey')",
             write = "pgp_sym_encrypt(?, 'mySecretKey')")
     private String departmentPassword;
 
@@ -85,5 +85,8 @@ public class Department {
     public void addStudent(Student student){
         this.students.add(student);
         student.setDepartment(this);
+    }
+    public void removeStudent(Student  student){
+        this.students.remove(student);
     }
 }

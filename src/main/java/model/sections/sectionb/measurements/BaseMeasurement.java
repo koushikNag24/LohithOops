@@ -2,15 +2,19 @@ package model.sections.sectionb.measurements;
 
 import lombok.Getter;
 import lombok.ToString;
+import tutorial.dao.utils.jpahibernate.model.enumer.IrimsChain;
+import tutorial.dao.utils.jpahibernate.model.enumer.IrimsMode1;
+import tutorial.dao.utils.jpahibernate.model.enumer.NavigationServer;
+
 @Getter
 @ToString
 public abstract class BaseMeasurement {
-    private final String server;
-    private final String location;
+    private final NavigationServer server;
+    private final IrimsMode1 location;
     private final Double value;
-    private final Character chain;
+    private final IrimsChain chain;
 
-    protected BaseMeasurement(String server, String location, Double value, Character chain) {
+    protected BaseMeasurement(NavigationServer server, IrimsMode1 location, Double value, IrimsChain chain) {
         this.server = server;
         this.location = location;
         this.value = value;

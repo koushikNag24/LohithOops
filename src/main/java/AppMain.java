@@ -1,95 +1,52 @@
 import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-import org.junit.Assert;
-import tutorial.dao.utils.jpahibernate.model.Course;
-import tutorial.dao.utils.jpahibernate.model.Department;
-import model.*;
-import model.sections.base.BaseHealth;
-import model.sections.sectionb.measurements.BaseMeasurement;
-import model.sections.sectionb.measurements.Uere;
-import model.sections.sectionb.measurements.UserPosition;
-import model.sections.sectiona.CommunicationIssues;
-import model.sections.sectiona.SectionA;
-import model.sections.sectionb.NsopStorageStatus;
-import model.sections.sectionb.SectionB;
-import model.sections.sectionb.StandardFileStatus;
-import model.sections.sectionb.StorageIssues;
-import model.sections.sectionb.archival.good.*;
-import model.sections.sectionc.GnssOffset;
-import model.sections.sectionc.ParallelChain;
-import model.sections.sectionc.SectionC;
-import model.sections.sectionc.TwstftOffset;
-import model.sections.sectiond.SchemacsHealth;
-import model.sections.sectiond.SectionD;
-import model.sections.sectione.SectionE;
-import model.sections.sectionf.SectionF;
-import model.sections.sectiong.SectionG;
-import model.sections.sectiong.SyslogStatus;
-import model.sections.sectionh.SectionH;
-import model.sections.sectionh.StnLookAngle;
 import org.apache.log4j.Logger;
-import tutorial.dao.utils.hibernate.IDBUtil;
-import tutorial.dao.utils.jdbc.DBUtilv1;
+import org.junit.Assert;
+import tutorial.dao.utils.hibernate.HibernateDB;
+import tutorial.dao.utils.hibernate.IDepartmentDBUtil;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
 import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
-
+import tutorial.dao.utils.jpahibernate.exception.ArgumentNullException;
+import tutorial.dao.utils.jpahibernate.exception.NoMeasurementException;
+import tutorial.dao.utils.jpahibernate.model.AdharCard;
+import tutorial.dao.utils.jpahibernate.model.Course;
+import tutorial.dao.utils.jpahibernate.model.Department;
 import tutorial.dao.utils.jpahibernate.model.Student;
-import tutorial.dao.utils.jpahibernate.model.inheritance.BaseHealthNew;
-import tutorial.dao.utils.jpahibernate.model.inheritance.NewHealth;
-import tutorial.dao.utils.jpahibernate.model.inheritance.SchemacsHealthNew;
-import workutils.IUtils;
-import workutils.UtilsV3;
+import tutorial.dao.utils.jpahibernate.service.DepartmentService;
+import tutorial.dao.utils.jpahibernate.service.SectionService;
 
-import java.math.BigDecimal;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class AppMain {
 
-
-
-    public static final String SERVER1 = "NSOP1";
-    public static final String SERVER2 = "NSOP2";
-    public static final String SERVER4 = "NSOP4";
-
-    public static final char CHAIN_A = 'A';
-    public static final char CHAIN_B = 'B';
-    static final String BLR = "BLR";
-    public static final String LCK = "LCK";
-    public static final String STORAGE_UNIT = "G";
-    public static final String satellite_02 = "SAT02";
-    public static final String satellite_03 = "SAT03";
-    public static final String satellite_10 = "SAT10";
-    public static final String satellite_06 = "SAT06";
-    public static final String satellite_09 = "SAT09";
-    public static final String Document_1 = "Doct1";
-    public static final String document_2 = "doc2";
-    List<String> asd =new LinkedList<>();
-    List<String> asd1 =new ArrayList<>();
     final static Logger logger = Logger.getLogger(AppMain.class);
-    final static DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ISO_LOCAL_TIME;
     public static void main(String[] args) {
-        sectionTask();
+
         Faker faker=new Faker();
-        List<Course> courses=new ArrayList<>();
+        DepartmentService departmentService=new DepartmentService();
 
         IJpaHibernateUtil jpaHibernateUtil = new JpaHibernateUtilv1();
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
-        for(int i=1;i<getRandomNumber(3,5);i++) {
-            Department department = getDepartment(faker);
+        for(int i = 1; i< SectionService.getRandomNumber(3,5); i++) {
+            Department department = departmentService.getDepartment(faker);
 
-            for (int j = 0; j < getRandomNumber(3,7); j++) {
+            for (int j = 0; j < SectionService.getRandomNumber(3,7); j++) {
                 Student student = new Student(faker.harryPotter().character(), faker.harryPotter().location(), faker.address().cityName(), faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
+                AdharCard adharCard=departmentService.getAdharCard();
+                if(adharCard.isActive()){
+                    student.addActiveAdharCard(adharCard);
+                }else{
+                    student.addInActiveAdharCard(adharCard);
+                }
 
-                for(int p=0;p< getRandomNumber(2,4);p++){
+                for(int p=0;p< SectionService.getRandomNumber(2,4);p++){
                     Course course=new Course();
                     course.setName(faker.cat().name());
                     student.addCourse(course);
@@ -102,310 +59,90 @@ public class AppMain {
 
 
 
-
-        entityManager.close();
-        logger.info("-------------------------------");
-        List<Department> e =  factory.createEntityManager().createNativeQuery("SELECT * FROM Department e WHERE e.payload->'isInc1Fine' = 'true';", Department.class).getResultList();
-        System.out.println(e.size());
-        for (Department department:e ) {
-            System.out.println(department.getPayload());
-        }
-//        e.forEach(val->logger.info(val.getPayload()));
-        // create a new transaction to get the value
-        Department department=factory.createEntityManager().find(Department.class,1L);
-        logger.info(department.getYearlyFund());
-//        logger.info(department.getFullAddress());
-        logger.info("state: "+department.getState());
-        logger.info(department.getCountry());
-
-
-    }
-
-    private static Department getDepartment(Faker faker) {
-        Department department = new Department();
-        department.setName(faker.university().prefix());
-        department.setClosed(false);
-        InetAddress addr=null;
+//        EntityManager entityManager2 = factory.createEntityManager();
+        EntityTransaction   entityTransaction=entityManager.getTransaction();
+        entityTransaction.begin();
+        Department department=entityManager.find(Department.class,1L);
+        Set<Student> students  = department.getStudents();
         try {
-            addr  = InetAddress.getByName("www.yahoo.com");
-        } catch (UnknownHostException e) {
+
+            SectionService.GuardCollectionAgainstNullEmpty(students);
+        } catch (NoMeasurementException | ArgumentNullException e) {
             throw new RuntimeException(e);
         }
+        entityTransaction.commit();
+
+        EntityManager entityManager1=factory.createEntityManager();
+        EntityTransaction   entityTransaction2=entityManager1.getTransaction();
+        entityTransaction2.begin();
+       Student student=entityManager1.find(Student.class,1L);
+        logger.info("removing "+student.toString());
+//       department.removeStudent(randomStudent);
+
+//        entityManager1.remove(student);
+
+        entityTransaction2.commit();
 
 
-        department.setAddress(addr);
 
-        HashMap<String,Boolean> healthStatus=new HashMap<>();
-        healthStatus.put("isInc1Fine",true);
-        healthStatus.put("isInc2Fine",false);
-        department.setPayload(healthStatus);
-        department.setDepartmentPassword("123");
-        department.setCountry(faker.country().name());
-        department.setState(faker.address().state());
-        department.setCity(faker.address().cityName());
-        department.setCollege(faker.university().name());
-        department.setFund(BigDecimal.valueOf(1200));
-        department.setStartDate(LocalDate.now().minusYears(10));
-        return department;
-    }
-    public static int getRandomNumber(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
+        entityManager1.close();
 
-    private static void sectionTask() {
-        IDBUtil idbUtil=new DBUtilv1();
-        Faker  faker=new Faker();
-        // data came from frontend//
+        IDepartmentDBUtil dbUtil=new HibernateDB();
+        Long[] ids ={1L,2L,3L};
+        EntityManager entityManager2=factory.createEntityManager();
+        List<Student>  studentGot=dbUtil.getStudents(ids,entityManager2);
 
-        String issues="This issue came from frontend";
-//        BaseStatus communicationStatus=new CommunicationStatus(issues,"OK","NOT-OK","OK");
+        studentGot.forEach(s->logger.info(s));
+        entityManager2.close();
 
-        StandardFileStatus standardFileStatus = getStandardFileStatus();
-        issues=faker.shakespeare().romeoAndJulietQuote();
-        StorageIssues storageStatus = getStorageIssues(issues);
+        EntityManager entityManager3=factory.createEntityManager();
+
+        EntityTransaction transaction=entityManager3.getTransaction();
+        transaction.begin();
+        List<AdharCard> adharCards=entityManager3.createQuery("select a from AdharCard a",AdharCard.class)
+                        .getResultList();
+        adharCards.forEach(a->logger.info(a));
 
 
-        LocalDateTime createdAt=LocalDateTime.now();
-        LocalDateTime modifiedAt=LocalDateTime.now().plusHours(2);
-        IUtils utils=new UtilsV3();
+        transaction.commit();
 
-        CommunicationIssues communicationStatus = getCommunicationIssues();
-
-        SectionA sectionA=new SectionA(communicationStatus);
-
-        SectionB sectionB = getSectionB(faker, standardFileStatus, storageStatus);
-
-        SectionC sectionC = getSectionC();
-
-        SectionD sectionD = getSectionD();
-
-        SectionE sectionE=new SectionE("Irms Issues", List.of("BLR", "MGH"));
-
-        SectionF sectionF = new SectionF("Issues in sectionF", List.of("BLR", "DDN"));
-
-//        List<BaseStatus> baseStatusList=List.of(communicationStatus,storageStatus,schemacsStatus);
-
-        SectionG sectionG = getSectionG();
-
-        SectionH sectionH = getSectionH();
+        entityManager3.close();
 
 
-        NavICPerformanceDetails performanceDetails=new NavICPerformanceDetails(1000,sectionA,sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
 
+        EntityManager entityManager4=factory.createEntityManager();
 
-        List<ArchivalBaseClass> archivals=performanceDetails.getSectionB().getArchivalList();
+        EntityTransaction transaction4=entityManager4.getTransaction();
+        transaction4.begin();
+        Student studentToSearch=entityManager4.find(Student.class,3L);
+        logger.info(studentToSearch.getActiveAdharCards());
+        logger.info(studentToSearch.getInActiveAdharCards());
+        transaction4.commit();
 
+        entityManager4.close();
 
-//        logger.info(performanceDetails.getSectionB().getIssues());
-//        logger.info(performanceDetails.getSectionD().getSchemacsHealths());
-//        logger.info(performanceDetails.getSectionE().getStationNames());
-//        logger.info(performanceDetails.getSectionH().getStnLookAngles());
-        Uere sat10Uere = null;
-
-
-        showSectionB(performanceDetails, sat10Uere);
-    }
-
-    private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) {
-        SectionB retrievedSectionB= performanceDetails.getSectionB();
-        if(retrievedSectionB!=null){
-            List<BaseMeasurement> measurements=retrievedSectionB.getUereMeasurements();
-            if(measurements!=null && !measurements.isEmpty()){
-                BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);
-                if(baseMeasurement instanceof  Uere){
-                    sat10Uere =((Uere)baseMeasurement);
-                }
-            }
-        }
-
-        if(sat10Uere !=null){
-//            logger.info(sat10Uere + " - "+ sat10Uere.getSatellite());
-        }
-    }
-
-    private static SectionH getSectionH() {
-        StnLookAngle stnLookAngleBPL= new StnLookAngle("BPL", LocalDateTime.now().plusHours(1));
-        StnLookAngle stnLookAngleJDH= new StnLookAngle("JDH", LocalDateTime.now().plusHours(2));
-        StnLookAngle stnLookAngleHSN= new StnLookAngle("HSN", LocalDateTime.now().minusMinutes(30));
-        StnLookAngle stnLookAnglePBR= new StnLookAngle("PBR", LocalDateTime.now().plusHours(4));
-        SectionH sectionH=new SectionH("Issues from Section H", List.of(stnLookAngleBPL,stnLookAngleHSN,stnLookAnglePBR,stnLookAngleJDH));
-        return sectionH;
-    }
-
-    private static SectionG getSectionG() {
-        SyslogStatus syslogStatus = new SyslogStatus("syslogStatus", Status.OK);
-        SectionG sectionG = new SectionG(syslogStatus, "Issues in Section G");
-        return sectionG;
-    }
-
-    private static SectionB getSectionB(Faker faker, StandardFileStatus standardFileStatus, StorageIssues storageStatus) {
-        List<ArchivalBaseClass> archivalList = getArchivalBaseClasses(faker);
-
-        List<BaseMeasurement> uereMeasurements = getBaseMeasurements(faker);
-
-        List<BaseMeasurement> userPositionMeasurements = getMeasurements(faker);
-
-
-        SectionB sectionB=new SectionB(storageStatus, standardFileStatus,archivalList,uereMeasurements,userPositionMeasurements,"issue in sectoin B");
-        return sectionB;
-    }
-
-    private static List<BaseMeasurement> getMeasurements(Faker faker) {
-        UserPosition userPosBlrServer1 = new UserPosition(SERVER1, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,"a");
-        UserPosition userPosBlrServer4 = new UserPosition(SERVER4, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,"s");
-        UserPosition userPosLckServer1 = new UserPosition(SERVER1, LCK, faker.number().randomDouble(4,6,7), CHAIN_B,"s");
-        UserPosition userPosLckServer2 = new UserPosition(SERVER2, LCK, faker.number().randomDouble(4,6,7), CHAIN_B,"e");
-
-        List<BaseMeasurement> userPositionMeasurements=new ArrayList<>();
-        userPositionMeasurements.add(userPosBlrServer1);
-        userPositionMeasurements.add(userPosBlrServer4);
-        userPositionMeasurements.add(userPosLckServer1);
-        userPositionMeasurements.add(userPosLckServer2);
-        return userPositionMeasurements;
-    }
-
-    private static List<BaseMeasurement> getBaseMeasurements(Faker faker) {
-        Uere sat02UereA=new Uere(SERVER1,BLR, faker.number().randomDouble(4,6,7),CHAIN_A,satellite_02);
-        Uere sat03UereA=new Uere(SERVER1,BLR, faker.number().randomDouble(4,6,7),CHAIN_A,satellite_03);
-        Uere sat02UereB=new Uere(SERVER1,BLR, faker.number().randomDouble(6,6,7),CHAIN_B,satellite_02);
-        Uere sat03UereB=new Uere(SERVER2,LCK, faker.number().randomDouble(6,20,30),CHAIN_B,satellite_06);
-        Uere sat10UereB=new Uere(SERVER2,LCK, faker.number().randomDouble(6,20,30),CHAIN_B,satellite_10);
-        List<BaseMeasurement> uereMeasurements=new ArrayList<>();
-        uereMeasurements.add(sat02UereA);
-        uereMeasurements.add(sat03UereA);
-        uereMeasurements.add(sat02UereB);
-        uereMeasurements.add(sat03UereB);
-        uereMeasurements.add(sat10UereB);
-        return uereMeasurements;
-    }
-
-    private static List<ArchivalBaseClass> getArchivalBaseClasses(Faker faker) {
-        NSOP2 NSOP2=new NSOP2(Status.OK, faker.number().numberBetween(10,18)+ STORAGE_UNIT);
-        NSOP4 NSOP4=new NSOP4(Status.NOTOK, faker.number().numberBetween(10,18)+STORAGE_UNIT);
-        NSDAQ1 NSDAQ1 =new NSDAQ1(Status.NOTOK, faker.number().numberBetween(2,10)+"G");
-        NSDAQ2 NSDAQ2=new NSDAQ2(Status.OK, "10G");
-
-        List<ArchivalBaseClass> archivalList=new ArrayList<>();
-        archivalList.add(NSOP2);
-        archivalList.add(NSOP4);
-        archivalList.add(NSDAQ1);
-        archivalList.add(NSDAQ2);
-        return archivalList;
-    }
-
-    private static SectionD getSectionD() {
-        SchemacsHealth monitStatus=new SchemacsHealth("monitStatus", Status.OK, "Issues in monit status");
-        SchemacsHealth inc1Cs5=new SchemacsHealth("inc1Cs5", Status.OK, "Issues in inc1Cs5");
-        SchemacsHealth inc1Cs6=new SchemacsHealth("inc1Cs6", Status.OK, "Issues in inc1Cs6");
-        SchemacsHealth inc1Cs7=new SchemacsHealth("inc1Cs7", Status.OK, "Issues in inc1Cs7");
-        SchemacsHealth inc1Cs8=new SchemacsHealth("inc1Cs8", Status.OK, "Issues in inc1Cs8");
-        SchemacsHealth inc2Cs5=new SchemacsHealth("inc2Cs5", Status.OK, "Issues in inc2Cs5");
-        SchemacsHealth inc2Cs6=new SchemacsHealth("inc2Cs6", Status.OK, "Issues in inc2Cs6");
-        SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", Status.OK, "Issues in inc2Cs7");
-        SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", Status.OK, "Issues in inc2Cs8");
-
-        List<SchemacsHealth> schemacsHealths=new ArrayList<>();
-        schemacsHealths.add(monitStatus);
-        schemacsHealths.add(inc1Cs5);
-        schemacsHealths.add(inc1Cs6);
-        schemacsHealths.add(inc1Cs7);
-        schemacsHealths.add(inc1Cs8);
-        schemacsHealths.add(inc2Cs5);
-        schemacsHealths.add(inc2Cs6);
-        schemacsHealths.add(inc2Cs7);
-        schemacsHealths.add(inc2Cs8);
-
-        SectionD sectionD=new SectionD(schemacsHealths,"secttion D issue");
-        return sectionD;
-    }
-
-    private static SectionC getSectionC() {
-        List<ParallelChain> parallelChains = getParallelChains();
-
-        List<TwstftOffset> twstftOffsets = getTwstftOffsets();
-
-        List<GnssOffset> gnssOffsets = getGnssOffsets();
-
-        SectionC sectionC = new SectionC(parallelChains, twstftOffsets, gnssOffsets);
-        return sectionC;
-    }
-
-    private static List<GnssOffset> getGnssOffsets() {
-        GnssOffset gnssItsA=new GnssOffset("itsA", 10.00, "itsA issues");
-        GnssOffset gnssItsB=new GnssOffset("itsB", 10.00, "itsB issues");
-        GnssOffset gnssItsC=new GnssOffset("itsC", 10.00, "itsC issues");
-        GnssOffset vremyaA=new GnssOffset("vremyaA", 10.00, "vremyaA issues");
-        GnssOffset vremyaB=new GnssOffset("vremyaB", 10.00, "vremyaB issues");
-        GnssOffset itsInc2=new GnssOffset("itsInc2", 10.00, "itsInc2 issues");
-        List<GnssOffset> gnssOffsets=new ArrayList<>();
-        gnssOffsets.add(gnssItsA);
-        gnssOffsets.add(gnssItsB);
-        gnssOffsets.add(gnssItsC);
-        gnssOffsets.add(vremyaA);
-        gnssOffsets.add(vremyaB);
-        gnssOffsets.add(itsInc2);
-        return gnssOffsets;
-    }
-
-    public static List<TwstftOffset> getTwstftOffsets() {
-        TwstftOffset itsA=new TwstftOffset("itsA", 10.00, "itsA issues");
-        TwstftOffset itsB=new TwstftOffset("itsB", 10.00, "itsB issues");
-        TwstftOffset itsC=new TwstftOffset("itsC", 10.00, "itsC issues");
-        List<TwstftOffset> twstftOffsets=new ArrayList<>();
-        twstftOffsets.add(itsA);
-        twstftOffsets.add(itsB);
-        twstftOffsets.add(itsC);
-        return twstftOffsets;
-    }
-
-     public static List<ParallelChain> getParallelChains() {
-        ParallelChain inc1Server1=new ParallelChain("inc1Server1", Status.OK, "Issues from inc1Ser1_Parallel Chain");
-        ParallelChain inc1Server2=new ParallelChain("inc1Server2", Status.OK, "Issues from inc1Ser2_Parallel Chain");
-        ParallelChain inc2Server1=new ParallelChain("inc2Server1", Status.OK, "Issues from inc2Ser1_Parallel Chain");
-        ParallelChain inc2Server2=new ParallelChain("inc2Server2", Status.OK, "Issues from inc2Ser2_Parallel Chain");
-
-        List<ParallelChain> parallelChains=new ArrayList<>();
-        parallelChains.add(inc1Server1);
-        parallelChains.add(inc1Server2);
-        parallelChains.add(inc2Server1);
-        parallelChains.add(inc2Server2);
-        return parallelChains;
-    }
-
-    private static CommunicationIssues getCommunicationIssues() {
-        BaseHealth terrestrialBaseHealth =new BaseHealth("terrestrial", Status.OK);
-        BaseHealth satelliteBaseHealth =new BaseHealth("satellite", Status.OK);
-        BaseHealth inc1Inc2BaseHealth =new BaseHealth("inc1-inc2", Status.OK);
-        List<BaseHealth> baseHealths =new ArrayList<>();
-        baseHealths.add(terrestrialBaseHealth);
-        baseHealths.add(satelliteBaseHealth);
-        baseHealths.add(inc1Inc2BaseHealth);
-        CommunicationIssues communicationStatus=new CommunicationIssues("issue1", baseHealths);
-        return communicationStatus;
-    }
-
-    private static StorageIssues getStorageIssues(String issues) {
-       NsopStorageStatus shiftOps = new NsopStorageStatus("172.19.2.145(ShiftOps)", Status.OK );
-        NsopStorageStatus nsop1 = new NsopStorageStatus("172.19.4.15(NSOP-1)", Status.OK );
-        NsopStorageStatus nsop2 = new NsopStorageStatus("172.19.7.15(NSOP-2", Status.OK );
-        List<NsopStorageStatus> storages = List.of(shiftOps, nsop1, nsop2);
-        StorageIssues storageIssues = new StorageIssues(storages, "Everything is fine");
-        return storageIssues;
 
     }
 
-    private static StandardFileStatus getStandardFileStatus() {
-        List<String> availableFiles=List.of(Document_1, document_2);
-        StandardFileStatus standardFileStatus=new StandardFileStatus(availableFiles);
-        return standardFileStatus;
-    }
 
-    private static Uere castToUere(BaseMeasurement measurement){
-        return (Uere)measurement;
-    }
-    private static boolean isInstanceOfUere(BaseMeasurement measurement){
-        return measurement instanceof  Uere;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
