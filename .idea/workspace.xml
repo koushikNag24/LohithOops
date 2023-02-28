@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionBDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/CommunicationIssue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/CommunicationIssue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/LinkStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/LinkStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/CommIssuesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionBDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ICommIssuesDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/SectionB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/SectionB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StorageIssues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

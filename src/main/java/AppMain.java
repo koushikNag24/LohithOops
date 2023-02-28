@@ -120,10 +120,24 @@ public class AppMain {
             communicationIssue.addLinkStatus(baseHealth);
         }
         logger.info(baseHealths);
-
         SectionA sectionA = new SectionA();
         sectionA.addCommunicationStatus(communicationIssue);
         sectionADao.save(sectionA, entityManager);
+
+
+        ISectionBDao sectionBDao = new SectionBDao();
+        SectionB sectionB = new SectionB();
+        StorageIssues storageStatus = new StorageIssues();
+        storageStatus.setIssues("Issue is from Storage ");
+        for(int i=0; i<3; i++) {
+            NsopStorageStatus nsopStorageStatus = new NsopStorageStatus("NSOP" + i, Status.NOTOK);
+            storageStatus.addNsopStorageStatus(nsopStorageStatus);
+        }
+        sectionB.addStorageStatus(storageStatus);
+        sectionBDao.save(sectionB, entityManager);
+
+
+
         entityManager.close();
 
 
@@ -377,7 +391,7 @@ public class AppMain {
        NsopStorageStatus shiftOps = new NsopStorageStatus("172.19.2.145(ShiftOps)", Status.OK );
         NsopStorageStatus nsop1 = new NsopStorageStatus("172.19.4.15(NSOP-1)", Status.OK );
         NsopStorageStatus nsop2 = new NsopStorageStatus("172.19.7.15(NSOP-2", Status.OK );
-        List<NsopStorageStatus> storages = List.of(shiftOps, nsop1, nsop2);
+        Set<NsopStorageStatus> storages = Set.of(shiftOps, nsop1, nsop2);
         StorageIssues storageIssues = new StorageIssues(storages, "Everything is fine");
         return storageIssues;
 

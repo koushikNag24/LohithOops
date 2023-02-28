@@ -29,7 +29,7 @@ public class StnLookAngle {
     private LocalDateTime availableTill;
 
     @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name="base_issue_id ")
+    @JoinColumn(name="base_issue_id")
     private SectionH sectionH;
 
     public StnLookAngle(String location, LocalDateTime availableTill) {
