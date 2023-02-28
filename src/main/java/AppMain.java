@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import model.sections.base.BaseIssues;
+import model.sections.sectiona.LinkStatus;
 import tutorial.dao.utils.jpahibernate.model.Course;
 import model.*;
 import model.sections.base.BaseHealth;
@@ -110,22 +111,19 @@ public class AppMain {
         sectionDDao.save((SectionD) sectionD, entityManager);
 
 
-        ICommIssuesDao commIssuesDao = new CommIssuesDao();
+
         ISectionADao sectionADao = new SectionADao();
-        Set<BaseHealth> baseHealths = new HashSet<>();
+        Set<LinkStatus> baseHealths = new HashSet<>();
         CommunicationIssue communicationIssue = new CommunicationIssue();
         for(int i=0; i<3; i++) {
-            BaseHealth baseHealth = new BaseHealth(faker.book().author(), Status.OK, "issue from SectionA_"+i);
-            communicationIssue.addBaseHealth(baseHealth);
+            LinkStatus baseHealth = new LinkStatus(faker.book().author(), Status.OK, "issue from SectionA_"+i);
+            communicationIssue.addLinkStatus(baseHealth);
         }
         logger.info(baseHealths);
 
         SectionA sectionA = new SectionA();
         sectionA.addCommunicationStatus(communicationIssue);
-
-
         sectionADao.save(sectionA, entityManager);
-//        commIssuesDao.save(communicationIssue, entityManager );
         entityManager.close();
 
 
@@ -364,10 +362,10 @@ public class AppMain {
     }
 
     private static CommunicationIssue getCommunicationIssues() {
-        BaseHealth terrestrialBaseHealth =new BaseHealth();
-        BaseHealth satelliteBaseHealth =new BaseHealth();
-        BaseHealth inc1Inc2BaseHealth =new BaseHealth();
-        Set<BaseHealth> baseHealths =new HashSet<>();
+        LinkStatus terrestrialBaseHealth =new LinkStatus();
+        LinkStatus satelliteBaseHealth =new LinkStatus();
+        LinkStatus inc1Inc2BaseHealth =new LinkStatus();
+        Set<LinkStatus> baseHealths =new HashSet<>();
         baseHealths.add(terrestrialBaseHealth);
         baseHealths.add(satelliteBaseHealth);
         baseHealths.add(inc1Inc2BaseHealth);

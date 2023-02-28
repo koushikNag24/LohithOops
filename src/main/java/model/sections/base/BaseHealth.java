@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.Status;
-import model.sections.sectiona.CommunicationIssue;
+
 
 @NoArgsConstructor
 @Getter
@@ -24,17 +24,12 @@ public class BaseHealth {
     @Enumerated(EnumType.STRING)
     private  Status status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "wrong_name")
-    private CommunicationIssue communicationIssue;
+
 
     public BaseHealth(String name, Status status, String issue) {
         this.name = name;
         this.status = status;
         this.issue=issue;
     }
-    public void addCommunicationIssues(CommunicationIssue communicationIssue){
-        this.setCommunicationIssue(communicationIssue);
-        communicationIssue.addBaseHealth(this);
-    }
+
 }
