@@ -1,14 +1,14 @@
 package tutorial.dao.utils.jpahibernate.model;
 
 import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.ForeignKey;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Formula;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,6 +17,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @NoArgsConstructor
+@FilterDef(
+        name = "indianStudent",
+        parameters = @ParamDef(
+                name = "state",
+                type = String.class
+        )
+)
+@Filter(
+        name = "indianStudent",
+        condition = "state= :state"
+)
 public class Student {
 
     @ToString.Exclude
@@ -24,21 +35,22 @@ public class Student {
     @JoinColumn(name = "fkDept")
     private Department department;
 
-    @ToString.Exclude
+//    @ToString.Exclude
 
     @Where(clause = "active= 'true'")
     @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     private  Set<AdharCard> activeAdharCards=new HashSet<>();
 
-
+//    @ToString.Exclude
     @Where(clause = "active= 'false'")
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private  Set<AdharCard> inActiveAdharCards=new HashSet<>();
     @ToString.Exclude
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "studentCourse",
             joinColumns = { @JoinColumn(name = "fkStudent",foreignKey = @ForeignKey(name = "Student_ID_FK")) },
             inverseJoinColumns = { @JoinColumn(name = "fkCourse",foreignKey = @ForeignKey(name = "Course_ID_FK"))})
+//    @WhereJoinTable(clause = "inserted_at>  DATE(NOW()) + interval '- 7 days'")
     private Set<Course> courses=new HashSet<>();
     private String name;
 
@@ -63,6 +75,9 @@ public class Student {
     @UpdateTimestamp
     private LocalDateTime modifiedAt;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "student")
+    private Set<Vehicle> vehicles=new HashSet<>();
+
 
     public Student(String name, String city, String state, String email, int pocketMoney) {
         this.name = name;
@@ -86,5 +101,9 @@ public class Student {
     public void addInActiveAdharCard(AdharCard adharCard){
         this.inActiveAdharCards.add(adharCard);
         adharCard.setStudent(this);
+    }
+    public void addVehicle(Vehicle vehicle){
+        this.vehicles.add(vehicle);
+        vehicle.setStudent(this);
     }
 }

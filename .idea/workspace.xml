@@ -5,30 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6fdc332-d8f4-4bf9-88c1-9d3d9434d784" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/exception/ArgumentNullException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/exception/NoMeasurementException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/AdharCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/enumer/IrimsChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/enumer/IrimsMode1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/enumer/NavIC_Satellite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/enumer/NavigationServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/service/DepartmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/service/SectionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/DataBaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/BaseMeasurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/BaseMeasurement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/UserPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/UserPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/HibernateDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/HibernateDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/IDepartmentDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/hibernate/IDepartmentDBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/AdharCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/AdharCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/service/DepartmentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

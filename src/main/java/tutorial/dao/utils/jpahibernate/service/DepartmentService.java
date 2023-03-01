@@ -21,6 +21,10 @@ public class DepartmentService {
     Faker faker=new Faker();
     final static Logger logger = Logger.getLogger(DepartmentService.class);
     public  Department getDepartment(Faker faker) {
+        String[] states={"india","china","japan"};
+        String[] cities={"kolkata","beijing","jalpaiguri","tokyo"};
+        String randomState=states[new Random().nextInt(states.length)];
+        String randomCity=cities[new Random().nextInt(cities.length)];
         Department department = new Department();
         department.setName(faker.university().prefix());
         department.setClosed(false);
@@ -39,9 +43,9 @@ public class DepartmentService {
         healthStatus.put("isInc2Fine",false);
         department.setPayload(healthStatus);
         department.setDepartmentPassword("123");
-        department.setCountry(faker.country().name());
-        department.setState(faker.address().state());
-        department.setCity(faker.address().cityName());
+        department.setCountry(randomState);
+        department.setState(randomState);
+        department.setCity(randomCity);
         department.setCollege(faker.university().name());
         department.setFund(BigDecimal.valueOf(1200));
         department.setStartDate(LocalDate.now().minusYears(10));
@@ -56,10 +60,28 @@ public class DepartmentService {
         students.forEach(s->logger.info(s));
     }
     public AdharCard  getAdharCard(){
+        String[] states={"india","china","japan"};
+        String randomState=states[new Random().nextInt(states.length)];
         AdharCard adharCard=new AdharCard();
-        adharCard.setState(faker.address().stateAbbr());
+        adharCard.setState(randomState);
         adharCard.setActive(new Random().nextBoolean());
         adharCard.setName(faker.name().username());
         return adharCard;
     }
+    public String getStateCity(){
+        HashMap<String,String> stateCityMap=new HashMap<>();
+        String[] city={"kolkata","beijing","jalpaiguri","tokyo"};
+        stateCityMap.put("kolkata","india");
+        stateCityMap.put("beijing","china");
+        stateCityMap.put("jalpaiguri","india");
+        stateCityMap.put("tokyo","japan");
+        String randomCity=city[new Random().nextInt(city.length)];
+        return stateCityMap.get(randomCity)+"_"+randomCity;
+
+    }
+    public String getCourse(){
+        String[] courses={"CS","ECE","MECH","CIVIL"};
+        return courses[new Random().nextInt(courses.length)];
+    }
+
 }

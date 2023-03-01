@@ -19,10 +19,28 @@ import java.util.Set;
 @AllArgsConstructor
 @Setter
 @Getter
-
+@ToString
 @NoArgsConstructor
-
+/*@SecondaryTable(
+        name = "student"
+)
+@FilterDef(
+        name="isFromIndiaAndCollege",
+        parameters = {
+                @ParamDef(name = "college",type = String.class),
+                @ParamDef(name = "state",type = String.class)
+        })
+@Filter(
+        name = "isFromIndiaAndCollege",
+        condition = "{d}.college=:college and {std}.state=:state",
+        aliases = {
+                @SqlFragmentAlias(alias = "d",table = "department"),
+                @SqlFragmentAlias(alias = "std",table = "student")
+        }
+)  */
+@DynamicUpdate
 public class Department {
+    @ToString.Exclude
     @OneToMany(mappedBy = "department",cascade = CascadeType.ALL)
     private Set<Student> students = new HashSet<>();
 

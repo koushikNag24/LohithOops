@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 //                }
 //        )
 //)
-@Where(clause = "state='tt'")
+//@Where(clause = "state='china'")
 public class AdharCard {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "adharSeq")
