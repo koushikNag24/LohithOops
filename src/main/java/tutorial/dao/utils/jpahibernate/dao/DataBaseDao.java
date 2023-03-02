@@ -14,8 +14,9 @@ import tutorial.dao.utils.jpahibernate.model.Student;
 
 import java.util.Set;
 
-public class DataBaseDao {
+public class DataBaseDao implements IDataBaseDao {
     final static Logger logger = Logger.getLogger(Logger.class);
+    @Override
     public Student fetchStudentById(EntityManagerFactory factory, Long id){
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
@@ -33,7 +34,8 @@ public class DataBaseDao {
         }
         return student;
     }
-    public Student fetchStudentViaQuery(EntityManagerFactory factory,  Long id){
+    @Override
+    public Student fetchStudentViaQuery(EntityManagerFactory factory, Long id){
 
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
@@ -58,7 +60,8 @@ public class DataBaseDao {
         return student;
     }
 
-    public int fetchStudentPocketMoney(EntityManagerFactory factory,  Long id){
+    @Override
+    public int fetchStudentPocketMoney(EntityManagerFactory factory, Long id){
 
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
@@ -83,7 +86,8 @@ public class DataBaseDao {
         return pocketMoney;
     }
 
-    public Student fetchStudentAdharCard(EntityManagerFactory factory,  Long id){
+    @Override
+    public Student fetchStudentAdharCard(EntityManagerFactory factory, Long id){
 
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
@@ -110,7 +114,8 @@ public class DataBaseDao {
         return student;
     }
 
-    public Student fetchStudentViaCriteria(EntityManagerFactory factory,  Long id){
+    @Override
+    public Student fetchStudentViaCriteria(EntityManagerFactory factory, Long id){
 
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
@@ -139,7 +144,8 @@ public class DataBaseDao {
     }
 
 
-    public void save(EntityManagerFactory factory,  Student student){
+    @Override
+    public void save(EntityManagerFactory factory, Student student){
 
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
@@ -160,15 +166,19 @@ public class DataBaseDao {
     }
 
 
-    private void cleanupEntityManager(EntityManager entityManager) {
+    @Override
+    public void cleanupEntityManager(EntityManager entityManager) {
         if(entityManager !=null){
             entityManager.close();
         }
+
     }
 
-    private void rollbackTransaction(EntityTransaction transaction, RuntimeException e) {
+    @Override
+    public void rollbackTransaction(EntityTransaction transaction, RuntimeException e) {
         if(transaction !=null && transaction.isActive()){
             transaction.rollback();
+            logger.error("Transaction rolled back");
             throw e;
         }
     }

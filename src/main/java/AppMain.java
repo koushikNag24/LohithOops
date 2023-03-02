@@ -1,8 +1,5 @@
 import com.github.javafaker.Faker;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
@@ -12,15 +9,18 @@ import tutorial.dao.utils.hibernate.HibernateDB;
 import tutorial.dao.utils.hibernate.IDepartmentDBUtil;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
 import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
+import tutorial.dao.utils.jpahibernate.dao.CriteriaDao;
 import tutorial.dao.utils.jpahibernate.dao.DataBaseDao;
 import tutorial.dao.utils.jpahibernate.exception.ArgumentNullException;
 import tutorial.dao.utils.jpahibernate.exception.NoMeasurementException;
 import tutorial.dao.utils.jpahibernate.model.*;
+import tutorial.dao.utils.jpahibernate.model.wrapper.StudentWrapper;
 import tutorial.dao.utils.jpahibernate.service.DepartmentService;
 import tutorial.dao.utils.jpahibernate.service.SectionService;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -35,7 +35,7 @@ public class AppMain {
         IJpaHibernateUtil jpaHibernateUtil = new JpaHibernateUtilv1();
         DataBaseDao dao=new DataBaseDao();
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
-        String[] cityState= departmentService.getStateCity().split("_");
+    /*    String[] cityState= departmentService.getStateCity().split("_");
         String city=cityState[1];
         String state=cityState[0];
         Student student = new Student(faker.harryPotter().character(), city, state, faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
@@ -45,7 +45,7 @@ public class AppMain {
             vehicle.setCost(new BigDecimal(faker.commerce().price()));
             student.addVehicle(vehicle);
         }
-        dao.save(factory,student);
+        dao.save(factory,student); */
 
       /*  EntityManager entityManager = factory.createEntityManager();
         for(int i = 1; i< 3; i++) {
@@ -205,25 +205,48 @@ public class AppMain {
         inActiveAdharCardsViaCriteriaQuery.stream()
                 .map(iaa->"id:"+iaa.getId()+" active:"+iaa.isActive()+ " State :"+iaa.getState())
                 .forEach(iaa->logger.info(iaa)); */
+      CriteriaDao criteriaDao=new CriteriaDao();
+      String studentName="Magorian";
+      /*   Optional<Student> student=criteriaDao.getStudentByName(factory,"Magorian");
+        logger.info(student.toString());
+        sleep(3);
+        Set<AdharCard> inActive=student.get().getInActiveAdharCards();
+        inActive.forEach(a->logger.info(a.toString())); */
+
+     /*  List<String> cities=criteriaDao.getStudentCities(factory,studentName);
+        cities.
+                stream()
+                .map(city->city.toUpperCase())
+                .forEach(a->logger.info(a));
+        Assert.assertEquals("TestMessage",cities.size(),2); */
+
+       /* List<Object[]> objects=criteriaDao.getStudentCityState(factory,studentName);
+        objects.stream()
+                .filter(o->o[1].toString().toLowerCase().equalsIgnoreCase("jalpaiguri"))
+                .map(o->o[0]+"_"+o[1]+"_"+o[2])
+                .forEach(o->logger.info(o)); */
+
+        /*List<StudentWrapper> studentWrappers=criteriaDao.fetchStudentWrappers(factory,studentName);
+        studentWrappers
+                .stream()
+                .map(o->o.getId()+"-"+o.getCity()+"-"+o.getState())
+                .forEach(o->logger.info(o)); */
+
+        List<Tuple> studentVehicleTuple=criteriaDao.getStudentViaMultipleRoots(factory,"M%","purple");
+        Assert.assertEquals(54,studentVehicleTuple.size());
+        for (Tuple tuple: studentVehicleTuple){
+            logger.info(tuple.get(0));
+            logger.info(tuple.get(1));
+        }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private static void sleep(long sec) {
+        try {
+            TimeUnit.SECONDS.sleep(sec);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 }

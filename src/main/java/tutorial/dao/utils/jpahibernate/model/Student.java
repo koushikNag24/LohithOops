@@ -35,15 +35,15 @@ public class Student {
     @JoinColumn(name = "fkDept")
     private Department department;
 
-//    @ToString.Exclude
+    @ToString.Exclude
 
     @Where(clause = "active= 'true'")
     @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     private  Set<AdharCard> activeAdharCards=new HashSet<>();
 
-//    @ToString.Exclude
+    @ToString.Exclude
     @Where(clause = "active= 'false'")
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     private  Set<AdharCard> inActiveAdharCards=new HashSet<>();
     @ToString.Exclude
     @ManyToMany(cascade = CascadeType.ALL)
@@ -75,6 +75,7 @@ public class Student {
     @UpdateTimestamp
     private LocalDateTime modifiedAt;
 
+    @ToString.Exclude
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "student")
     private Set<Vehicle> vehicles=new HashSet<>();
 
