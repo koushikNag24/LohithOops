@@ -143,7 +143,7 @@ public class DataBaseDao {
 
         EntityManager entityManager=null;
         EntityTransaction transaction=null;
-
+       
         try{
             entityManager=factory.createEntityManager();
             transaction=entityManager.getTransaction();
