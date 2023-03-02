@@ -7,6 +7,7 @@ import model.enumer.IrimsChain;
 import model.enumer.IrimsMode1Stn;
 import model.enumer.StationName;
 import model.sections.base.BaseIssues;
+import model.sections.base.BaseMaintenance;
 import model.sections.sectiona.LinkStatus;
 import model.sections.sectionb.*;
 import model.*;
@@ -23,6 +24,9 @@ import model.sections.sectionc.TwstftOffset;
 import model.sections.sectiond.SchemacsHealth;
 import model.sections.sectiond.SectionD;
 
+import model.sections.sectione.SectionE;
+import model.sections.sectione.Station;
+import model.sections.sectionf.SectionF;
 import model.sections.sectiong.SectionG;
 import model.sections.sectiong.SyslogStatus;
 import model.sections.sectionh.SectionH;
@@ -149,33 +153,31 @@ public class AppMain {
         sectionB.addStandardFilesStatus(standardFileStatus);
         sectionBDao.save(sectionB, entityManager);
 
-//        ISectionEDao sectionEDao = new SectionEDao();
-//        SectionE sectionE = new SectionE();
-//        sectionE.setIssues("Issues is from Section E");
-//
-//        Station bengaluru = new Station(StationName.Bengaluru);
-//        sectionE.addEmbeddableStationName(bengaluru);
-//        Station lucknow = new Station(StationName.Lucknow);
-//        sectionE.addEmbeddableStationName(lucknow);
-//        Station portBlair = new Station(StationName.PortBlair);
-//        sectionE.addEmbeddableStationName(portBlair);
-//        Station hassan = new Station(StationName.Hassan);
-//        sectionE.addEmbeddableStationName(hassan);
-//        Set<Station> stations = Set.of(bengaluru, lucknow, portBlair, hassan);
-//        sectionE.setStations(stations);
-//
-//        sectionEDao.save(sectionE, entityManager);
+        ISectionEDao sectionEDao = new SectionEDao();
+
+        Station blrStation=new Station();
+        blrStation.setName(StationName.Bengaluru);
+        Station dhlStation=new Station();
+        dhlStation.setName(StationName.Delhi);
+
+        SectionE sectionE=new SectionE();
+        sectionE.setIssues("Issues is from Base Maintenance");
+        sectionE.addStation(blrStation);
+        sectionE.addStation(dhlStation);
 
 
-//        ISectionFDao sectionFDao = new SectionFDao();
-//        SectionF sectionF = new SectionF();
-//        sectionF.setIssues("Issues is from Section F");
-//        sectionF.addEmbeddableStationName(bengaluru);
-//        sectionF.addEmbeddableStationName(portBlair);
-//        sectionF.addEmbeddableStationName(hassan);
-//        sectionF.addEmbeddableStationName(lucknow);
+        sectionEDao.save(sectionE, entityManager);
 
-//        sectionFDao.save(sectionF, entityManager);
+        ISectionFDao sectionFDao = new SectionFDao();
+        SectionF sectionF = new SectionF();
+        sectionF.setIssues("Issues is from Base Maintenance");
+        sectionF.addStation(blrStation);
+        sectionF.addStation(dhlStation);
+
+        sectionFDao.save(sectionF, entityManager);
+
+
+
 
         ISectionCDao sectionCDao= new SectionCDao();
         SectionC sectionC = new SectionC();

@@ -58,6 +58,30 @@
       base_health_id  |  name  | status
       ----------------+--------+--------
                      1| SysLog | OK
+
+
+
+### Intuition to solve the association in parent class in multilevel inheritance
+
+    Base Issues
+         ^
+         |
+         |
+    Base Maintenance -----> List<Station>
+      ^          ^
+      |          |
+      |          |
+      |          |  
+    SectionE  SectionF
+
+
+*  The association relating to Section E is completely taken care by its hierarchical parents all the way up !
+*  Hence, we need not give any association mapping for it !!!
+*  Here Station attribute pertaining to Section E has been taken care by Base Maintenance
+*  Here Issue attribute pertaining to Section E has been taken care by Base Issue via Base Maintenance.
+*  So we don't need to provide any association in Section E
+
+
   
 
 
