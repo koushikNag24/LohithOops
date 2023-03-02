@@ -1,13 +1,18 @@
 package model.sections.sectionb.measurements;
 
 import lombok.ToString;
+import model.enumer.IrimsChain;
+import model.enumer.IrimsMode1Stn;
+import model.sections.sectionb.Measurement;
 
 @ToString
-public class UserPosition extends  BaseMeasurement{
+public class UserPosition extends Measurement {
 
-    private String test;
-    public UserPosition(String server, String location, Double value, Character chain,String test) {
+
+    public UserPosition(String server, IrimsMode1Stn location, Double value, IrimsChain chain) {
         super(server, location, value, chain);
-        this.test=test;
+
     }
+
+
 }

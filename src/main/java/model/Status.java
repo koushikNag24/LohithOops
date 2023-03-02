@@ -1,7 +1,7 @@
 package model;
 
-public enum Status implements jakarta.transaction.Status {
+public enum Status   {
     OK,
-    NOTOK,
+    NOT_OK,
     Unknown
 }

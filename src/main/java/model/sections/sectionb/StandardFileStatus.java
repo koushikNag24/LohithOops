@@ -1,16 +1,29 @@
 package model.sections.sectionb;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
+import java.util.Set;
+
 @ToString
 @Getter
-public class StandardFileStatus {
-    private final  List<String> availableDocuments;
+@Setter
+@NoArgsConstructor
+@Entity
 
-    public StandardFileStatus(List<String> availableDocuments) {
-        this.availableDocuments = availableDocuments;
+public class StandardFileStatus {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "StandardFilesStatusIdSeq")
+    @SequenceGenerator(name = "StandardFilesStatusIdSeq",sequenceName = "StandardFilesStatusIdSeqLearn",allocationSize = 1)
+    @Column(name = "StandardFilesStatusIdSeq",updatable = false, nullable = false)
+    private Long id;
+
+    @OneToOne
+    private SectionB sectionB;
+    private Set<String> availableDocuments;
+
+    public StandardFileStatus(Set<String> availableDocuments) {
+        this.availableDocuments =  availableDocuments;
     }
 }

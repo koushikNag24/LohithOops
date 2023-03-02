@@ -1,12 +1,14 @@
 package model.sections.sectionc;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.Status;
 import model.sections.base.BaseHealth;
+import model.sections.sectionh.SectionH;
 
 @Entity
 @ToString
@@ -15,10 +17,17 @@ import model.sections.base.BaseHealth;
 @Setter
 public class ParallelChain extends BaseHealth {
 
+    @ManyToOne
+    private SectionC sectionC;
+
     private String issue;
     public ParallelChain(String name, Status status, String issue) {
         super(name, status, issue);
 
+    }
+    public void addSectionC(SectionC sectionC){
+        this.setSectionC(sectionC);
+        sectionC.addParallelChain(this);
     }
 
 

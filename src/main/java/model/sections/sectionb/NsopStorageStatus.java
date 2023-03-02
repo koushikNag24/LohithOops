@@ -1,11 +1,12 @@
 package model.sections.sectionb;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Status;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import model.Status;
 import model.sections.sectionh.SectionH;
 
 
@@ -24,10 +25,10 @@ public class NsopStorageStatus {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="base_issue_id ") //Issue in this line, I guess
+    @JoinColumn(name="base_issue_id ")
     private StorageIssues storageStatus;
     private  String name;
-    private  Status status;
+    private Status status;
 
 
     public NsopStorageStatus(String name, Status status) {

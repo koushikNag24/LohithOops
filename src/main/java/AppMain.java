@@ -3,20 +3,18 @@ import dao.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import model.enumer.IrimsChain;
+import model.enumer.IrimsMode1Stn;
+import model.enumer.StationName;
 import model.sections.base.BaseIssues;
 import model.sections.sectiona.LinkStatus;
-import tutorial.dao.utils.jpahibernate.model.Course;
+import model.sections.sectionb.*;
 import model.*;
-import model.sections.base.BaseHealth;
 import model.sections.sectionb.measurements.BaseMeasurement;
 import model.sections.sectionb.measurements.Uere;
 import model.sections.sectionb.measurements.UserPosition;
 import model.sections.sectiona.CommunicationIssue;
 import model.sections.sectiona.SectionA;
-import model.sections.sectionb.NsopStorageStatus;
-import model.sections.sectionb.SectionB;
-import model.sections.sectionb.StandardFileStatus;
-import model.sections.sectionb.StorageIssues;
 import model.sections.sectionb.archival.good.*;
 import model.sections.sectionc.GnssOffset;
 import model.sections.sectionc.ParallelChain;
@@ -24,8 +22,7 @@ import model.sections.sectionc.SectionC;
 import model.sections.sectionc.TwstftOffset;
 import model.sections.sectiond.SchemacsHealth;
 import model.sections.sectiond.SectionD;
-import model.sections.sectione.SectionE;
-import model.sections.sectionf.SectionF;
+
 import model.sections.sectiong.SectionG;
 import model.sections.sectiong.SyslogStatus;
 import model.sections.sectionh.SectionH;
@@ -33,24 +30,19 @@ import model.sections.sectionh.StnLookAngle;
 import org.apache.log4j.Logger;
 import tutorial.dao.utils.hibernate.IDBUtil;
 import tutorial.dao.utils.jdbc.DBUtilv1;
-import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
-import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
 import workutils.IUtils;
 import workutils.UtilsV3;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class AppMain {
-
-
 
     public static final String SERVER1 = "NSOP1";
     public static final String SERVER2 = "NSOP2";
     public static final String SERVER4 = "NSOP4";
 
-    public static final char CHAIN_A = 'A';
+
     public static final char CHAIN_B = 'B';
     static final String BLR = "BLR";
     public static final String LCK = "LCK";
@@ -62,16 +54,13 @@ public class AppMain {
     public static final String satellite_09 = "SAT09";
     public static final String Document_1 = "Doct1";
     public static final String document_2 = "doc2";
-    List<String> asd =new LinkedList<>();
-    List<String> asd1 =new ArrayList<>();
+
     final static Logger logger = Logger.getLogger(AppMain.class);
-    final static DateTimeFormatter DATE_TIME_FORMATTER=DateTimeFormatter.ISO_LOCAL_TIME;
+
     public static void main(String[] args) {
         sectionTask();
         Faker faker = new Faker();
-        List<Course> courses = new ArrayList<>();
 
-        IJpaHibernateUtil jpaHibernateUtil = new JpaHibernateUtilv1();
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
@@ -130,11 +119,89 @@ public class AppMain {
         StorageIssues storageStatus = new StorageIssues();
         storageStatus.setIssues("Issue is from Storage ");
         for(int i=0; i<3; i++) {
-            NsopStorageStatus nsopStorageStatus = new NsopStorageStatus("NSOP" + i, Status.NOTOK);
+            NsopStorageStatus nsopStorageStatus = new NsopStorageStatus("NSOP" + i, Status.NOT_OK);
             storageStatus.addNsopStorageStatus(nsopStorageStatus);
         }
         sectionB.addStorageStatus(storageStatus);
+
+        NavigationArchival nsop2 = new NSOP2(Status.OK, "10G");
+        NavigationArchival nsop4 = new NSOP4(Status.OK, "10G");
+        NavigationArchival nsdaq1 = new NSDAQ1(Status.OK, "10G");
+        NavigationArchival nsdaq2 = new NSDAQ2(Status.OK, "10G");
+
+        Set<NavigationArchival> archivalList = Set.of(nsop2, nsop4, nsdaq1, nsdaq2);
+
+        sectionB.addNavigationArchival(nsop2);
+        sectionB.addNavigationArchival(nsop4);
+        sectionB.addNavigationArchival(nsdaq1);
+        sectionB.addNavigationArchival(nsdaq2);
+
+        for(int i=0; i<16; i++){
+            Measurement measurement = new Measurement("inc1nsop", IrimsMode1Stn.BLR, 12.00, IrimsChain.B);
+            sectionB.addMeasurements(measurement);
+        }
+
+        StandardFileStatus standardFileStatus = new StandardFileStatus();
+
+        Set<String> standardFiles = new HashSet<>() ;
+        standardFiles = Set.of("DOC1","DOC2","DOC3","DOC4","DOC5");
+        standardFileStatus.setAvailableDocuments(standardFiles);
+        sectionB.addStandardFilesStatus(standardFileStatus);
         sectionBDao.save(sectionB, entityManager);
+
+//        ISectionEDao sectionEDao = new SectionEDao();
+//        SectionE sectionE = new SectionE();
+//        sectionE.setIssues("Issues is from Section E");
+//
+//        Station bengaluru = new Station(StationName.Bengaluru);
+//        sectionE.addEmbeddableStationName(bengaluru);
+//        Station lucknow = new Station(StationName.Lucknow);
+//        sectionE.addEmbeddableStationName(lucknow);
+//        Station portBlair = new Station(StationName.PortBlair);
+//        sectionE.addEmbeddableStationName(portBlair);
+//        Station hassan = new Station(StationName.Hassan);
+//        sectionE.addEmbeddableStationName(hassan);
+//        Set<Station> stations = Set.of(bengaluru, lucknow, portBlair, hassan);
+//        sectionE.setStations(stations);
+//
+//        sectionEDao.save(sectionE, entityManager);
+
+
+//        ISectionFDao sectionFDao = new SectionFDao();
+//        SectionF sectionF = new SectionF();
+//        sectionF.setIssues("Issues is from Section F");
+//        sectionF.addEmbeddableStationName(bengaluru);
+//        sectionF.addEmbeddableStationName(portBlair);
+//        sectionF.addEmbeddableStationName(hassan);
+//        sectionF.addEmbeddableStationName(lucknow);
+
+//        sectionFDao.save(sectionF, entityManager);
+
+        ISectionCDao sectionCDao= new SectionCDao();
+        SectionC sectionC = new SectionC();
+        ParallelChain inc1server1 = new ParallelChain("inc1server1", Status.OK, "This ISsue is from C (parallel Chain)");
+        sectionC.addParallelChain(inc1server1);
+        ParallelChain inc2server1 = new ParallelChain("inc2server1", Status.OK, "This ISsue is from C (parallel Chain)");
+        sectionC.addParallelChain(inc2server1);
+
+        GnssOffset itsaGnss =  new GnssOffset("itsaGnss", 12.00, "This ISsue is from C (Gnss offset)");
+        GnssOffset itsbGnss =  new GnssOffset("itsbGnss", 12.00, "This ISsue is from C (gnss Offset)");
+        sectionC.addGnssOffset(itsaGnss);
+        sectionC.addGnssOffset(itsbGnss);
+        TwstftOffset itsA = new TwstftOffset("itsa", 12.00, "This ISsue is from C (twstft)");
+        TwstftOffset itsb = new TwstftOffset("itsb", 12.00, "This ISsue is from C (twstft)");
+        sectionC.addTwstftOffset(itsA);
+        sectionC.addTwstftOffset(itsb);
+
+
+
+
+
+
+        sectionCDao.save(sectionC, entityManager);
+
+
+
 
 
 
@@ -174,10 +241,15 @@ public class AppMain {
         SectionC sectionC = getSectionC();
 
         SectionD sectionD = getSectionD();
+//        Station Bengaluru = new Station(StationName.Bengaluru);
+//        Station Lucknow = new Station(StationName.Lucknow);
+//        Station PortBlair = new Station(StationName.PortBlair);
+//        Station Hassan = new Station(StationName.Hassan);
+//
+//        SectionE sectionE=new SectionE("Irms Issues", Set.of(Bengaluru, Hassan));
 
-        SectionE sectionE=new SectionE("Irms Issues", List.of("BLR", "MGH"));
-
-        SectionF sectionF = new SectionF("Issues in sectionF", List.of("BLR", "DDN"));
+//
+//        SectionF sectionF = new SectionF("Issues in sectionF", Set.of(Bengaluru, Lucknow));
 
 //        List<BaseStatus> baseStatusList=List.of(communicationStatus,storageStatus,schemacsStatus);
 
@@ -186,10 +258,10 @@ public class AppMain {
         SectionH sectionH = getSectionH();
 
 
-        NavICPerformanceDetails performanceDetails=new NavICPerformanceDetails(1000,sectionA,sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
+//        NavICPerformanceDetails performanceDetails=new NavICPerformanceDetails(1000,sectionA,sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
 
 
-        List<ArchivalBaseClass> archivals=performanceDetails.getSectionB().getArchivalList();
+//        Set<NavigationArchival> archivals=performanceDetails.getSectionB().getArchivalList();
 
 
 //        logger.info(performanceDetails.getSectionB().getIssues());
@@ -199,32 +271,37 @@ public class AppMain {
         Uere sat10Uere = null;
 
 
-        try {
-            showSectionB(performanceDetails, sat10Uere);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+//        try {
+//            showSectionB(performanceDetails, sat10Uere);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+    }
+    private  static <T> void handleNullException(T t) throws Exception {
+        if(t==null){
+            throw  new Exception(t + " is null ");
         }
     }
 
-    private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) throws Exception {
-        SectionB retrievedSectionB= performanceDetails.getSectionB();
-        if(retrievedSectionB==null){
-            throw new Exception("Section B is null");
-        }
-        List<BaseMeasurement> measurements=retrievedSectionB.getUereMeasurements();
-        if(measurements==null && measurements.isEmpty()){
-            throw new Exception("Section B Measurement is null or No Measurements");
-        }
-        BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);
-        if(baseMeasurement instanceof  Uere){
-            sat10Uere =((Uere)baseMeasurement);
-        }
-
-
-        if(sat10Uere !=null){
-//            logger.info(sat10Uere + " - "+ sat10Uere.getSatellite());
-        }
-    }
+//    private static void showSectionB(NavICPerformanceDetails performanceDetails, Uere sat10Uere) throws Exception {
+//        SectionB retrievedSectionB= performanceDetails.getSectionB();
+//        handleNullException(retrievedSectionB);
+//
+//        List<Measurements> measurements=retrievedSectionB.getUereMeasurements();
+//        if(measurements==null && measurements.isEmpty()){
+//            throw new Exception("Section B Measurement is null or No Measurements");
+//        }
+//
+//        BaseMeasurement baseMeasurement=measurements.get(measurements.size()-1);
+//        if(baseMeasurement instanceof  Uere){
+//            sat10Uere =((Uere)baseMeasurement);
+//        }
+//
+//
+//        if(sat10Uere !=null){
+////            logger.info(sat10Uere + " - "+ sat10Uere.getSatellite());
+//        }
+//    }
 
     private static SectionH getSectionH() {
         StnLookAngle stnLookAngleBPL= new StnLookAngle("BPL", LocalDateTime.now().plusHours(1));
@@ -242,11 +319,15 @@ public class AppMain {
     }
 
     private static SectionB getSectionB(Faker faker, StandardFileStatus standardFileStatus, StorageIssues storageStatus) {
-        List<ArchivalBaseClass> archivalList = getArchivalBaseClasses(faker);
+        NavigationArchival nsop2 = new NSOP2(Status.OK, "10G");
+        NavigationArchival nsop4 = new NSOP4(Status.OK, "10G");
+        NavigationArchival nsdaq1 = new NSDAQ1(Status.OK, "10G");
+        NavigationArchival nsdaq2 = new NSDAQ2(Status.OK, "10G");
+        Set<NavigationArchival> archivalList = Set.of(nsop2, nsop4, nsdaq1, nsdaq2);
 
-        List<BaseMeasurement> uereMeasurements = getBaseMeasurements(faker);
+        Set<Measurement> uereMeasurements = getBaseMeasurements(faker);
 
-        List<BaseMeasurement> userPositionMeasurements = getMeasurements(faker);
+        Set<Measurement> userPositionMeasurements = getBaseMeasurements(faker);
 
 
         SectionB sectionB=new SectionB(storageStatus, standardFileStatus,archivalList,uereMeasurements,userPositionMeasurements,"issue in sectoin B");
@@ -254,10 +335,10 @@ public class AppMain {
     }
 
     private static List<BaseMeasurement> getMeasurements(Faker faker) {
-        UserPosition userPosBlrServer1 = new UserPosition(SERVER1, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,"a");
-        UserPosition userPosBlrServer4 = new UserPosition(SERVER4, BLR, faker.number().randomDouble(4,6,7), CHAIN_B,"s");
-        UserPosition userPosLckServer1 = new UserPosition(SERVER1, LCK, faker.number().randomDouble(4,6,7), CHAIN_B,"s");
-        UserPosition userPosLckServer2 = new UserPosition(SERVER2, LCK, faker.number().randomDouble(4,6,7), CHAIN_B,"e");
+        UserPosition userPosBlrServer1 = new UserPosition(SERVER1, IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.A);
+        UserPosition userPosBlrServer4 = new UserPosition(SERVER4, IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.B);
+        UserPosition userPosLckServer1 = new UserPosition(SERVER1, IrimsMode1Stn.LCK, faker.number().randomDouble(4,6,7), IrimsChain.B);
+        UserPosition userPosLckServer2 = new UserPosition(SERVER2, IrimsMode1Stn.LCK, faker.number().randomDouble(4,6,7), IrimsChain.B);
 
         List<BaseMeasurement> userPositionMeasurements=new ArrayList<>();
         userPositionMeasurements.add(userPosBlrServer1);
@@ -267,28 +348,28 @@ public class AppMain {
         return userPositionMeasurements;
     }
 
-    private static List<BaseMeasurement> getBaseMeasurements(Faker faker) {
-        Uere sat02UereA=new Uere(SERVER1,BLR, faker.number().randomDouble(4,6,7),CHAIN_A,satellite_02);
-        Uere sat03UereA=new Uere(SERVER1,BLR, faker.number().randomDouble(4,6,7),CHAIN_A,satellite_03);
-        Uere sat02UereB=new Uere(SERVER1,BLR, faker.number().randomDouble(6,6,7),CHAIN_B,satellite_02);
-        Uere sat03UereB=new Uere(SERVER2,LCK, faker.number().randomDouble(6,20,30),CHAIN_B,satellite_06);
-        Uere sat10UereB=new Uere(SERVER2,LCK, faker.number().randomDouble(6,20,30),CHAIN_B,satellite_10);
-        List<BaseMeasurement> uereMeasurements=new ArrayList<>();
-        uereMeasurements.add(sat02UereA);
-        uereMeasurements.add(sat03UereA);
-        uereMeasurements.add(sat02UereB);
-        uereMeasurements.add(sat03UereB);
-        uereMeasurements.add(sat10UereB);
+    private static Set<Measurement> getBaseMeasurements(Faker faker) {
+        Uere sat02UereA=new Uere(SERVER1,IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.A,satellite_02);
+        Uere sat03UereA=new Uere(SERVER1,IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7),IrimsChain.A,satellite_03);
+        Uere sat02UereB=new Uere(SERVER1,IrimsMode1Stn.BLR, faker.number().randomDouble(6,6,7),IrimsChain.B,satellite_02);
+        Uere sat03UereB=new Uere(SERVER2,IrimsMode1Stn.LCK, faker.number().randomDouble(6,20,30),IrimsChain.B,satellite_06);
+        Uere sat10UereB=new Uere(SERVER2,IrimsMode1Stn.LCK, faker.number().randomDouble(6,20,30),IrimsChain.A,satellite_10);
+        Set<Measurement> uereMeasurements=new HashSet<>();
+//        uereMeasurements.add(sat02UereA);
+//        uereMeasurements.add(sat03UereA);
+//        uereMeasurements.add(sat02UereB);
+//        uereMeasurements.add(sat03UereB);
+//        uereMeasurements.add(sat10UereB);
         return uereMeasurements;
     }
 
-    private static List<ArchivalBaseClass> getArchivalBaseClasses(Faker faker) {
+    private static List<NavigationArchival> getArchivalBaseClasses(Faker faker) {
         NSOP2 NSOP2=new NSOP2(Status.OK, faker.number().numberBetween(10,18)+ STORAGE_UNIT);
-        NSOP4 NSOP4=new NSOP4(Status.NOTOK, faker.number().numberBetween(10,18)+STORAGE_UNIT);
-        NSDAQ1 NSDAQ1 =new NSDAQ1(Status.NOTOK, faker.number().numberBetween(2,10)+"G");
+        NSOP4 NSOP4=new NSOP4(Status.NOT_OK, faker.number().numberBetween(10,18)+STORAGE_UNIT);
+        NSDAQ1 NSDAQ1 =new NSDAQ1(Status.NOT_OK, faker.number().numberBetween(2,10)+"G");
         NSDAQ2 NSDAQ2=new NSDAQ2(Status.OK, "10G");
 
-        List<ArchivalBaseClass> archivalList=new ArrayList<>();
+        List<NavigationArchival> archivalList=new ArrayList<>();
         archivalList.add(NSOP2);
         archivalList.add(NSOP4);
         archivalList.add(NSDAQ1);
@@ -323,24 +404,24 @@ public class AppMain {
     }
 
     private static SectionC getSectionC() {
-        List<ParallelChain> parallelChains = getParallelChains();
+        Set<ParallelChain> parallelChains = getParallelChains();
 
-        List<TwstftOffset> twstftOffsets = getTwstftOffsets();
+        Set<TwstftOffset> twstftOffsets = getTwstftOffsets();
 
-        List<GnssOffset> gnssOffsets = getGnssOffsets();
+        Set<GnssOffset> gnssOffsets = getGnssOffsets();
 
         SectionC sectionC = new SectionC(parallelChains, twstftOffsets, gnssOffsets);
         return sectionC;
     }
 
-    private static List<GnssOffset> getGnssOffsets() {
+    private static Set<GnssOffset> getGnssOffsets() {
         GnssOffset gnssItsA=new GnssOffset("itsA", 10.00, "itsA issues");
         GnssOffset gnssItsB=new GnssOffset("itsB", 10.00, "itsB issues");
         GnssOffset gnssItsC=new GnssOffset("itsC", 10.00, "itsC issues");
         GnssOffset vremyaA=new GnssOffset("vremyaA", 10.00, "vremyaA issues");
         GnssOffset vremyaB=new GnssOffset("vremyaB", 10.00, "vremyaB issues");
         GnssOffset itsInc2=new GnssOffset("itsInc2", 10.00, "itsInc2 issues");
-        List<GnssOffset> gnssOffsets=new ArrayList<>();
+        Set<GnssOffset> gnssOffsets=new HashSet<>();
         gnssOffsets.add(gnssItsA);
         gnssOffsets.add(gnssItsB);
         gnssOffsets.add(gnssItsC);
@@ -350,24 +431,24 @@ public class AppMain {
         return gnssOffsets;
     }
 
-    public static List<TwstftOffset> getTwstftOffsets() {
+    public static Set<TwstftOffset> getTwstftOffsets() {
         TwstftOffset itsA=new TwstftOffset("itsA", 10.00, "itsA issues");
         TwstftOffset itsB=new TwstftOffset("itsB", 10.00, "itsB issues");
         TwstftOffset itsC=new TwstftOffset("itsC", 10.00, "itsC issues");
-        List<TwstftOffset> twstftOffsets=new ArrayList<>();
+        Set<TwstftOffset> twstftOffsets=new HashSet<>();
         twstftOffsets.add(itsA);
         twstftOffsets.add(itsB);
         twstftOffsets.add(itsC);
         return twstftOffsets;
     }
 
-     public static List<ParallelChain> getParallelChains() {
+     public static Set<ParallelChain> getParallelChains() {
         ParallelChain inc1Server1=new ParallelChain("inc1Server1", Status.OK, "Issues in parallelChain" );
         ParallelChain inc1Server2=new ParallelChain("inc1Server2", Status.OK, "Issues in parallelChain");
         ParallelChain inc2Server1=new ParallelChain("inc2Server1", Status.OK, "Issues in parallelChain");
         ParallelChain inc2Server2=new ParallelChain("inc2Server2", Status.OK, "Issues in parallelChain");
 
-        List<ParallelChain> parallelChains=new ArrayList<>();
+         Set<ParallelChain> parallelChains=new HashSet<>();
         parallelChains.add(inc1Server1);
         parallelChains.add(inc1Server2);
         parallelChains.add(inc2Server1);
@@ -398,7 +479,7 @@ public class AppMain {
     }
 
     private static StandardFileStatus getStandardFileStatus() {
-        List<String> availableFiles=List.of(Document_1, document_2);
+        Set<String> availableFiles=Set.of(Document_1, document_2);
         StandardFileStatus standardFileStatus=new StandardFileStatus(availableFiles);
         return standardFileStatus;
     }
