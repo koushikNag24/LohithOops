@@ -231,8 +231,16 @@ public class AppMain {
             logger.info(tuple.get(1));
         } */
 
-        List<Vehicle> vehicles=criteriaDao.getVehiclesViaCriteriaJoin(factory,"Holdlamis");
-        vehicles.forEach(v->logger.info(v.toString()));
+     List<Vehicle> vehiclesViaJoin=criteriaDao.getVehiclesViaCriteriaJoin(factory,"Bamity");
+        logger.info(vehiclesViaJoin.size());
+        vehiclesViaJoin.forEach(v->logger.info(v.getStudent()));
+
+        logger.info(" will trigger Criteria Fetch");
+        sleep(15);
+
+        List<Vehicle> vehicles=criteriaDao.getVehiclesViaCriteriaFetch(factory,"purple");
+
+        vehicles.forEach(v->logger.info(v.getStudent()));
     }
 
     private static void sleep(long sec) {

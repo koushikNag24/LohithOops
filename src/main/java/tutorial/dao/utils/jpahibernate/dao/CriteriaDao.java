@@ -95,4 +95,16 @@ public class CriteriaDao {
         List<Vehicle> vehicles=entityManager.createQuery(criteriaQuery).getResultList();
         return vehicles;
     }
+    public List<Vehicle> getVehiclesViaCriteriaFetch(EntityManagerFactory factory,String color){
+        EntityManager entityManager= factory.createEntityManager();
+        CriteriaBuilder builder= entityManager.getCriteriaBuilder();;
+        CriteriaQuery<Vehicle>  criteriaQuery=builder.createQuery(Vehicle.class);
+        Root<Vehicle>  root=criteriaQuery.from(Vehicle.class);
+        Fetch<Vehicle,Student> studentJoin=root.fetch("student");
+
+        Fetch<Student,String> courseJoin=studentJoin.fetch("courses");
+        criteriaQuery.where(builder.equal(root.get("color"),color));
+        List<Vehicle> vehicles=entityManager.createQuery(criteriaQuery).getResultList();
+        return vehicles;
+    }
 }

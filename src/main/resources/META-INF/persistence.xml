@@ -21,7 +21,7 @@
             <property name="hibernate.hbm2ddl.auto" value="update"></property>
 
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/physical_name"></property>
-            <property name="hibernate.connection.username" value="lohith"></property>
+            <property name="hibernate.connection.username" value="chandan"></property>
             <property name="hibernate.connection.password" value="123"></property>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"></property>
             <property name="hibernate.connection.shutdown" value="true"></property>
