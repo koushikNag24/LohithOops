@@ -19,12 +19,15 @@ public class SectionC {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sectionCIdSeq")
     @SequenceGenerator(name = "sectionCIdSeq",sequenceName = "sectionCIdSeq",allocationSize = 1)
-    @Column(name = "sectionCId",updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)
     private Long id;
 
 
     @OneToMany(mappedBy = "sectionC", cascade = CascadeType.ALL)
     private Set<ParallelChain> parallelChains=new HashSet<>();
+
+    @OneToMany(mappedBy = "sectionC", cascade = CascadeType.ALL)
+    private Set<Irnwt> Irnwts = new HashSet<>();
 
     @OneToMany(mappedBy = "sectionC", cascade = CascadeType.ALL)
     private Set<TwstftOffset> twstftOffsets=new HashSet<>();
@@ -49,6 +52,10 @@ public class SectionC {
     public void addGnssOffset(GnssOffset gnssOffset){
         this.gnssOffsets.add(gnssOffset);
         gnssOffset.setSectionC(this);
+    }
+    public void addIrnwt(Irnwt irnwt) {
+        this.Irnwts.add(irnwt);
+        irnwt.setSectionC(this);
     }
 
 }

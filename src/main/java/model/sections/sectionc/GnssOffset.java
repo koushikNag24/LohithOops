@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import model.enumer.Names;
 import model.sections.base.BaseValue;
 @Entity
 @ToString
@@ -18,7 +19,7 @@ public class GnssOffset extends BaseValue {
 
     private String issues;
 
-    public GnssOffset(String name, Double value, String issues) {
+    public GnssOffset(Names name, Double value, String issues) {
         super(name, value);
         this.issues = issues;
     }

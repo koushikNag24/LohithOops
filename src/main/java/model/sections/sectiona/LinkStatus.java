@@ -1,7 +1,6 @@
 package model.sections.sectiona;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
@@ -9,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.Status;
+import model.enumer.Names;
 import model.sections.base.BaseHealth;
 
 
@@ -21,7 +21,7 @@ public class LinkStatus extends BaseHealth {
     @ManyToOne
     @JoinColumn(name = "communicationId")
     private CommunicationIssue communicationIssue;
-    public LinkStatus(String name, Status status, String issue) {
+    public LinkStatus(Names name, Status status, String issue) {
         super(name, status, issue);
     }
 

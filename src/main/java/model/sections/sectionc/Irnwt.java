@@ -16,19 +16,19 @@ import model.sections.sectionh.SectionH;
 @Getter
 @NoArgsConstructor
 @Setter
-public class ParallelChain extends BaseHealth {
+public class Irnwt extends BaseHealth {
 
     @ManyToOne
     private SectionC sectionC;
 
     private String issue;
-    public ParallelChain(Names name, Status status, String issue) {
+    public Irnwt(Names name, Status status, String issue) {
         super(name, status, issue);
 
     }
     public void addSectionC(SectionC sectionC){
         this.setSectionC(sectionC);
-        sectionC.addParallelChain(this);
+        sectionC.addIrnwt(this);
     }
 
 

@@ -16,7 +16,7 @@ public class StandardFileStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "StandardFilesStatusIdSeq")
     @SequenceGenerator(name = "StandardFilesStatusIdSeq",sequenceName = "StandardFilesStatusIdSeqLearn",allocationSize = 1)
-    @Column(name = "StandardFilesStatusIdSeq",updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)
     private Long id;
 
     @OneToOne
@@ -24,6 +24,8 @@ public class StandardFileStatus {
 
     @OneToMany(mappedBy="standardFileStatus", cascade = CascadeType.ALL)
     private Set<StandardFile> availableDocuments = new HashSet<>();
+
+
 
     public StandardFileStatus(Set<StandardFile> availableDocuments) {
         this.availableDocuments =  availableDocuments;

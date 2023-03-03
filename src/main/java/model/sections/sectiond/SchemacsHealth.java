@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.Status;
+import model.enumer.Names;
 import model.sections.base.BaseHealth;
 
 @Entity
@@ -18,7 +19,7 @@ public class SchemacsHealth extends BaseHealth {
 
 
 
-    public SchemacsHealth(String name, Status status, String issues) {
+    public SchemacsHealth(Names name, Status status, String issues) {
         super(name, status, issues);
 
     }

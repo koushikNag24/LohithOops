@@ -5,10 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enumer/ArchivalName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enumer/Names.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enumer/Satellite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enumer/Servers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/enumer/StorageNames.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/Irnwt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/SQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/d/1dc64e07d592e3dbab68d192427bc2ff98be1bc2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/440012bf8b0ebbdd66094f2f11d4cdfafae374d3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/b/bbd3a21fae5403c4c28c027b58ce7aab700d6199" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/4/d45d2a86f7401cf3094091dc5deb8580a3e6c9d5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ISectionGDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionGDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionGDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionGDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseIssues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/LinkStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/LinkStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/Measurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/Measurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/NsopStorageStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFileStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFileStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/ArchivalBaseClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSDAQ2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NSOP4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NavigationArchival.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/archival/good/NavigationArchival.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/BaseMeasurement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/BaseMeasurement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/Uere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/UserPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/measurements/UserPosition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/GnssOffset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/GnssOffset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/ParallelChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/SectionC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/SectionC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/TwstftOffset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SchemacsHealth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SyslogStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/StnLookAngle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +56,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>

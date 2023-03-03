@@ -2,12 +2,12 @@ package dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import model.sections.base.BaseIssues;
+import model.sections.sectiong.SectionG;
 import org.apache.log4j.Logger;
 
 public class SectionGDao implements ISectionGDao{
     final static Logger logger = Logger.getLogger(SectionGDao.class);
-    public void save(BaseIssues sectionG, EntityManager entityManager){
+    public void save(SectionG sectionG, EntityManager entityManager){
         EntityTransaction tx = null;
         try {
             tx= entityManager.getTransaction();

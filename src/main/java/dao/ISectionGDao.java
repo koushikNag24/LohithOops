@@ -1,9 +1,9 @@
 package dao;
 
 import jakarta.persistence.EntityManager;
-import model.sections.base.BaseIssues;
+import model.sections.sectiong.SectionG;
 
 public interface ISectionGDao {
-    void save(BaseIssues sectionG, EntityManager entityManager);
+    void save(SectionG sectionG, EntityManager entityManager);
 
 }

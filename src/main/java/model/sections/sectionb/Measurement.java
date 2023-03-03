@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 import model.enumer.IrimsChain;
 import model.enumer.IrimsMode1Stn;
+import model.enumer.Satellite;
+import model.enumer.Servers;
 import model.sections.sectionb.measurements.BaseMeasurement;
 @ToString
 @Entity
@@ -20,8 +22,8 @@ public class Measurement extends BaseMeasurement {
     @ManyToOne
     @JoinColumn(name="measurement_sectionB")
     private SectionB sectionB;
-    public Measurement(String server, IrimsMode1Stn location, Double value, IrimsChain chain) {
-        super(server, location, value, chain);
+    public Measurement(Servers server, IrimsMode1Stn location, Double value) {
+        super(server, location, value);
 
     }
     public void addSectionB(SectionB sectionB){

@@ -14,9 +14,9 @@ import model.sections.sectionh.SectionH;
 public class StandardFile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "StandardFilesStatusIdSeq")
-    @SequenceGenerator(name = "StandardFilesStatusIdSeq",sequenceName = "StandardFilesStatusIdSeqLearn",allocationSize = 1)
-    @Column(name = "StandardFilesStatusIdSeq",updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "StandardFileIdSeq")
+    @SequenceGenerator(name = "StandardFileIdSeq",sequenceName = "StandardFileIdSeqLearn",allocationSize = 1)
+    @Column(name = "StandardFileId",updatable = false, nullable = false)
     private Long id;
 
 

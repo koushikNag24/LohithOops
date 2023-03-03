@@ -3,11 +3,8 @@ import dao.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import model.enumer.IrimsChain;
-import model.enumer.IrimsMode1Stn;
-import model.enumer.StationName;
+import model.enumer.*;
 import model.sections.base.BaseIssues;
-import model.sections.base.BaseMaintenance;
 import model.sections.sectiona.LinkStatus;
 import model.sections.sectionb.*;
 import model.*;
@@ -17,10 +14,7 @@ import model.sections.sectionb.measurements.UserPosition;
 import model.sections.sectiona.CommunicationIssue;
 import model.sections.sectiona.SectionA;
 import model.sections.sectionb.archival.good.*;
-import model.sections.sectionc.GnssOffset;
-import model.sections.sectionc.ParallelChain;
-import model.sections.sectionc.SectionC;
-import model.sections.sectionc.TwstftOffset;
+import model.sections.sectionc.*;
 import model.sections.sectiond.SchemacsHealth;
 import model.sections.sectiond.SectionD;
 
@@ -42,22 +36,10 @@ import java.util.*;
 
 public class AppMain {
 
-    public static final String SERVER1 = "NSOP1";
-    public static final String SERVER2 = "NSOP2";
-    public static final String SERVER4 = "NSOP4";
 
 
-    public static final char CHAIN_B = 'B';
-    static final String BLR = "BLR";
-    public static final String LCK = "LCK";
+
     public static final String STORAGE_UNIT = "G";
-    public static final String satellite_02 = "SAT02";
-    public static final String satellite_03 = "SAT03";
-    public static final String satellite_10 = "SAT10";
-    public static final String satellite_06 = "SAT06";
-    public static final String satellite_09 = "SAT09";
-    public static final String Document_1 = "Doct1";
-    public static final String document_2 = "doc2";
 
     final static Logger logger = Logger.getLogger(AppMain.class);
 
@@ -74,19 +56,27 @@ public class AppMain {
 
         SyslogStatus syslogStatus = new SyslogStatus();
         syslogStatus.setStatus(Status.OK);
-        syslogStatus.setName("SysLog");
-        ((SectionG) sectionG).addSysLog(syslogStatus);
+        syslogStatus.setName(Names.SyslogStatus);
+        syslogStatus.setIssue("Issue is from syslog status");
+        sectionG.addSysLog(syslogStatus);
+        sectionGDao.save(sectionG, entityManager);
 
 
         ISectionHDao sectionHDao = new SectionHDao();
         Set<StnLookAngle> stnLookAngles = new HashSet<>();
         BaseIssues sectionH = new SectionH();
         sectionH.setIssues("Issues is from section H");
-        for (int i = 0; i < 3; i++) {
-            StnLookAngle stnLookAngle = new StnLookAngle(faker.gameOfThrones().city(), LocalDateTime.now());
-            stnLookAngle.addSectionH((SectionH) sectionH);
-            ((SectionH) sectionH).addStnLookAngle(stnLookAngle);
-        }
+
+            StnLookAngle stnLookAngle1 = new StnLookAngle(StationName.Bengaluru, LocalDateTime.now());
+        stnLookAngle1.addSectionH((SectionH) sectionH);
+        StnLookAngle stnLookAngle2 = new StnLookAngle(StationName.Lucknow, LocalDateTime.now());
+        stnLookAngle2.addSectionH((SectionH) sectionH);
+        StnLookAngle stnLookAngle3 = new StnLookAngle(StationName.PortBlair, LocalDateTime.now());
+        stnLookAngle3.addSectionH((SectionH) sectionH);
+            ((SectionH) sectionH).addStnLookAngle(stnLookAngle1);
+        ((SectionH) sectionH).addStnLookAngle(stnLookAngle2);
+        ((SectionH) sectionH).addStnLookAngle(stnLookAngle3);
+
 
         logger.info(stnLookAngles);
 
@@ -96,10 +86,26 @@ public class AppMain {
         Set<SchemacsHealth> schemacsHealths = new HashSet<>();
         BaseIssues sectionD = new SectionD();
         sectionD.setIssues("Issue is from Section D!!");
-        for (int i = 0; i < 9; i++) {
-            SchemacsHealth schemacsHealth = new SchemacsHealth( faker.harryPotter().character(), Status.OK, "Issue is from schemacs"+i);
-            ((SectionD) sectionD).addSchemacsHealth(schemacsHealth);
-        }
+
+        SchemacsHealth monitStatus = new SchemacsHealth( Names.MonitStatus, Status.OK, "Issue is from schemacs Monit Status");
+        ((SectionD) sectionD).addSchemacsHealth(monitStatus);
+        SchemacsHealth inc1cs5 = new SchemacsHealth( Names.Inc1Cs5, Status.OK, "Issue is from schemacs Inc1Cs5");
+        ((SectionD) sectionD).addSchemacsHealth(inc1cs5);
+        SchemacsHealth inc1cs6 = new SchemacsHealth( Names.Inc1Cs6, Status.OK, "Issue is from schemacs Inc1Cs6");
+        ((SectionD) sectionD).addSchemacsHealth(inc1cs6);
+        SchemacsHealth inc1cs7 = new SchemacsHealth( Names.Inc1Cs7, Status.OK, "Issue is from schemacs Inc1Cs7");
+        ((SectionD) sectionD).addSchemacsHealth(inc1cs7);
+        SchemacsHealth inc1cs8 = new SchemacsHealth( Names.Inc1Cs8, Status.OK, "Issue is from schemacs Inc1Cs8");
+        ((SectionD) sectionD).addSchemacsHealth(inc1cs8);
+        SchemacsHealth inc2cs5 = new SchemacsHealth( Names.Inc2Cs5, Status.OK, "Issue is from schemacs Inc2Cs5");
+        ((SectionD) sectionD).addSchemacsHealth(inc2cs5);
+        SchemacsHealth inc2cs6 = new SchemacsHealth( Names.Inc2Cs6, Status.OK, "Issue is from schemacs Inc2Cs6");
+        ((SectionD) sectionD).addSchemacsHealth(inc2cs6);
+        SchemacsHealth inc2cs7 = new SchemacsHealth( Names.Inc2Cs7, Status.OK, "Issue is from schemacs Inc2Cs7");
+        ((SectionD) sectionD).addSchemacsHealth(inc2cs7);
+        SchemacsHealth inc2cs8 = new SchemacsHealth( Names.Inc2Cs8, Status.OK, "Issue is from schemacs Inc2Cs8");
+        ((SectionD) sectionD).addSchemacsHealth(inc2cs8);
+
 //        logger.info(schemacsHealths);
         sectionDDao.save((SectionD) sectionD, entityManager);
 
@@ -108,10 +114,14 @@ public class AppMain {
         ISectionADao sectionADao = new SectionADao();
         Set<LinkStatus> baseHealths = new HashSet<>();
         CommunicationIssue communicationIssue = new CommunicationIssue();
-        for(int i=0; i<3; i++) {
-            LinkStatus baseHealth = new LinkStatus(faker.book().author(), Status.OK, "issue from SectionA_"+i);
-            communicationIssue.addLinkStatus(baseHealth);
-        }
+
+        LinkStatus terrestrialLink = new LinkStatus(Names.TerrestrialLink, Status.OK, "issue from Terrestrial Link");
+        communicationIssue.addLinkStatus(terrestrialLink);
+        LinkStatus satelliteLink = new LinkStatus(Names.SatelliteLink, Status.OK, "issue from Satellite Link");
+        communicationIssue.addLinkStatus(satelliteLink);
+        LinkStatus inc1inc2 = new LinkStatus(Names.INC1INC2, Status.NOT_OK, "issue from INC1-INC2");
+        communicationIssue.addLinkStatus(inc1inc2);
+
         logger.info(baseHealths);
         SectionA sectionA = new SectionA();
         sectionA.addCommunicationStatus(communicationIssue);
@@ -120,18 +130,25 @@ public class AppMain {
 
         ISectionBDao sectionBDao = new SectionBDao();
         SectionB sectionB = new SectionB();
+        sectionB.setIssues("Issue is from Section B!!");
         StorageIssues storageStatus = new StorageIssues();
         storageStatus.setIssues("Issue is from Storage ");
-        for(int i=0; i<3; i++) {
-            NsopStorageStatus nsopStorageStatus = new NsopStorageStatus("NSOP" + i, Status.NOT_OK);
-            storageStatus.addNsopStorageStatus(nsopStorageStatus);
-        }
+
+
+
+        NsopStorageStatus shiftOps = new NsopStorageStatus(StorageNames.ShiftOPs, Status.NOT_OK);
+        storageStatus.addNsopStorageStatus(shiftOps);
+        NsopStorageStatus storageNsop1= new NsopStorageStatus(StorageNames.NSOP1, Status.NOT_OK);
+        storageStatus.addNsopStorageStatus(storageNsop1);
+        NsopStorageStatus storageNsop2 = new NsopStorageStatus(StorageNames.NSOP2, Status.NOT_OK);
+        storageStatus.addNsopStorageStatus(storageNsop2);
+
         sectionB.addStorageStatus(storageStatus);
 
-        NavigationArchival nsop2 = new NSOP2(Status.OK, "10G");
-        NavigationArchival nsop4 = new NSOP4(Status.OK, "10G");
-        NavigationArchival nsdaq1 = new NSDAQ1(Status.OK, "10G");
-        NavigationArchival nsdaq2 = new NSDAQ2(Status.OK, "10G");
+        NavigationArchival nsop2 = new NSOP2(ArchivalName.NSOP2 ,Status.OK, "10G");
+        NavigationArchival nsop4 = new NSOP4(ArchivalName.NSOP4,Status.OK, "10G");
+        NavigationArchival nsdaq1 = new NSDAQ1(ArchivalName.NSDAQ1,Status.OK, "10G");
+        NavigationArchival nsdaq2 = new NSDAQ2(ArchivalName.NSDAQ2,Status.OK, "10G");
 
         Set<NavigationArchival> archivalList = Set.of(nsop2, nsop4, nsdaq1, nsdaq2);
 
@@ -140,10 +157,59 @@ public class AppMain {
         sectionB.addNavigationArchival(nsdaq1);
         sectionB.addNavigationArchival(nsdaq2);
 
-        for(int i=0; i<16; i++){
-            Measurement measurement = new Measurement("inc1nsop", IrimsMode1Stn.BLR, 12.00, IrimsChain.B);
-            sectionB.addMeasurements(measurement);
-        }
+//        UERE StreamA BLR
+        Uere field1 = new Uere( Servers.INC1NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT02);
+        sectionB.addMeasurements(field1);
+        Uere field2 = new Uere(Servers.INC1NSOP4, IrimsMode1Stn.BLR,   12.00, IrimsChain.A, Satellite.SAT02);
+        sectionB.addMeasurements(field2);
+        Uere field3 = new Uere(Servers.INC2NSOP1, IrimsMode1Stn.BLR,  12.00, IrimsChain.A, Satellite.SAT02);
+        sectionB.addMeasurements(field3);
+        Uere field4 = new Uere(Servers.INC2NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT02);
+        sectionB.addMeasurements(field4);
+        Uere field5 = new Uere(Servers.INC1NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT03);
+        sectionB.addMeasurements(field5);
+        Uere field6 = new Uere(Servers.INC1NSOP4, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT03);
+        sectionB.addMeasurements(field6);
+        Uere field7 = new Uere(Servers.INC2NSOP1, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT03);
+        sectionB.addMeasurements(field7);
+        Uere field8 = new Uere(Servers.INC2NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT03);
+        sectionB.addMeasurements(field8);
+        Uere field9 = new Uere(Servers.INC1NSOP2, IrimsMode1Stn.BLR,  12.00, IrimsChain.A, Satellite.SAT06);
+        sectionB.addMeasurements(field9);
+        Uere field10 = new Uere(Servers.INC1NSOP4, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT06);
+        sectionB.addMeasurements(field10);
+        Uere field11 = new Uere(Servers.INC2NSOP1, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT06);
+        sectionB.addMeasurements(field11);
+        Uere field12 = new Uere(Servers.INC2NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT06);
+        sectionB.addMeasurements(field12);
+        Uere field13 = new Uere(Servers.INC1NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT09);
+        sectionB.addMeasurements(field13);
+        Uere field14 = new Uere(Servers.INC1NSOP4, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT09);
+        sectionB.addMeasurements(field14);
+        Uere field15 = new Uere(Servers.INC2NSOP1, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT09);
+        sectionB.addMeasurements(field15);
+        Uere field16 = new Uere(Servers.INC2NSOP2, IrimsMode1Stn.BLR, 12.00, IrimsChain.A, Satellite.SAT09);
+        sectionB.addMeasurements(field16);
+
+//        UserPosition
+        UserPosition field65 = new UserPosition(Servers.INC1NSOP2, IrimsMode1Stn.LCK, 12.00);
+        sectionB.addMeasurements(field65);
+        UserPosition field66 = new UserPosition(Servers.INC1NSOP4, IrimsMode1Stn.LCK, 12.00);
+        sectionB.addMeasurements(field66);
+        UserPosition field67 = new UserPosition(Servers.INC2NSOP1, IrimsMode1Stn.LCK, 12.00);
+        sectionB.addMeasurements(field67);
+        UserPosition field68 = new UserPosition(Servers.INC2NSOP2, IrimsMode1Stn.LCK, 12.00);
+        sectionB.addMeasurements(field68);
+        UserPosition field69 = new UserPosition(Servers.INC1NSOP2, IrimsMode1Stn.BLR, 12.00);
+        sectionB.addMeasurements(field69);
+        UserPosition field70 = new UserPosition(Servers.INC1NSOP4, IrimsMode1Stn.BLR, 12.00);
+        sectionB.addMeasurements(field70);
+        UserPosition field71 = new UserPosition(Servers.INC2NSOP1, IrimsMode1Stn.BLR, 12.00);
+        sectionB.addMeasurements(field71);
+        UserPosition field72 = new UserPosition(Servers.INC2NSOP2, IrimsMode1Stn.BLR, 12.00);
+        sectionB.addMeasurements(field72);
+
+
 
         StandardFileStatus standardFileStatus = new StandardFileStatus();
         StandardFile doc1 = new StandardFile("Doc1");
@@ -168,7 +234,7 @@ public class AppMain {
         dhlStation.setName(StationName.Delhi);
 
         SectionE sectionE=new SectionE();
-        sectionE.setIssues("Issues is from Base Maintenance");
+        sectionE.setIssues("Issues is from Base Maintenance Section E");
         sectionE.addStation(blrStation);
         sectionE.addStation(dhlStation);
 
@@ -177,7 +243,7 @@ public class AppMain {
 
         ISectionFDao sectionFDao = new SectionFDao();
         SectionF sectionF = new SectionF();
-        sectionF.setIssues("Issues is from Base Maintenance");
+        sectionF.setIssues("Issues is from Base Maintenance SectionF");
         sectionF.addStation(blrStation);
         sectionF.addStation(dhlStation);
 
@@ -188,23 +254,46 @@ public class AppMain {
 
         ISectionCDao sectionCDao= new SectionCDao();
         SectionC sectionC = new SectionC();
-        ParallelChain inc1server1 = new ParallelChain("inc1server1", Status.OK, "This ISsue is from C (parallel Chain)");
+        ParallelChain inc1server1 = new ParallelChain(Names.Inc1Server1, Status.OK, "This Issue is from C (parallel Chain Inc1Server1)");
         sectionC.addParallelChain(inc1server1);
-        ParallelChain inc2server1 = new ParallelChain("inc2server1", Status.OK, "This ISsue is from C (parallel Chain)");
+        ParallelChain inc1server2 = new ParallelChain(Names.Inc1Server2, Status.OK, "This Issue is from C (parallel Chain Inc1Server2)");
+        sectionC.addParallelChain(inc1server2);
+        ParallelChain inc2server1 = new ParallelChain(Names.Inc2Server1, Status.OK, "This Issue is from C (parallel Chain Inc2Server1)");
+        sectionC.addParallelChain(inc1server1);
+        ParallelChain inc2server2 = new ParallelChain(Names.Inc2Server2, Status.OK, "This Issue is from C (parallel Chain Inc2Server2)");
         sectionC.addParallelChain(inc2server1);
 
-        GnssOffset itsaGnss =  new GnssOffset("itsaGnss", 12.00, "This ISsue is from C (Gnss offset)");
-        GnssOffset itsbGnss =  new GnssOffset("itsbGnss", 12.00, "This ISsue is from C (gnss Offset)");
+        Irnwt irnwtChainA = new Irnwt(Names.IrnwtChainA, Status.OK, "Issue is from Irnwt Chain A");
+        sectionC.addIrnwt(irnwtChainA);
+        Irnwt irnwtChainB = new Irnwt(Names.IrnwtChainB, Status.NOT_OK, "Issue is from Irnwt Chain B");
+        sectionC.addIrnwt(irnwtChainB);
+
+
+
+        GnssOffset itsaGnss =  new GnssOffset(Names.ItsAGnss, 12.00, "This Issue is from C (ItsA Gnss offset)");
+        GnssOffset itsbGnss =  new GnssOffset(Names.ItsBGnss, 12.00, "This ISsue is from C (gnss Offset)");
+        GnssOffset ItscGnss =  new GnssOffset(Names.ItsCGnss, 10.00, "itsC issues");
+        GnssOffset vremyaA=new GnssOffset(Names.VremyaA, 10.00, "vremyaA issues");
+        GnssOffset vremyaB=new GnssOffset(Names.VremyaB, 10.00, "vremyaB issues");
+        GnssOffset itsInc2=new GnssOffset(Names.ItsInc2, 10.00, "itsInc2 issues");
         sectionC.addGnssOffset(itsaGnss);
         sectionC.addGnssOffset(itsbGnss);
-        TwstftOffset itsA = new TwstftOffset("itsa", 12.00, "This ISsue is from C (twstft)");
-        TwstftOffset itsb = new TwstftOffset("itsb", 12.00, "This ISsue is from C (twstft)");
+        sectionC.addGnssOffset(ItscGnss);
+        sectionC.addGnssOffset(vremyaA);
+        sectionC.addGnssOffset(vremyaB);
+        sectionC.addGnssOffset(itsInc2);
+
+
+        TwstftOffset itsA = new TwstftOffset(Names.TwstftOffsetItsA, 12.00, "This Issue is from C (twstft ITS-A)");
+        TwstftOffset itsb = new TwstftOffset(Names.TwstftOffsetItsB, 12.00, "This Issue is from C (twstft ITS-B)");
+        TwstftOffset itsc = new TwstftOffset(Names.TwstftOffsetItsC, 12.00, "This Issue is from C (twstft ITS-C)");
         sectionC.addTwstftOffset(itsA);
         sectionC.addTwstftOffset(itsb);
 
 
 
 
+//        NavICPerformanceDetails navICPerformanceDetails=getFromFrontend();//spring boot
 
 
         sectionCDao.save(sectionC, entityManager);
@@ -313,25 +402,25 @@ public class AppMain {
 //    }
 
     private static SectionH getSectionH() {
-        StnLookAngle stnLookAngleBPL= new StnLookAngle("BPL", LocalDateTime.now().plusHours(1));
-        StnLookAngle stnLookAngleJDH= new StnLookAngle("JDH", LocalDateTime.now().plusHours(2));
-        StnLookAngle stnLookAngleHSN= new StnLookAngle("HSN", LocalDateTime.now().minusMinutes(30));
-        StnLookAngle stnLookAnglePBR= new StnLookAngle("PBR", LocalDateTime.now().plusHours(4));
+        StnLookAngle stnLookAngleBPL= new StnLookAngle(StationName.PortBlair, LocalDateTime.now().plusHours(1));
+        StnLookAngle stnLookAngleJDH= new StnLookAngle(StationName.PortBlair, LocalDateTime.now().plusHours(2));
+        StnLookAngle stnLookAngleHSN= new StnLookAngle(StationName.PortBlair, LocalDateTime.now().minusMinutes(30));
+        StnLookAngle stnLookAnglePBR= new StnLookAngle(StationName.PortBlair, LocalDateTime.now().plusHours(4));
         SectionH sectionH=new SectionH("Issues from Section H", Set.of(stnLookAngleBPL,stnLookAngleHSN,stnLookAnglePBR,stnLookAngleJDH));
         return sectionH;
     }
 
     private static SectionG getSectionG() {
-        SyslogStatus syslogStatus = new SyslogStatus("syslogStatus", Status.OK, "Issue is from syslog d");
+        SyslogStatus syslogStatus = new SyslogStatus(Names.SyslogStatus, Status.OK, "Issue is from syslog d");
         SectionG sectionG = new SectionG(syslogStatus);
         return sectionG;
     }
 
     private static SectionB getSectionB(Faker faker, StandardFileStatus standardFileStatus, StorageIssues storageStatus) {
-        NavigationArchival nsop2 = new NSOP2(Status.OK, "10G");
-        NavigationArchival nsop4 = new NSOP4(Status.OK, "10G");
-        NavigationArchival nsdaq1 = new NSDAQ1(Status.OK, "10G");
-        NavigationArchival nsdaq2 = new NSDAQ2(Status.OK, "10G");
+        NavigationArchival nsop2 = new NSOP2(ArchivalName.NSOP2, Status.OK, "10G");
+        NavigationArchival nsop4 = new NSOP4(ArchivalName.NSOP4, Status.OK, "10G");
+        NavigationArchival nsdaq1 = new NSDAQ1(ArchivalName.NSDAQ1, Status.OK, "10G");
+        NavigationArchival nsdaq2 = new NSDAQ2(ArchivalName.NSDAQ2, Status.OK, "10G");
         Set<NavigationArchival> archivalList = Set.of(nsop2, nsop4, nsdaq1, nsdaq2);
 
         Set<Measurement> uereMeasurements = getBaseMeasurements(faker);
@@ -344,10 +433,10 @@ public class AppMain {
     }
 
     private static List<BaseMeasurement> getMeasurements(Faker faker) {
-        UserPosition userPosBlrServer1 = new UserPosition(SERVER1, IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.A);
-        UserPosition userPosBlrServer4 = new UserPosition(SERVER4, IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.B);
-        UserPosition userPosLckServer1 = new UserPosition(SERVER1, IrimsMode1Stn.LCK, faker.number().randomDouble(4,6,7), IrimsChain.B);
-        UserPosition userPosLckServer2 = new UserPosition(SERVER2, IrimsMode1Stn.LCK, faker.number().randomDouble(4,6,7), IrimsChain.B);
+        UserPosition userPosBlrServer1 = new UserPosition(Servers.INC1NSOP4, IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7));
+        UserPosition userPosBlrServer4 = new UserPosition(Servers.INC1NSOP4, IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7));
+        UserPosition userPosLckServer1 = new UserPosition(Servers.INC1NSOP4, IrimsMode1Stn.LCK, faker.number().randomDouble(4,6,7));
+        UserPosition userPosLckServer2 = new UserPosition(Servers.INC1NSOP4, IrimsMode1Stn.LCK, faker.number().randomDouble(4,6,7));
 
         List<BaseMeasurement> userPositionMeasurements=new ArrayList<>();
         userPositionMeasurements.add(userPosBlrServer1);
@@ -358,11 +447,11 @@ public class AppMain {
     }
 
     private static Set<Measurement> getBaseMeasurements(Faker faker) {
-        Uere sat02UereA=new Uere(SERVER1,IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.A,satellite_02);
-        Uere sat03UereA=new Uere(SERVER1,IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7),IrimsChain.A,satellite_03);
-        Uere sat02UereB=new Uere(SERVER1,IrimsMode1Stn.BLR, faker.number().randomDouble(6,6,7),IrimsChain.B,satellite_02);
-        Uere sat03UereB=new Uere(SERVER2,IrimsMode1Stn.LCK, faker.number().randomDouble(6,20,30),IrimsChain.B,satellite_06);
-        Uere sat10UereB=new Uere(SERVER2,IrimsMode1Stn.LCK, faker.number().randomDouble(6,20,30),IrimsChain.A,satellite_10);
+        Uere sat02UereA=new Uere(Servers.INC1NSOP4,IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7), IrimsChain.A, Satellite.SAT03);
+        Uere sat03UereA=new Uere(Servers.INC1NSOP4,IrimsMode1Stn.BLR, faker.number().randomDouble(4,6,7),IrimsChain.A,Satellite.SAT03);
+        Uere sat02UereB=new Uere(Servers.INC1NSOP4,IrimsMode1Stn.BLR, faker.number().randomDouble(6,6,7),IrimsChain.B,Satellite.SAT03);
+        Uere sat03UereB=new Uere(Servers.INC1NSOP4,IrimsMode1Stn.LCK, faker.number().randomDouble(6,20,30),IrimsChain.B,Satellite.SAT03);
+        Uere sat10UereB=new Uere(Servers.INC1NSOP4,IrimsMode1Stn.LCK, faker.number().randomDouble(6,20,30),IrimsChain.A,Satellite.SAT03);
         Set<Measurement> uereMeasurements=new HashSet<>();
 //        uereMeasurements.add(sat02UereA);
 //        uereMeasurements.add(sat03UereA);
@@ -373,10 +462,10 @@ public class AppMain {
     }
 
     private static List<NavigationArchival> getArchivalBaseClasses(Faker faker) {
-        NSOP2 NSOP2=new NSOP2(Status.OK, faker.number().numberBetween(10,18)+ STORAGE_UNIT);
-        NSOP4 NSOP4=new NSOP4(Status.NOT_OK, faker.number().numberBetween(10,18)+STORAGE_UNIT);
-        NSDAQ1 NSDAQ1 =new NSDAQ1(Status.NOT_OK, faker.number().numberBetween(2,10)+"G");
-        NSDAQ2 NSDAQ2=new NSDAQ2(Status.OK, "10G");
+        NSOP2 NSOP2=new NSOP2(ArchivalName.NSOP2, Status.OK, faker.number().numberBetween(10,18)+ STORAGE_UNIT);
+        NSOP4 NSOP4=new NSOP4(ArchivalName.NSOP4, Status.NOT_OK, faker.number().numberBetween(10,18)+STORAGE_UNIT);
+        NSDAQ1 NSDAQ1 =new NSDAQ1(ArchivalName.NSDAQ1, Status.NOT_OK, faker.number().numberBetween(2,10)+"G");
+        NSDAQ2 NSDAQ2=new NSDAQ2(ArchivalName.NSDAQ2, Status.OK, "10G");
 
         List<NavigationArchival> archivalList=new ArrayList<>();
         archivalList.add(NSOP2);
@@ -387,15 +476,15 @@ public class AppMain {
     }
 
     private static SectionD getSectionD() {
-        SchemacsHealth monitStatus=new SchemacsHealth("monitStatus", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc1Cs5=new SchemacsHealth("inc1Cs5", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc1Cs6=new SchemacsHealth("inc1Cs6", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc1Cs7=new SchemacsHealth("inc1Cs7", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc1Cs8=new SchemacsHealth("inc1Cs8", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc2Cs5=new SchemacsHealth("inc2Cs5", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc2Cs6=new SchemacsHealth("inc2Cs6", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc2Cs7=new SchemacsHealth("inc2Cs7", Status.OK, "issues is from schemacsHealth");
-        SchemacsHealth inc2Cs8=new SchemacsHealth("inc2Cs8", Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth monitStatus=new SchemacsHealth(Names.MonitStatus, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs5=new SchemacsHealth(Names.Inc1Cs5, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs6=new SchemacsHealth(Names.Inc1Cs6, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs7=new SchemacsHealth(Names.Inc1Cs7, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc1Cs8=new SchemacsHealth(Names.Inc1Cs8, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs5=new SchemacsHealth(Names.Inc2Cs5, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs6=new SchemacsHealth(Names.Inc2Cs6, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs7=new SchemacsHealth(Names.Inc2Cs7, Status.OK, "issues is from schemacsHealth");
+        SchemacsHealth inc2Cs8=new SchemacsHealth(Names.Inc2Cs8, Status.OK, "issues is from schemacsHealth");
 
         Set<SchemacsHealth> schemacsHealths=new HashSet<>();
         schemacsHealths.add(monitStatus);
@@ -424,12 +513,12 @@ public class AppMain {
     }
 
     private static Set<GnssOffset> getGnssOffsets() {
-        GnssOffset gnssItsA=new GnssOffset("itsA", 10.00, "itsA issues");
-        GnssOffset gnssItsB=new GnssOffset("itsB", 10.00, "itsB issues");
-        GnssOffset gnssItsC=new GnssOffset("itsC", 10.00, "itsC issues");
-        GnssOffset vremyaA=new GnssOffset("vremyaA", 10.00, "vremyaA issues");
-        GnssOffset vremyaB=new GnssOffset("vremyaB", 10.00, "vremyaB issues");
-        GnssOffset itsInc2=new GnssOffset("itsInc2", 10.00, "itsInc2 issues");
+        GnssOffset gnssItsA=new GnssOffset(Names.ItsAGnss, 10.00, "itsA issues");
+        GnssOffset gnssItsB=new GnssOffset(Names.ItsBGnss, 10.00, "itsB issues");
+        GnssOffset gnssItsC=new GnssOffset(Names.ItsCGnss, 10.00, "itsC issues");
+        GnssOffset vremyaA=new GnssOffset(Names.VremyaA, 10.00, "vremyaA issues");
+        GnssOffset vremyaB=new GnssOffset(Names.VremyaB, 10.00, "vremyaB issues");
+        GnssOffset itsInc2=new GnssOffset(Names.ItsInc2, 10.00, "itsInc2 issues");
         Set<GnssOffset> gnssOffsets=new HashSet<>();
         gnssOffsets.add(gnssItsA);
         gnssOffsets.add(gnssItsB);
@@ -441,9 +530,9 @@ public class AppMain {
     }
 
     public static Set<TwstftOffset> getTwstftOffsets() {
-        TwstftOffset itsA=new TwstftOffset("itsA", 10.00, "itsA issues");
-        TwstftOffset itsB=new TwstftOffset("itsB", 10.00, "itsB issues");
-        TwstftOffset itsC=new TwstftOffset("itsC", 10.00, "itsC issues");
+        TwstftOffset itsA=new TwstftOffset(Names.TwstftOffsetItsA, 10.00, "itsA issues");
+        TwstftOffset itsB=new TwstftOffset(Names.TwstftOffsetItsB, 10.00, "itsB issues");
+        TwstftOffset itsC=new TwstftOffset(Names.TwstftOffsetItsC, 10.00, "itsC issues");
         Set<TwstftOffset> twstftOffsets=new HashSet<>();
         twstftOffsets.add(itsA);
         twstftOffsets.add(itsB);
@@ -452,10 +541,10 @@ public class AppMain {
     }
 
      public static Set<ParallelChain> getParallelChains() {
-        ParallelChain inc1Server1=new ParallelChain("inc1Server1", Status.OK, "Issues in parallelChain" );
-        ParallelChain inc1Server2=new ParallelChain("inc1Server2", Status.OK, "Issues in parallelChain");
-        ParallelChain inc2Server1=new ParallelChain("inc2Server1", Status.OK, "Issues in parallelChain");
-        ParallelChain inc2Server2=new ParallelChain("inc2Server2", Status.OK, "Issues in parallelChain");
+        ParallelChain inc1Server1=new ParallelChain(Names.Inc1Server1, Status.OK, "Issues in parallelChain" );
+        ParallelChain inc1Server2=new ParallelChain(Names.Inc1Server2, Status.OK, "Issues in parallelChain");
+        ParallelChain inc2Server1=new ParallelChain(Names.Inc2Server1, Status.OK, "Issues in parallelChain");
+        ParallelChain inc2Server2=new ParallelChain(Names.Inc2Server2, Status.OK, "Issues in parallelChain");
 
          Set<ParallelChain> parallelChains=new HashSet<>();
         parallelChains.add(inc1Server1);
@@ -478,9 +567,9 @@ public class AppMain {
     }
 
     private static StorageIssues getStorageIssues(String issues) {
-       NsopStorageStatus shiftOps = new NsopStorageStatus("172.19.2.145(ShiftOps)", Status.OK );
-        NsopStorageStatus nsop1 = new NsopStorageStatus("172.19.4.15(NSOP-1)", Status.OK );
-        NsopStorageStatus nsop2 = new NsopStorageStatus("172.19.7.15(NSOP-2", Status.OK );
+       NsopStorageStatus shiftOps = new NsopStorageStatus(StorageNames.ShiftOPs, Status.OK );
+        NsopStorageStatus nsop1 = new NsopStorageStatus(StorageNames.NSOP1, Status.OK );
+        NsopStorageStatus nsop2 = new NsopStorageStatus(StorageNames.NSOP2, Status.OK );
         Set<NsopStorageStatus> storages = Set.of(shiftOps, nsop1, nsop2);
         StorageIssues storageIssues = new StorageIssues(storages, "Everything is fine");
         return storageIssues;

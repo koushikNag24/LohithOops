@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.Status;
+import model.enumer.Names;
 import model.sections.base.BaseHealth;
 @Getter
 @Entity
@@ -16,7 +17,7 @@ public class SyslogStatus extends BaseHealth {
 
     @OneToOne
     private SectionG sectionG;
-    public SyslogStatus(String name, Status status, String issues) {
+    public SyslogStatus(Names name, Status status, String issues) {
         super(name, status, issues);
     }
 }

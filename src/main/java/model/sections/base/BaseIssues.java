@@ -16,7 +16,7 @@ public abstract class BaseIssues {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "baseIssueId")
     @SequenceGenerator(name = "base_issue_seq",sequenceName = "base_issue_learn",allocationSize = 1)
-    @Column(name = "base_issue_id",updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)
     private Long id;
     private  String issues;
 

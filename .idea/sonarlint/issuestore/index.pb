@@ -34,13 +34,5 @@ S
 #src/main/java/dao/ISectionDDao.java,5/c/5c9f72185e43f2c5e22bee6529d65c15149f8ea2
 S
 #src/main/java/dao/ISectionADao.java,7/b/7b22d58985a12eeb6f55f0b5cd77a41779c33e9d
-i
-9src/main/java/model/sections/sectiond/SchemacsHealth.java,1/d/1dc64e07d592e3dbab68d192427bc2ff98be1bc2
-c
-3src/main/java/model/sections/sectiond/SectionD.java,4/4/440012bf8b0ebbdd66094f2f11d4cdfafae374d3
-c
-3src/main/java/model/sections/sectiona/SectionA.java,b/b/bbd3a21fae5403c4c28c027b58ce7aab700d6199
-m
-=src/main/java/model/sections/sectiona/CommunicationIssue.java,d/4/d45d2a86f7401cf3094091dc5deb8580a3e6c9d5
 R
 "src/main/java/dao/SectionBDao.java,d/6/d6203140d4dd58d7dfec9c049c3bdf9f7d4efce5

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.Status;
+import model.enumer.ArchivalName;
 import model.sections.sectionb.SectionB;
 
 import java.util.List;
@@ -21,8 +22,8 @@ public class NavigationArchival extends ArchivalBaseClass{
 
     @ManyToOne
     private SectionB sectionB;
-    public NavigationArchival(Status status, String size) {
-        super(status, size);
+    public NavigationArchival(ArchivalName name, Status status, String size) {
+        super(name, status, size);
     }
     public void addSectionB(SectionB sectionB){
         this.setSectionB(sectionB);

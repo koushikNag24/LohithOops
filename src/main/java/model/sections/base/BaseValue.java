@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.enumer.Names;
+
+import javax.lang.model.element.Name;
 
 @NoArgsConstructor
 @Getter
@@ -17,10 +20,11 @@ public class BaseValue {
     @SequenceGenerator(name = "baseValueseq",sequenceName = "baseValuelearn",allocationSize = 1)
     @Column(name = "baseValueid",updatable = false, nullable = false)
     private Long id;
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private Names name;
     private Double value;
 
-    public BaseValue(String name, Double value) {
+    public BaseValue(Names name, Double value) {
         this.name = name;
         this.value = value;
     }

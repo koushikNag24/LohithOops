@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import model.Status;
+import model.enumer.StorageNames;
 import model.sections.sectionh.SectionH;
 
 
@@ -27,11 +28,14 @@ public class NsopStorageStatus {
     @ManyToOne
     @JoinColumn(name="base_issue_id ")
     private StorageIssues storageStatus;
-    private  String name;
+
+    @Enumerated(EnumType.STRING)
+    private StorageNames name;
+    @Enumerated(EnumType.STRING)
     private Status status;
 
 
-    public NsopStorageStatus(String name, Status status) {
+    public NsopStorageStatus(StorageNames name, Status status) {
         this.name = name;
         this.status = status;
     }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import model.enumer.StationName;
 import tutorial.dao.utils.jpahibernate.model.Department;
 
 import java.time.LocalDateTime;
@@ -24,15 +25,15 @@ public class StnLookAngle {
     private Long id;
 
 
-
-    private  String location;
+@Enumerated(EnumType.STRING)
+    private StationName location;
     private LocalDateTime availableTill;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name="base_issue_id")
     private SectionH sectionH;
 
-    public StnLookAngle(String location, LocalDateTime availableTill) {
+    public StnLookAngle(StationName location, LocalDateTime availableTill) {
         this.location = location;
         this.availableTill = availableTill;
     }
