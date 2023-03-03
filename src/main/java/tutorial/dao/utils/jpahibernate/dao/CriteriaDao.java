@@ -83,4 +83,16 @@ public class CriteriaDao {
         return tuples;
 
     }
+    public List<Vehicle> getVehiclesViaCriteriaJoin(EntityManagerFactory factory,String course){
+        EntityManager entityManager= factory.createEntityManager();
+        CriteriaBuilder builder= entityManager.getCriteriaBuilder();;
+        CriteriaQuery<Vehicle>  criteriaQuery=builder.createQuery(Vehicle.class);
+        Root<Vehicle>  root=criteriaQuery.from(Vehicle.class);
+        Join<Vehicle,Student> studentJoin=root.join("student");
+
+        Join<Student,String> courseJoin=studentJoin.join("courses");
+        criteriaQuery.where(builder.equal(courseJoin.get("name"),course));
+        List<Vehicle> vehicles=entityManager.createQuery(criteriaQuery).getResultList();
+        return vehicles;
+    }
 }

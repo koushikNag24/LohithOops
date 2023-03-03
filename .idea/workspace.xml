@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6fdc332-d8f4-4bf9-88c1-9d3d9434d784" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/CriteriaDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/IDataBaseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/wrapper/StudentWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/DataBaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/DataBaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/CriteriaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/CriteriaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/service/DepartmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +25,15 @@
       </list>
     </option>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Arrays.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Collections.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/List.java" root0="SKIP_INSPECTION" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>

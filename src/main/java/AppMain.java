@@ -1,27 +1,19 @@
 import com.github.javafaker.Faker;
-import jakarta.persistence.*;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Tuple;
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.Assert;
-import tutorial.dao.utils.hibernate.HibernateDB;
-import tutorial.dao.utils.hibernate.IDepartmentDBUtil;
 import tutorial.dao.utils.jpahibernate.IJpaHibernateUtil;
 import tutorial.dao.utils.jpahibernate.JpaHibernateUtilv1;
 import tutorial.dao.utils.jpahibernate.dao.CriteriaDao;
 import tutorial.dao.utils.jpahibernate.dao.DataBaseDao;
-import tutorial.dao.utils.jpahibernate.exception.ArgumentNullException;
-import tutorial.dao.utils.jpahibernate.exception.NoMeasurementException;
 import tutorial.dao.utils.jpahibernate.model.*;
-import tutorial.dao.utils.jpahibernate.model.wrapper.StudentWrapper;
 import tutorial.dao.utils.jpahibernate.service.DepartmentService;
-import tutorial.dao.utils.jpahibernate.service.SectionService;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class AppMain {
@@ -35,7 +27,7 @@ public class AppMain {
         IJpaHibernateUtil jpaHibernateUtil = new JpaHibernateUtilv1();
         DataBaseDao dao=new DataBaseDao();
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
-    /*    String[] cityState= departmentService.getStateCity().split("_");
+     /*   String[] cityState= departmentService.getStateCity().split("_");
         String city=cityState[1];
         String state=cityState[0];
         Student student = new Student(faker.harryPotter().character(), city, state, faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
@@ -45,17 +37,17 @@ public class AppMain {
             vehicle.setCost(new BigDecimal(faker.commerce().price()));
             student.addVehicle(vehicle);
         }
-        dao.save(factory,student); */
+        dao.save(factory,student);
 
-      /*  EntityManager entityManager = factory.createEntityManager();
+        EntityManager entityManager = factory.createEntityManager();
         for(int i = 1; i< 3; i++) {
             Department department = departmentService.getDepartment(faker);
 
             for (int j = 0; j < 3; j++) {
-                String[] cityState= departmentService.getStateCity().split("_");
-                String city=cityState[1];
-                String state=cityState[0];
-                Student student = new Student(faker.harryPotter().character(), city, state, faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
+                 cityState= departmentService.getStateCity().split("_");
+                 city=cityState[1];
+                 state=cityState[0];
+                 student = new Student(faker.harryPotter().character(), city, state, faker.pokemon().name() + "@" + faker.animal().name() + ".com", faker.number().numberBetween(500, 100));
                 AdharCard adharCard=departmentService.getAdharCard();
                 if(adharCard.isActive()){
                     student.addActiveAdharCard(adharCard);
@@ -71,10 +63,10 @@ public class AppMain {
                 department.addStudent(student);
             }
             jpaHibernateUtil.save(department,entityManager);
-            logger.info(" saved "+department.toString()+ "-- "+i);
+            logger.info(" saved "+ department + "-- "+i);
         }
 
-        entityManager.close();*/
+        entityManager.close(); */
 
 //        EntityManager entityManager2 = factory.createEntityManager();
       /*  EntityTransaction   entityTransaction=entityManager.getTransaction();
@@ -232,12 +224,15 @@ public class AppMain {
                 .map(o->o.getId()+"-"+o.getCity()+"-"+o.getState())
                 .forEach(o->logger.info(o)); */
 
-        List<Tuple> studentVehicleTuple=criteriaDao.getStudentViaMultipleRoots(factory,"M%","purple");
-        Assert.assertEquals(54,studentVehicleTuple.size());
+        /*List<Tuple> studentVehicleTuple=criteriaDao.getStudentViaMultipleRoots(factory,"M%","pink");
+        Assert.assertEquals(2,studentVehicleTuple.size());
         for (Tuple tuple: studentVehicleTuple){
             logger.info(tuple.get(0));
             logger.info(tuple.get(1));
-        }
+        } */
+
+        List<Vehicle> vehicles=criteriaDao.getVehiclesViaCriteriaJoin(factory,"Holdlamis");
+        vehicles.forEach(v->logger.info(v.toString()));
     }
 
     private static void sleep(long sec) {

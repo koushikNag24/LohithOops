@@ -41,7 +41,7 @@ public class DepartmentService {
         HashMap<String,Boolean> healthStatus=new HashMap<>();
         healthStatus.put("isInc1Fine",true);
         healthStatus.put("isInc2Fine",false);
-        department.setPayload(healthStatus);
+//        department.setPayload(healthStatus);
         department.setDepartmentPassword("123");
         department.setCountry(randomState);
         department.setState(randomState);
