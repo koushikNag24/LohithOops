@@ -3,7 +3,7 @@ package model.sections.sectionb;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 @ToString
@@ -21,9 +21,15 @@ public class StandardFileStatus {
 
     @OneToOne
     private SectionB sectionB;
-    private Set<String> availableDocuments;
 
-    public StandardFileStatus(Set<String> availableDocuments) {
+    @OneToMany(mappedBy="standardFileStatus", cascade = CascadeType.ALL)
+    private Set<StandardFile> availableDocuments = new HashSet<>();
+
+    public StandardFileStatus(Set<StandardFile> availableDocuments) {
         this.availableDocuments =  availableDocuments;
+    }
+    public void addStandardFile(StandardFile standardFile){
+        this.availableDocuments.add(standardFile);
+        standardFile.setStandardFileStatus(this);
     }
 }

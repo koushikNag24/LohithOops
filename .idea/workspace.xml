@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ISectionEDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionEDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ISectionFDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionFDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionEDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionEDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionFDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionFDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseMaintenance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/base/BaseMaintenance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectione/SectionE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectione/SectionE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectione/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectione/Station.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionf/SectionF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionf/SectionF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Intuition.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Intuition.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFileStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/StandardFileStatus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +21,8 @@
         <option value="JUnit5 Test Class" />
         <option value="AnnotationType" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -83,6 +75,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="model.sections.sectionb" />
       <recent name="dao" />
       <recent name="model.sections.base" />
       <recent name="model" />

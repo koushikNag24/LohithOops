@@ -146,10 +146,17 @@ public class AppMain {
         }
 
         StandardFileStatus standardFileStatus = new StandardFileStatus();
+        StandardFile doc1 = new StandardFile("Doc1");
+        StandardFile doc2 = new StandardFile("Doc2");
+        StandardFile doc3 = new StandardFile("Doc3");
+        StandardFile doc5 = new StandardFile("Doc5");
+        StandardFile doc4 = new StandardFile("Doc4");
+        standardFileStatus.addStandardFile(doc1);
+        standardFileStatus.addStandardFile(doc2);
+        standardFileStatus.addStandardFile(doc3);
+        standardFileStatus.addStandardFile(doc4);
+        standardFileStatus.addStandardFile(doc5);
 
-        Set<String> standardFiles = new HashSet<>() ;
-        standardFiles = Set.of("DOC1","DOC2","DOC3","DOC4","DOC5");
-        standardFileStatus.setAvailableDocuments(standardFiles);
         sectionB.addStandardFilesStatus(standardFileStatus);
         sectionBDao.save(sectionB, entityManager);
 
@@ -481,7 +488,11 @@ public class AppMain {
     }
 
     private static StandardFileStatus getStandardFileStatus() {
-        Set<String> availableFiles=Set.of(Document_1, document_2);
+
+        StandardFile doc1 = new StandardFile("Doc1");
+        StandardFile doc2 = new StandardFile("Doc2");
+
+        Set<StandardFile> availableFiles=Set.of(doc1, doc2);
         StandardFileStatus standardFileStatus=new StandardFileStatus(availableFiles);
         return standardFileStatus;
     }
