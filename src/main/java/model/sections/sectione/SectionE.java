@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import lombok.Setter;
 import lombok.ToString;
+import model.NavicPerformanceDetails;
 import model.sections.base.BaseMaintenance;
 
 
@@ -12,6 +14,7 @@ import model.sections.base.BaseMaintenance;
 @NoArgsConstructor
 @Getter
 @Entity
+@Setter
 public class SectionE extends BaseMaintenance {
 /**
  *  The association relating to Section E is completely taken care by its hierarchical parents all the way up !
@@ -21,4 +24,7 @@ public class SectionE extends BaseMaintenance {
  *
  *  So we don't need to provide any association in Section E
  */
+
+@OneToOne(mappedBy = "sectionE",cascade = CascadeType.ALL)
+private NavicPerformanceDetails navicPerformanceDetails;
 }

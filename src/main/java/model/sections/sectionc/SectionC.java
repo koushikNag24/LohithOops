@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import model.NavicPerformanceDetails;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -34,6 +35,9 @@ public class SectionC {
 
     @OneToMany(mappedBy = "sectionC", cascade = CascadeType.ALL)
     private Set<GnssOffset> gnssOffsets=new HashSet<>();
+
+    @OneToOne(mappedBy = "sectionC",cascade = CascadeType.ALL)
+    private NavicPerformanceDetails navicPerformanceDetails;
 
     public SectionC(Set<ParallelChain> parallelChains, Set<TwstftOffset> twstftOffsets, Set<GnssOffset> gnssOffsets) {
         this.parallelChains = parallelChains;

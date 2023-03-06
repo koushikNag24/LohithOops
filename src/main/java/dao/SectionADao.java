@@ -14,12 +14,9 @@ public class SectionADao implements ISectionADao{
         try {
             tx = entityManager.getTransaction();
             tx.begin();
-
             entityManager.persist(sectionA);
-
-
-
             tx.commit();
+
         } catch (RuntimeException e) {
             if (tx != null) {
                 tx.rollback();

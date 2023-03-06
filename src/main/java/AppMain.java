@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import model.enumer.*;
-import model.sections.base.BaseIssues;
 import model.sections.sectiona.LinkStatus;
 import model.sections.sectionb.*;
 import model.*;
@@ -49,83 +48,33 @@ public class AppMain {
 
 
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
+
         EntityManager entityManager = factory.createEntityManager();
 
-        ISectionGDao sectionGDao = new SectionGDao();
-        SectionG sectionG = new SectionG();
-
-        SyslogStatus syslogStatus = new SyslogStatus();
-        syslogStatus.setStatus(Status.OK);
-        syslogStatus.setName(Names.SyslogStatus);
-        syslogStatus.setIssue("Issue is from syslog status");
-        sectionG.addSysLog(syslogStatus);
-        sectionGDao.save(sectionG, entityManager);
 
 
-        ISectionHDao sectionHDao = new SectionHDao();
-        Set<StnLookAngle> stnLookAngles = new HashSet<>();
-        BaseIssues sectionH = new SectionH();
-        sectionH.setIssues("Issues is from section H");
-
-            StnLookAngle stnLookAngle1 = new StnLookAngle(StationName.Bengaluru, LocalDateTime.now());
-        stnLookAngle1.addSectionH((SectionH) sectionH);
-        StnLookAngle stnLookAngle2 = new StnLookAngle(StationName.Lucknow, LocalDateTime.now());
-        stnLookAngle2.addSectionH((SectionH) sectionH);
-        StnLookAngle stnLookAngle3 = new StnLookAngle(StationName.PortBlair, LocalDateTime.now());
-        stnLookAngle3.addSectionH((SectionH) sectionH);
-            ((SectionH) sectionH).addStnLookAngle(stnLookAngle1);
-        ((SectionH) sectionH).addStnLookAngle(stnLookAngle2);
-        ((SectionH) sectionH).addStnLookAngle(stnLookAngle3);
 
 
-        logger.info(stnLookAngles);
-
-        sectionHDao.save((SectionH) sectionH, entityManager);
-
-        ISectionDDao sectionDDao = new SectionDDao();
-        Set<SchemacsHealth> schemacsHealths = new HashSet<>();
-        BaseIssues sectionD = new SectionD();
-        sectionD.setIssues("Issue is from Section D!!");
-
-        SchemacsHealth monitStatus = new SchemacsHealth( Names.MonitStatus, Status.OK, "Issue is from schemacs Monit Status");
-        ((SectionD) sectionD).addSchemacsHealth(monitStatus);
-        SchemacsHealth inc1cs5 = new SchemacsHealth( Names.Inc1Cs5, Status.OK, "Issue is from schemacs Inc1Cs5");
-        ((SectionD) sectionD).addSchemacsHealth(inc1cs5);
-        SchemacsHealth inc1cs6 = new SchemacsHealth( Names.Inc1Cs6, Status.OK, "Issue is from schemacs Inc1Cs6");
-        ((SectionD) sectionD).addSchemacsHealth(inc1cs6);
-        SchemacsHealth inc1cs7 = new SchemacsHealth( Names.Inc1Cs7, Status.OK, "Issue is from schemacs Inc1Cs7");
-        ((SectionD) sectionD).addSchemacsHealth(inc1cs7);
-        SchemacsHealth inc1cs8 = new SchemacsHealth( Names.Inc1Cs8, Status.OK, "Issue is from schemacs Inc1Cs8");
-        ((SectionD) sectionD).addSchemacsHealth(inc1cs8);
-        SchemacsHealth inc2cs5 = new SchemacsHealth( Names.Inc2Cs5, Status.OK, "Issue is from schemacs Inc2Cs5");
-        ((SectionD) sectionD).addSchemacsHealth(inc2cs5);
-        SchemacsHealth inc2cs6 = new SchemacsHealth( Names.Inc2Cs6, Status.OK, "Issue is from schemacs Inc2Cs6");
-        ((SectionD) sectionD).addSchemacsHealth(inc2cs6);
-        SchemacsHealth inc2cs7 = new SchemacsHealth( Names.Inc2Cs7, Status.OK, "Issue is from schemacs Inc2Cs7");
-        ((SectionD) sectionD).addSchemacsHealth(inc2cs7);
-        SchemacsHealth inc2cs8 = new SchemacsHealth( Names.Inc2Cs8, Status.OK, "Issue is from schemacs Inc2Cs8");
-        ((SectionD) sectionD).addSchemacsHealth(inc2cs8);
-
-//        logger.info(schemacsHealths);
-        sectionDDao.save((SectionD) sectionD, entityManager);
+        LocalDateTime createdAt=LocalDateTime.now();
+        LocalDateTime modifiedAt=LocalDateTime.now().plusHours(2);
 
 
 
         ISectionADao sectionADao = new SectionADao();
         Set<LinkStatus> baseHealths = new HashSet<>();
         CommunicationIssue communicationIssue = new CommunicationIssue();
-
         LinkStatus terrestrialLink = new LinkStatus(Names.TerrestrialLink, Status.OK, "issue from Terrestrial Link");
         communicationIssue.addLinkStatus(terrestrialLink);
         LinkStatus satelliteLink = new LinkStatus(Names.SatelliteLink, Status.OK, "issue from Satellite Link");
         communicationIssue.addLinkStatus(satelliteLink);
         LinkStatus inc1inc2 = new LinkStatus(Names.INC1INC2, Status.NOT_OK, "issue from INC1-INC2");
         communicationIssue.addLinkStatus(inc1inc2);
-
         logger.info(baseHealths);
         SectionA sectionA = new SectionA();
         sectionA.addCommunicationStatus(communicationIssue);
+
         sectionADao.save(sectionA, entityManager);
+
 
 
         ISectionBDao sectionBDao = new SectionBDao();
@@ -133,25 +82,18 @@ public class AppMain {
         sectionB.setIssues("Issue is from Section B!!");
         StorageIssues storageStatus = new StorageIssues();
         storageStatus.setIssues("Issue is from Storage ");
-
-
-
         NsopStorageStatus shiftOps = new NsopStorageStatus(StorageNames.ShiftOPs, Status.NOT_OK);
         storageStatus.addNsopStorageStatus(shiftOps);
         NsopStorageStatus storageNsop1= new NsopStorageStatus(StorageNames.NSOP1, Status.NOT_OK);
         storageStatus.addNsopStorageStatus(storageNsop1);
         NsopStorageStatus storageNsop2 = new NsopStorageStatus(StorageNames.NSOP2, Status.NOT_OK);
         storageStatus.addNsopStorageStatus(storageNsop2);
-
         sectionB.addStorageStatus(storageStatus);
-
         NavigationArchival nsop2 = new NSOP2(ArchivalName.NSOP2 ,Status.OK, "10G");
         NavigationArchival nsop4 = new NSOP4(ArchivalName.NSOP4,Status.OK, "10G");
         NavigationArchival nsdaq1 = new NSDAQ1(ArchivalName.NSDAQ1,Status.OK, "10G");
         NavigationArchival nsdaq2 = new NSDAQ2(ArchivalName.NSDAQ2,Status.OK, "10G");
-
         Set<NavigationArchival> archivalList = Set.of(nsop2, nsop4, nsdaq1, nsdaq2);
-
         sectionB.addNavigationArchival(nsop2);
         sectionB.addNavigationArchival(nsop4);
         sectionB.addNavigationArchival(nsdaq1);
@@ -209,8 +151,6 @@ public class AppMain {
         UserPosition field72 = new UserPosition(Servers.INC2NSOP2, IrimsMode1Stn.BLR, 12.00);
         sectionB.addMeasurements(field72);
 
-
-
         StandardFileStatus standardFileStatus = new StandardFileStatus();
         StandardFile doc1 = new StandardFile("Doc1");
         StandardFile doc2 = new StandardFile("Doc2");
@@ -222,33 +162,8 @@ public class AppMain {
         standardFileStatus.addStandardFile(doc3);
         standardFileStatus.addStandardFile(doc4);
         standardFileStatus.addStandardFile(doc5);
-
         sectionB.addStandardFilesStatus(standardFileStatus);
         sectionBDao.save(sectionB, entityManager);
-
-        ISectionEDao sectionEDao = new SectionEDao();
-
-        Station blrStation=new Station();
-        blrStation.setName(StationName.Bengaluru);
-        Station dhlStation=new Station();
-        dhlStation.setName(StationName.Delhi);
-
-        SectionE sectionE=new SectionE();
-        sectionE.setIssues("Issues is from Base Maintenance Section E");
-        sectionE.addStation(blrStation);
-        sectionE.addStation(dhlStation);
-
-
-        sectionEDao.save(sectionE, entityManager);
-
-        ISectionFDao sectionFDao = new SectionFDao();
-        SectionF sectionF = new SectionF();
-        sectionF.setIssues("Issues is from Base Maintenance SectionF");
-        sectionF.addStation(blrStation);
-        sectionF.addStation(dhlStation);
-
-        sectionFDao.save(sectionF, entityManager);
-
 
 
 
@@ -268,8 +183,6 @@ public class AppMain {
         Irnwt irnwtChainB = new Irnwt(Names.IrnwtChainB, Status.NOT_OK, "Issue is from Irnwt Chain B");
         sectionC.addIrnwt(irnwtChainB);
 
-
-
         GnssOffset itsaGnss =  new GnssOffset(Names.ItsAGnss, 12.00, "This Issue is from C (ItsA Gnss offset)");
         GnssOffset itsbGnss =  new GnssOffset(Names.ItsBGnss, 12.00, "This ISsue is from C (gnss Offset)");
         GnssOffset ItscGnss =  new GnssOffset(Names.ItsCGnss, 10.00, "itsC issues");
@@ -283,30 +196,116 @@ public class AppMain {
         sectionC.addGnssOffset(vremyaB);
         sectionC.addGnssOffset(itsInc2);
 
-
         TwstftOffset itsA = new TwstftOffset(Names.TwstftOffsetItsA, 12.00, "This Issue is from C (twstft ITS-A)");
         TwstftOffset itsb = new TwstftOffset(Names.TwstftOffsetItsB, 12.00, "This Issue is from C (twstft ITS-B)");
         TwstftOffset itsc = new TwstftOffset(Names.TwstftOffsetItsC, 12.00, "This Issue is from C (twstft ITS-C)");
         sectionC.addTwstftOffset(itsA);
         sectionC.addTwstftOffset(itsb);
-
-
-
-
-//        NavICPerformanceDetails navICPerformanceDetails=getFromFrontend();//spring boot
-
-
         sectionCDao.save(sectionC, entityManager);
 
 
 
+        ISectionDDao sectionDDao = new SectionDDao();
+        Set<SchemacsHealth> schemacsHealths = new HashSet<>();
+        SectionD sectionD = new SectionD();
+        sectionD.setIssues("Issue is from Section D!!");
+        SchemacsHealth monitStatus = new SchemacsHealth( Names.MonitStatus, Status.OK, "Issue is from schemacs Monit Status");
+        sectionD.addSchemacsHealth(monitStatus);
+        SchemacsHealth inc1cs5 = new SchemacsHealth( Names.Inc1Cs5, Status.OK, "Issue is from schemacs Inc1Cs5");
+        sectionD.addSchemacsHealth(inc1cs5);
+        SchemacsHealth inc1cs6 = new SchemacsHealth( Names.Inc1Cs6, Status.OK, "Issue is from schemacs Inc1Cs6");
+        sectionD.addSchemacsHealth(inc1cs6);
+        SchemacsHealth inc1cs7 = new SchemacsHealth( Names.Inc1Cs7, Status.OK, "Issue is from schemacs Inc1Cs7");
+        sectionD.addSchemacsHealth(inc1cs7);
+        SchemacsHealth inc1cs8 = new SchemacsHealth( Names.Inc1Cs8, Status.OK, "Issue is from schemacs Inc1Cs8");
+        sectionD.addSchemacsHealth(inc1cs8);
+        SchemacsHealth inc2cs5 = new SchemacsHealth( Names.Inc2Cs5, Status.OK, "Issue is from schemacs Inc2Cs5");
+        sectionD.addSchemacsHealth(inc2cs5);
+        SchemacsHealth inc2cs6 = new SchemacsHealth( Names.Inc2Cs6, Status.OK, "Issue is from schemacs Inc2Cs6");
+        sectionD.addSchemacsHealth(inc2cs6);
+        SchemacsHealth inc2cs7 = new SchemacsHealth( Names.Inc2Cs7, Status.OK, "Issue is from schemacs Inc2Cs7");
+        sectionD.addSchemacsHealth(inc2cs7);
+        SchemacsHealth inc2cs8 = new SchemacsHealth( Names.Inc2Cs8, Status.OK, "Issue is from schemacs Inc2Cs8");
+        sectionD.addSchemacsHealth(inc2cs8);
+        sectionDDao.save(sectionD, entityManager);
 
 
 
+        ISectionEDao sectionEDao = new SectionEDao();
+        Station blrStation=new Station();
+        blrStation.setName(StationName.Bengaluru);
+        Station dhlStation=new Station();
+        dhlStation.setName(StationName.Delhi);
+        SectionE sectionE=new SectionE();
+        sectionE.setIssues("Issues is from Base Maintenance Section E");
+        sectionE.addStation(blrStation);
+        sectionE.addStation(dhlStation);
+        sectionEDao.save(sectionE, entityManager);
+
+
+
+        ISectionFDao sectionFDao = new SectionFDao();
+        SectionF sectionF = new SectionF();
+        sectionF.setIssues("Issues is from Base Maintenance SectionF");
+        sectionF.addStation(blrStation);
+        sectionF.addStation(dhlStation);
+        sectionFDao.save(sectionF, entityManager);
+
+
+
+        ISectionGDao sectionGDao = new SectionGDao();
+        SectionG sectionG = new SectionG();
+        SyslogStatus syslogStatus = new SyslogStatus();
+        syslogStatus.setStatus(Status.OK);
+        syslogStatus.setName(Names.SyslogStatus);
+        syslogStatus.setIssue("Issue is from syslog status");
+        sectionG.addSysLog(syslogStatus);
+        sectionGDao.save(sectionG, entityManager);
+
+
+
+        ISectionHDao sectionHDao = new SectionHDao();
+        Set<StnLookAngle> stnLookAngles = new HashSet<>();
+        SectionH sectionH = new SectionH();
+        sectionH.setIssues("Issues is from section H");
+        StnLookAngle stnLookAngle1 = new StnLookAngle(StationName.Bengaluru, LocalDateTime.now());
+        stnLookAngle1.addSectionH(sectionH);
+        StnLookAngle stnLookAngle2 = new StnLookAngle(StationName.Lucknow, LocalDateTime.now());
+        stnLookAngle2.addSectionH(sectionH);
+        StnLookAngle stnLookAngle3 = new StnLookAngle(StationName.PortBlair, LocalDateTime.now());
+        stnLookAngle3.addSectionH(sectionH);
+        sectionH.addStnLookAngle(stnLookAngle1);
+        sectionH.addStnLookAngle(stnLookAngle2);
+        sectionH.addStnLookAngle(stnLookAngle3);
+        logger.info(stnLookAngles);
+        sectionHDao.save(sectionH, entityManager);
+
+
+
+
+        INavicPerformanceDao navicPerformanceDao = new NavicPerformanceDao();
+        NavicPerformanceDetails navicPerformanceDetails = new NavicPerformanceDetails();
+
+        navicPerformanceDetails.setSectionA(sectionA);
+        navicPerformanceDetails.setSectionB(sectionB);
+        navicPerformanceDetails.setSectionC(sectionC);
+        navicPerformanceDetails.setSectionD(sectionD);
+        navicPerformanceDetails.setSectionE(sectionE);
+        navicPerformanceDetails.setSectionF(sectionF);
+        navicPerformanceDetails.setSectionG(sectionG);
+        navicPerformanceDetails.setSectionH(sectionH);
+        navicPerformanceDetails.setCreatedAt(LocalDateTime.now());
+        navicPerformanceDetails.setModifiedAt(LocalDateTime.now().plusHours(5));
+
+//        NavicPerformanceDetails performanceDetails=new NavicPerformanceDetails(sectionA, sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
+
+        navicPerformanceDao.save(navicPerformanceDetails, entityManager);
         entityManager.close();
 
-
     }
+
+
+    //        NavICPerformanceDetails navICPerformanceDetails=getFromFrontend();//spring boot
 
 
     public static int getRandomNumber(int min, int max) {
@@ -356,7 +355,7 @@ public class AppMain {
         SectionH sectionH = getSectionH();
 
 
-//        NavICPerformanceDetails performanceDetails=new NavICPerformanceDetails(1000,sectionA,sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
+
 
 
 //        Set<NavigationArchival> archivals=performanceDetails.getSectionB().getArchivalList();

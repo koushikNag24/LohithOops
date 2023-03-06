@@ -24,15 +24,7 @@ u
 Esrc/main/java/tutorial/dao/utils/jpahibernate/JpaHibernateUtilv1.java,3/5/352a4d889e608dc2f625a41c867ad4f52bcb4e0c
 S
 #src/main/java/dao/ISectionHDao.java,e/d/eddf36f241c6027bff840d280815d3529385ed59
-R
-"src/main/java/dao/SectionHDao.java,8/3/83d415701bea657b84089cdb82a36f025881b000
 S
 #src/main/java/dao/ISectionGDao.java,f/4/f488e1ecc5a4547e427c8d3b9de8a2d10f8d7920
-R
-"src/main/java/dao/SectionDDao.java,7/6/764096b51bdac189f9de11f740603930122e9379
 S
 #src/main/java/dao/ISectionDDao.java,5/c/5c9f72185e43f2c5e22bee6529d65c15149f8ea2
-S
-#src/main/java/dao/ISectionADao.java,7/b/7b22d58985a12eeb6f55f0b5cd77a41779c33e9d
-R
-"src/main/java/dao/SectionBDao.java,d/6/d6203140d4dd58d7dfec9c049c3bdf9f7d4efce5

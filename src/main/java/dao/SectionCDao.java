@@ -18,8 +18,6 @@ public class SectionCDao implements ISectionCDao{
 
             entityManager.persist(sectionC);
 
-
-
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {

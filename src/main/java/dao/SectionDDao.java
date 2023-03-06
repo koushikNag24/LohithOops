@@ -16,11 +16,9 @@ public class SectionDDao implements ISectionDDao{
             tx.begin();
 
             entityManager.persist(sectionD);
-
             for (SchemacsHealth health : sectionD.getSchemacsHealths()) {
                 entityManager.persist(health);
             }
-
             tx.commit();
         } catch (RuntimeException e) {
             if (tx != null) {

@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import model.NavicPerformanceDetails;
 import model.sections.base.BaseIssues;
 import model.sections.sectionb.archival.good.NavigationArchival;
 
@@ -38,13 +39,14 @@ public class SectionB extends BaseIssues {
     @OneToMany(mappedBy="sectionB", cascade = CascadeType.ALL)
     private Set<NavigationArchival> archivalList=new HashSet<>();
 
-
-
     @OneToMany(mappedBy="sectionB", cascade = CascadeType.ALL)
     private Set<Measurement> uereMeasurements=new HashSet<>();
 
     @OneToMany(mappedBy="sectionB", cascade = CascadeType.ALL)
     private Set<Measurement> userPositionMeasurements=new HashSet<>();
+
+    @OneToOne(mappedBy = "sectionB",cascade = CascadeType.ALL)
+    private NavicPerformanceDetails navicPerformanceDetails;
 
 
     public void addStorageStatus(StorageIssues storageStatus){

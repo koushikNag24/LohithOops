@@ -1,17 +1,17 @@
 ### Queries to Fetch each sections
 
 #### SectionA
-    `select bh.base_health_id, bh.name, bh.status, bh.issue, ci.section_a_id `
-      `from base_health as bh `
-      `join `
-      `link_status as ls `
-      `on bh.base_health_id=ls.base_health_id `
-      `join`
-      `communication_issue as ci `
-      `on ls.communication_id=ci.communication_id `
-      `join `
-      `section_a as sa `
-      `on ci.section_a_id=sa.id; `
+        `select bh.id, bh.name, bh.status, bh.issue, ci.section_a_id`
+        `from base_health as bh`
+        `join`
+        `link_status as ls`
+        `on bh.id=ls.id`
+        `join`
+        `communication_issue as ci`
+        `on ls.communication_id=ci.communication_id`
+        `join`
+        `section_a as sa`
+        `on ci.section_a_id=sa.id;`
 
 #### SectionB
 * Standard File Status
@@ -37,7 +37,7 @@
           `on nss.base_issue_id=si.id `
           `join`
           `base_issues as bi `
-         ` on si.id=bi.id `
+          `on si.id=bi.id `
           `join `
           `section_b as sb `
           `on si.section_b_id=sb.id`
@@ -47,7 +47,7 @@
         `select abc.archivals_id, abc.name, abc.status, abc.size, na.section_b_id` 
         `from archival_base_class as abc`
         `join`
-       `navigation_archival as na `
+        `navigation_archival as na `
         `on abc.archivals_id=na.archivals_id `
         `join`
         `section_b as sb `
@@ -104,7 +104,7 @@
 
 * Irnwts
 
-      ` select bh.id, bh.name, bh.status, bh.issue, sc.id `
+      `select bh.id, bh.name, bh.status, bh.issue, sc.id `
       `from base_health as bh `
       `join`
       `irnwt as i `
