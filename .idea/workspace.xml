@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/INavicPerformanceDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/NavicPerformanceDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/NavicPerformanceDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/6/764096b51bdac189f9de11f740603930122e9379" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/b/7b22d58985a12eeb6f55f0b5cd77a41779c33e9d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/83d415701bea657b84089cdb82a36f025881b000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/6/d6203140d4dd58d7dfec9c049c3bdf9f7d4efce5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ISectionADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ISectionADao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionADao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionADao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionCDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionCDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SectionDDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SectionDDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/NavICPerformanceDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/SectionA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiona/SectionA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/SectionB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionb/SectionB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/SectionC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionc/SectionC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SectionD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiond/SectionD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectione/SectionE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectione/SectionE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionf/SectionF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionf/SectionF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectiong/SectionG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/SectionH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/sections/sectionh/SectionH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Intuition.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
