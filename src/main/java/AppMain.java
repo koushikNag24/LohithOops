@@ -297,8 +297,6 @@ public class AppMain {
         navicPerformanceDetails.setCreatedAt(LocalDateTime.now());
         navicPerformanceDetails.setModifiedAt(LocalDateTime.now().plusHours(5));
 
-//        NavicPerformanceDetails performanceDetails=new NavicPerformanceDetails(sectionA, sectionB, sectionC, sectionD, sectionE, sectionF, sectionG, sectionH, createdAt,modifiedAt);
-
         navicPerformanceDao.save(navicPerformanceDetails, entityManager);
         entityManager.close();
 

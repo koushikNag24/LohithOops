@@ -40,7 +40,7 @@
           `on si.id=bi.id `
           `join `
           `section_b as sb `
-          `on si.section_b_id=sb.id`
+          `on si.section_b_id=sb.id;`
 
 * Archival
         

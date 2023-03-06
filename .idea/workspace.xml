@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Intuition.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/Intuition.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Intuition.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/verfiysql/SQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionA.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionB.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionB.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionC.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionD.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionD.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionF.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionF.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionG.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionH.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionH.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +92,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/verfiysql" />
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
