@@ -1,12 +1,30 @@
 package model.sections.sectione;
 
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import lombok.Setter;
+import lombok.ToString;
+import model.NavicPerformanceDetails;
 import model.sections.base.BaseMaintenance;
 
-import java.util.List;
+
+@ToString
+@NoArgsConstructor
 @Getter
+@Entity
+@Setter
 public class SectionE extends BaseMaintenance {
-    public SectionE(String issues, List<String> stationNames) {
-        super(issues, stationNames);
-    }
+/**
+ *  The association relating to Section E is completely taken care by its hierarchical parents all the way up !
+ *  Hence, we need not give any association mapping for it !!!
+ *  Here Station attribute pertaining to Section E has been taken care by Base Maintenance
+ *  Here Issue attribute pertaining to Section E has been taken care by Base Issue via Base Maintenance.
+ *
+ *  So we don't need to provide any association in Section E
+ */
+
+@OneToOne(mappedBy = "sectionE",cascade = CascadeType.ALL)
+private NavicPerformanceDetails navicPerformanceDetails;
 }

@@ -1,13 +1,34 @@
 package model.sections.sectionc;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import model.Status;
+import model.enumer.Names;
 import model.sections.base.BaseHealth;
+import model.sections.sectionh.SectionH;
 
+@Entity
+@ToString
+@Getter
+@NoArgsConstructor
+@Setter
 public class ParallelChain extends BaseHealth {
-    private final String issues;
 
-    public ParallelChain(String name, String status, String issues) {
-        super(name, status);
-        this.issues = issues;
+    @ManyToOne
+    private SectionC sectionC;
+
+    private String issue;
+    public ParallelChain(Names name, Status status, String issue) {
+        super(name, status, issue);
+
+    }
+    public void addSectionC(SectionC sectionC){
+        this.setSectionC(sectionC);
+        sectionC.addParallelChain(this);
     }
 
 

@@ -1,13 +1,27 @@
 package model.sections.sectionb.measurements;
 
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import model.enumer.IrimsChain;
+import model.enumer.IrimsMode1Stn;
+import model.enumer.Servers;
+import model.sections.sectionb.Measurement;
 
+@Getter
+@Setter
 @ToString
-public class UserPosition extends  BaseMeasurement{
+@NoArgsConstructor
+@Entity
+public class UserPosition extends Measurement {
 
-    private String test;
-    public UserPosition(String server, String location, Double value, Character chain,String test) {
-        super(server, location, value, chain);
-        this.test=test;
+
+    public UserPosition(Servers server, IrimsMode1Stn location, Double value) {
+        super(server, location, value);
+
     }
+
+
 }

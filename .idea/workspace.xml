@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/utbot-settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DBUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AppMainTest.java" afterDir="false" />
+    <list default="true" id="93b0f9f4-b206-43e7-b436-989582be3f73" name="Changes" comment="&quot;commited&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/Intuition.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Intuition.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/verfiysql/SQL.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionA.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionA.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionB.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionB.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionC.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionD.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionD.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionE.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionE.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionF.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionF.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionG.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionG.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SQL/SectionH.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQL/SectionH.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,19 +26,34 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="AnnotationType" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="ComplexRelationMapping" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Arrays.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/Collections.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.jdks/corretto-11.0.15/lib/src.zip!/java.base/java/util/List.java" root0="SKIP_INSPECTION" />
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="7d5a5327-f876-4ab6-bb4a-e214a46fb629" />
+        <option name="url" value="https://github.com/koushikNag24/LohithOops.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,33 +66,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/root/LohithOops/LohithOops",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/root/LohithOops/LohithOops&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="model.sections.sectionb" />
+      <recent name="dao" />
+      <recent name="model.sections.base" />
+      <recent name="model" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/verfiysql" />
+      <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="tutorial.dao.utils.jpahibernate" />
+      <recent name="dao" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="tutorial.dao.utils.jpahibernate.model.inheritance" />
       <recent name="model.sections.sectione" />
       <recent name="model.sections.sectionc" />
       <recent name="decorator" />
       <recent name="workutils.trigger" />
-      <recent name="workutils" />
     </key>
   </component>
   <component name="RunManager" selected="Application.AppMain">
@@ -92,31 +128,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppMainTest.connectToDatabaseFailureWrongPort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppMainTest.deleteStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="METHOD_NAME" value="connectToDatabaseFailureWrongPort" />
+      <option name="METHOD_NAME" value="deleteStudentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppMainTest.connectToDatabaseFailureWrongUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppMainTest.getAStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="AppMainTest" />
-      <option name="METHOD_NAME" value="connectToDatabaseFailureWrongUsername" />
+      <option name="METHOD_NAME" value="getAStudentTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AppMainTest.updateStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LohithOops" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="AppMainTest" />
+      <option name="METHOD_NAME" value="updateStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,9 +162,9 @@
       <list>
         <item itemvalue="Application.AppMain" />
         <item itemvalue="JUnit.AppMainTest" />
-        <item itemvalue="JUnit.TestMain" />
-        <item itemvalue="JUnit.AppMainTest.connectToDatabaseFailureWrongUsername" />
-        <item itemvalue="JUnit.AppMainTest.connectToDatabaseFailureWrongPort" />
+        <item itemvalue="JUnit.AppMainTest.deleteStudentTest" />
+        <item itemvalue="JUnit.AppMainTest.updateStudentTest" />
+        <item itemvalue="JUnit.AppMainTest.getAStudentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -140,6 +177,14 @@
       <option name="presentableId" value="Default" />
       <updated>1675239485531</updated>
     </task>
+    <task id="LOCAL-00001" summary="&quot;commited&quot;">
+      <created>1677149734692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677149734692</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,5 +197,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;commited&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;commited&quot;" />
   </component>
 </project>

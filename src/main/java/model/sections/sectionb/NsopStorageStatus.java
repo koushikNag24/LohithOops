@@ -1,16 +1,47 @@
 package model.sections.sectionb;
 
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import model.Status;
+import model.enumer.StorageNames;
+import model.sections.sectionh.SectionH;
+
 
 @ToString
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
 
 public class NsopStorageStatus {
-    private final String nsop1Storage;
-    private final String nsop2Storage;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "nsopStorageStatus_seq")
+    @SequenceGenerator(name = "nsopStorageStatus_seq",sequenceName = "nsopStorageStatus_learn",allocationSize = 3)
+    @Column(name = "nsopStorageStatus_id", updatable = false, nullable = false)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name="base_issue_id ")
+    private StorageIssues storageStatus;
+
+    @Enumerated(EnumType.STRING)
+    private StorageNames name;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
-    public NsopStorageStatus(String nsop1Storage, String nsop2Storage) {
-        this.nsop1Storage = nsop1Storage;
-        this.nsop2Storage = nsop2Storage;
+    public NsopStorageStatus(StorageNames name, Status status) {
+        this.name = name;
+        this.status = status;
+    }
+
+    public void addStorageStatus(StorageIssues storageStatus){
+        this.setStorageStatus(storageStatus);
+        storageStatus.addNsopStorageStatus(this);
     }
 }
