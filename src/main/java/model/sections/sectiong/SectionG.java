@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.sections.base.BaseIssues;
+import org.hibernate.envers.Audited;
+
 @Entity
 @NoArgsConstructor
 @Setter

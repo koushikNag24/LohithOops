@@ -4,6 +4,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import model.sections.base.BaseIssues;
+import org.hibernate.AssertionFailure;
+import org.hibernate.envers.AuditReader;
+import org.hibernate.envers.AuditReaderFactory;
+import org.hibernate.envers.query.AuditQuery;
 import tutorial.dao.utils.jpahibernate.model.Course;
 import tutorial.dao.utils.jpahibernate.model.Department;
 import model.*;
@@ -43,10 +47,12 @@ import workutils.IUtils;
 import workutils.UtilsV3;
 
 import javax.swing.plaf.basic.BasicBorders;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AppMain {
 
@@ -82,7 +88,79 @@ public class AppMain {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("Hibernate_JPA");
         EntityManager entityManager = factory.createEntityManager();
 
+
         ISectionGDao sectionGDao = new SectionGDao();
+
+        /*for(int i=0;i<3;i++){
+
+
+        BaseIssues sectionG = new SectionG();
+        sectionG.setIssues(faker.weather().description());
+        SyslogStatus syslogStatus = new SyslogStatus();
+        syslogStatus.setStatus(Status.NOTOK);
+        syslogStatus.setName("SysLog_"+LocalDateTime.now().getSecond());
+        ((SectionG) sectionG).addSysLog(syslogStatus);
+        sectionGDao.save(sectionG, entityManager);
+
+        }*/
+
+
+        entityManager.getTransaction().begin();
+        Employee employee=new Employee();
+        employee.setCity(String.valueOf(LocalDateTime.now().getSecond()));
+        employee.setState(String.valueOf(LocalDateTime.now().getNano()));
+        employee.setYear((long) LocalDateTime.now().minusYears(3).getYear());
+        employee.setSalary(BigDecimal.valueOf(ThreadLocalRandom.current().nextDouble(222)));
+        entityManager.persist(employee);
+        entityManager.getTransaction().commit();
+
+        entityManager.getTransaction().begin();
+        Employee employee1=entityManager.find(Employee.class,1L);
+        employee1.setCity("Bengalore");
+        employee1.setState("Karnatka");
+        entityManager.getTransaction().commit();
+
+
+//        entityManager.getTransaction().begin();
+//        Employee employee1=entityManager.find(Employee.class,2L);
+//        entityManager.remove(employee1);
+//        entityManager.getTransaction().commit();
+
+        AuditReader auditReader= AuditReaderFactory.get(entityManager);
+        /*Employee employee=auditReader.find(Employee.class,1L,53);
+
+//        logger.info(employee);
+        assert employee.getCity().equals("Bengalore");*/
+
+
+        /*AuditQuery auditQuery=auditReader.createQuery().forEntitiesAtRevision(Employee.class,52);
+        List values=auditQuery.getResultList();
+        values.forEach(a->logger.info(a.toString())); */
+
+        /*AuditQuery auditQuery1=auditReader
+                .createQuery()
+                        .forRevisionsOfEntity(Employee.class,false,true);
+
+        Number values1=(Number)auditQuery1.getSingleResult();
+        logger.info(values1);*/
+
+        /* List<Number> revisions=auditReader.getRevisions(Employee.class,2L);
+        revisions.forEach(r->logger.info(r));
+
+        List ev1=auditReader.createQuery()
+                .forEntitiesAtRevision(Employee.class,revisions.get(0)).getResultList();
+        ev1.forEach(a->logger.info(a));
+
+        Employee ev2=(Employee) auditReader.createQuery()
+                .forEntitiesAtRevision(Employee.class,revisions.get(1)).getSingleResult();
+
+        logger.info(ev2); */
+
+//        auditReader.
+
+
+
+     /*   ISectionGDao sectionGDao = new SectionGDao();
         BaseIssues sectionG = new SectionG();
         sectionG.setIssues(faker.weather().description());
         SyslogStatus syslogStatus = new SyslogStatus();
@@ -117,7 +195,7 @@ public class AppMain {
 
         logger.info(schemacsHealths);
         sectionD.setSchemacsHealths(schemacsHealths);
-        sectionDDao.save(sectionD, entityManager);
+        sectionDDao.save(sectionD, entityManager);*/
         entityManager.close();
 
 

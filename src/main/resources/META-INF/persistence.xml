@@ -13,11 +13,13 @@
         <properties>
             <property name="hibernate.physical_naming_strategy"
                       value="dao.namingstrategy.SnakeCasePhysicalNamingStrategy" />
+            <property name="org.hibernate.envers.audit_strategy" value="org.hibernate.envers.strategy.internal.ValidityAuditStrategy"/>
+            <property name="org.hibernate.envers.audit_strategy_validity_store_revend_timestamp" value="true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"></property>
-            <property name="hibernate.hbm2ddl.auto" value="create"></property>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/test_db"></property>
-            <property name="hibernate.connection.username" value="koushik"></property>
-            <property name="hibernate.connection.password" value="123"></property>
+            <property name="hibernate.hbm2ddl.auto" value="update"></property>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/learn_db"></property>
+            <property name="hibernate.connection.username" value="ani"></property>
+            <property name="hibernate.connection.password" value=""></property>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"></property>
             <property name="hibernate.connection.shutdown" value="true"></property>
             <property name="hibernate.connection.writedelay" value="0"></property>

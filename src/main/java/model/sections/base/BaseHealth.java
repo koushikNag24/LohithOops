@@ -5,10 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.Status;
+import org.hibernate.envers.Audited;
+
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@Audited
 @Inheritance(strategy = InheritanceType.JOINED)
 public class BaseHealth {
     @Id
