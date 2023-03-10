@@ -2,9 +2,10 @@ package tutorial.dao.utils.jpahibernate.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import java.math.BigDecimal;
-
+@Audited
 @Entity
 @ToString
 @Getter
@@ -21,7 +22,8 @@ public class Vehicle {
     private String color;
     private BigDecimal cost;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id",
              foreignKey = @ForeignKey(name = "Student_ID_FK")
     )

@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6fdc332-d8f4-4bf9-88c1-9d3d9434d784" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_23_23,_3_56_PM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_23_23,_3_57_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_23_23,_3_58_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_23_23__3_56_PM__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_23_23__3_57_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2_23_23__3_58_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/MySequenceGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/revision/EmployeeRevision.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/revision/EmployeeRevisionListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/manish.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/manish.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/CriteriaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/dao/CriteriaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/AdharCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/AdharCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tutorial/dao/utils/jpahibernate/model/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

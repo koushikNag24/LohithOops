@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.persistence.CascadeType;
 import lombok.*;
 import org.hibernate.annotations.*;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import org.hibernate.type.SqlTypes;
 
 import java.io.Serializable;
@@ -14,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
+@Audited
 @Entity
 @AllArgsConstructor
 @Setter
@@ -59,7 +61,9 @@ public class Department {
     @Convert(converter = AddressConverter.class)
     private String state;
 
-    @Formula(("concat(city,'-',state    )"))
+    @NotAudited
+    @Formula(("concat(city,'-',state)"))
+    @Column(insertable = false,updatable = false)
     private String fullAddress;
 
     @Column
@@ -72,7 +76,9 @@ public class Department {
 
     private  BigDecimal fund;
 
+    @NotAudited
     @Formula(value = "12 * fund")
+    @Column(insertable = false,updatable = false)
     private BigDecimal yearlyFund;
 
 

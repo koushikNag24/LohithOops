@@ -5,12 +5,14 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.ForeignKey;
 import lombok.*;
 import org.hibernate.annotations.*;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@Audited
 @Entity
 @ToString
 @Getter
@@ -64,6 +66,7 @@ public class Student {
     private String email;
     private int pocketMoney;
 
+    @NotAudited
     @Formula(value = "30*pocket_money")
     private Double monthlyPocketMoney;
 
